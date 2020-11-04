@@ -23,3 +23,14 @@ JMBAG | Ime i prezime | Email
 1191236778 | Borna Majstorović | Borna.Majstorovic@fer.hr
 0036514185 | Ana Mrkonjić | ana.mrkonjic@fer.hr
 0036518478 | Mihael Rodek | mihael.rodek@fer.hr
+
+**Literatura:**
+
+*  **Waspmote:**
+- http://www.libelium.com/downloads/documentation/v12/quickstart_guide.pdf
+- http://www.libelium.com/downloads/documentation/v12/waspmote_datasheet.pdf
+- http://www.libelium.com/downloads/documentation/events-sensor-board_2.0.pdf
+- Teams -> Files -> Waspmote v12 API i IDE 
+
+* **Spring predavanja, "Raspodijeljeni sustavi"**
+- https://www.youtube.com/playlist?list=PLy0T81VDh93YLJEEe5AxydDlXxUPrPs_B
