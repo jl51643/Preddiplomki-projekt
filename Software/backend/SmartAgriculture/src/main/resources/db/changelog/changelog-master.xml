@@ -5,4 +5,6 @@
         xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <include file="changes/1-add-measurements-table.xml" relativeToChangelogFile="true"/>
+    <include file="changes/2-add-measurements-id-auto-increment.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>
