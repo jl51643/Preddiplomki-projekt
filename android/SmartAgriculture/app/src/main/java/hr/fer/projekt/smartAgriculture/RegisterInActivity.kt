@@ -1,6 +1,8 @@
 package hr.fer.projekt.smartAgriculture
 
+import android.os.AsyncTask
 import android.content.Intent
+import android.os.AsyncTask.execute
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button

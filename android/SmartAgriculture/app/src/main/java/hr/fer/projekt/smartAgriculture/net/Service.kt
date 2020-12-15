@@ -5,6 +5,6 @@ import retrofit.http.GET
 
 interface Service {
 
-    @get:GET("/all")
-    val listOfAllMeasurement: List<MeasurementModel>
+    @GET("/api/measurement/all")
+    fun getAllMeasurements(): List<MeasurementModel>
 }

@@ -8,7 +8,7 @@ class RestRetrofit : RestInterface {
     private val service : Service
 
     init {
-        val baseURL = "http://" + RestFactory.BASE_IP + ":8080"
+        val baseURL = "https://" + RestFactory.BASE_IP //+ ":8080"
         val retrofit = RestAdapter.Builder()
             .setEndpoint(baseURL)
             .build()
@@ -17,6 +17,6 @@ class RestRetrofit : RestInterface {
     }
 
     override fun getAllMeasurements(): List<MeasurementModel> {
-        return service.listOfAllMeasurement
+        return service.getAllMeasurements()
     }
 }
