@@ -10,7 +10,7 @@ import UIKit
 
 extension UIButton {
     static func styleButton(button: UIButton) {
-        button.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+        button.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
         button.layer.cornerRadius = 20
         button.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0.5019607843, alpha: 1), for: .normal)
     }

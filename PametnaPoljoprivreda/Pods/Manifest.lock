@@ -1,18 +1,30 @@
 PODS:
+  - AnimatedTabBar (0.1.7)
   - Charts (3.6.0):
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
+  - PureLayout (3.1.6)
+  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
+  - AnimatedTabBar
   - Charts
+  - PureLayout
+  - SVProgressHUD
 
 SPEC REPOS:
   trunk:
+    - AnimatedTabBar
     - Charts
+    - PureLayout
+    - SVProgressHUD
 
 SPEC CHECKSUMS:
+  AnimatedTabBar: ce6bc2c2993bd74b4b51c7977631e3321f417095
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
+  PureLayout: bd3c4ec3a3819ad387c99ebb72c6b129c3ed4d2d
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 8ff7173dec38e2c448b62c8707afbaec78cb08b9
+PODFILE CHECKSUM: fd0aeb411c8ec57ab3040b65a52cd826b51a6e05
 
 COCOAPODS: 1.10.0

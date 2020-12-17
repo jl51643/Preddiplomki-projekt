@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="ftJ-Rp-hWT">
-                    <rect key="frame" x="40" y="84" width="334" height="410"/>
+                    <rect key="frame" x="40" y="264" width="334" height="410"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="udg-xH-zde">
                             <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
@@ -83,7 +83,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemGray2Color"/>
             <constraints>
-                <constraint firstItem="ftJ-Rp-hWT" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="LDQ-9b-z8R"/>
+                <constraint firstItem="ftJ-Rp-hWT" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="220" id="LDQ-9b-z8R"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ftJ-Rp-hWT" secondAttribute="trailing" constant="40" id="bdw-dS-p5Y"/>
                 <constraint firstItem="ftJ-Rp-hWT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="why-nV-Ztq"/>
             </constraints>

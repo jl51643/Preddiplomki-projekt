@@ -7,5 +7,7 @@ target 'PametnaPoljoprivreda' do
 
   pod 'Charts'
   pod 'PureLayout'
+  pod 'SVProgressHUD'
+  pod 'AnimatedTabBar'
 
 end

@@ -34,6 +34,7 @@ class FirstViewController: UIViewController {
     // MARK: Class methods
     func setupUI(){
         navigationController?.navigationBar.isHidden = true
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!).withAlphaComponent(CGFloat(0.7))
         UIButton.styleButton(button: signUpButton)
         UIButton.styleButton(button: loginButton)
     }

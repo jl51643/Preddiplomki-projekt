@@ -7,22 +7,21 @@
 
 import UIKit
 import Charts
+import SVProgressHUD
 
 class TemperatureViewController: UIViewController, ChartViewDelegate {
     
     private var chartView = LineChartView()
     private var viewModel: MeasurementsViewModel?
-   
-
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Temperature"
-     
+       
         setUpViewModel()
-    
     }
+    
+    
     
     func setUpCharth(arr: [Double]){
         chartView.delegate = self
@@ -64,11 +63,11 @@ class TemperatureViewController: UIViewController, ChartViewDelegate {
         
         let data = LineChartData(dataSet: set)
         chartView.data = data
-        
     }
     
     
     func setUpViewModel(){
+        SVProgressHUD.show()
         let servis = MeasurementsService()
         servis.fetchMeasurmentData { (result) in
             switch result {
@@ -78,18 +77,14 @@ class TemperatureViewController: UIViewController, ChartViewDelegate {
                     return (m.airTemperature ?? 1)
                 }
                 self.setUpCharth(arr: arr)
-            case .failure( _):
-                print("errrr")
+                SVProgressHUD.dismiss(withDelay: TimeInterval(5))
+            case .failure(_):
+                SVProgressHUD.showError(withStatus: "Error while fetching data")
             }
         }
+    
 
     }
     
-    func createDateLabel(text: String){
-        let label = UILabel(frame: CGRect(x: 80, y: 80, width: 300, height: 50))
-        label.textAlignment = .center
-        label.text = text
-        self.view.addSubview(label)
-    }
 
 }

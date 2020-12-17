@@ -1,2 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-PametnaPoljoprivreda/Pods-PametnaPoljoprivreda-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AnimatedTabBar/AnimatedTabBar.framework
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
+${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework
+${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework
