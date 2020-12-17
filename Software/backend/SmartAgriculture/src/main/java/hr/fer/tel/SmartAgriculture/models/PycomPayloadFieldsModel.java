@@ -1,31 +1,23 @@
 package hr.fer.tel.SmartAgriculture.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 
 public class PycomPayloadFieldsModel {
 
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private Date time;
-
     private float airHumidity;
 
     private float soilHumidity;
 
+    @JsonProperty("airTemp")
     private float airTemperature;
 
+    @JsonProperty("soilTemp")
     private float soilTemperature;
 
     public PycomPayloadFieldsModel() {
-    }
-
-    public Date getTime() {
-        return time;
-    }
-
-    public void setTime(Date time) {
-        this.time = time;
     }
 
     public float getAirHumidity() {

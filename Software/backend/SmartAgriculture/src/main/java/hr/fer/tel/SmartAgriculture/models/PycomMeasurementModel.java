@@ -11,6 +11,8 @@ public class PycomMeasurementModel {
     @JsonProperty("payload_fields")
     private PycomPayloadFieldsModel payloadFields;
 
+    private PycomMetadataModel metadata;
+
     public PycomMeasurementModel() {
     }
 
@@ -30,9 +32,17 @@ public class PycomMeasurementModel {
         this.payloadFields = payloadFields;
     }
 
+    public PycomMetadataModel getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(PycomMetadataModel metadata) {
+        this.metadata = metadata;
+    }
+
     public Measurement toMeasurement() {
         return new Measurement(this.devId,
-                this.payloadFields.getTime(),
+                this.metadata.getTime(),
                 this.payloadFields.getAirHumidity(),
                 this.payloadFields.getSoilHumidity(),
                 this.payloadFields.getAirTemperature(),
