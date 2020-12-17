@@ -27,6 +27,7 @@ class LoginViewController: UIViewController {
 
     // MARK: Actions
     @IBAction func loginButtonTapped(_ sender: UIButton) {
+        
     }
     
     // MARK: Class methods

@@ -3,25 +3,38 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		021E34AC25839013001434E1 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021E34AB25839013001434E1 /* LoginService.swift */; };
 		025A34C3257A554F004A3E14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025A34C2257A554F004A3E14 /* AppDelegate.swift */; };
 		025A34C5257A554F004A3E14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025A34C4257A554F004A3E14 /* SceneDelegate.swift */; };
 		025A34CC257A5550004A3E14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 025A34CB257A5550004A3E14 /* Assets.xcassets */; };
 		025A34DB257A5577004A3E14 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025A34D9257A5577004A3E14 /* FirstViewController.swift */; };
 		025A34DC257A5577004A3E14 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 025A34DA257A5577004A3E14 /* FirstViewController.xib */; };
 		025A34E7257A595C004A3E14 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025A34E6257A595C004A3E14 /* Extensions.swift */; };
+		026043D62589FB8C004B0E1D /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026043D52589FB8C004B0E1D /* TabBarViewController.swift */; };
+		026043DA2589FC56004B0E1D /* TemperatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026043D82589FC56004B0E1D /* TemperatureViewController.swift */; };
+		026043DB2589FC56004B0E1D /* TemperatureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 026043D92589FC56004B0E1D /* TemperatureViewController.xib */; };
+		026043DF2589FC6B004B0E1D /* HumidityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026043DD2589FC6B004B0E1D /* HumidityViewController.swift */; };
+		026043E02589FC6B004B0E1D /* HumidityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 026043DE2589FC6B004B0E1D /* HumidityViewController.xib */; };
+		026043E42589FC7D004B0E1D /* SoilTemperatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026043E22589FC7D004B0E1D /* SoilTemperatureViewController.swift */; };
+		026043E52589FC7D004B0E1D /* SoilTemperatureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 026043E32589FC7D004B0E1D /* SoilTemperatureViewController.xib */; };
+		026043E92589FC92004B0E1D /* SoilHumidityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026043E72589FC92004B0E1D /* SoilHumidityViewController.swift */; };
+		026043EA2589FC92004B0E1D /* SoilHumidityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 026043E82589FC92004B0E1D /* SoilHumidityViewController.xib */; };
+		026043ED258A0A2B004B0E1D /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026043EC258A0A2B004B0E1D /* Measurement.swift */; };
+		026043F0258A0B0D004B0E1D /* MesurmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026043EF258A0B0D004B0E1D /* MesurmentService.swift */; };
+		026043F3258A0D9B004B0E1D /* MesurmentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026043F2258A0D9B004B0E1D /* MesurmentsViewModel.swift */; };
 		02BCE311257A619B00482E97 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE30F257A619B00482E97 /* SignUpViewController.swift */; };
 		02BCE312257A619B00482E97 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02BCE310257A619B00482E97 /* SignUpViewController.xib */; };
 		02BCE316257A61AB00482E97 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE314257A61AA00482E97 /* LoginViewController.swift */; };
 		02BCE317257A61AB00482E97 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02BCE315257A61AB00482E97 /* LoginViewController.xib */; };
-		02BCE31C257A768500482E97 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE31A257A768500482E97 /* HomeViewController.swift */; };
-		02BCE31D257A768500482E97 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02BCE31B257A768500482E97 /* HomeViewController.xib */; };
+		494A28BD731B22CB96423F8B /* Pods_PametnaPoljoprivreda.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA481875943F8CFE5BED0C61 /* Pods_PametnaPoljoprivreda.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		021E34AB25839013001434E1 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		025A34BF257A554F004A3E14 /* PametnaPoljoprivreda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PametnaPoljoprivreda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		025A34C2257A554F004A3E14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		025A34C4257A554F004A3E14 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,12 +43,25 @@
 		025A34D9257A5577004A3E14 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		025A34DA257A5577004A3E14 /* FirstViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
 		025A34E6257A595C004A3E14 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		026043D52589FB8C004B0E1D /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		026043D82589FC56004B0E1D /* TemperatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureViewController.swift; sourceTree = "<group>"; };
+		026043D92589FC56004B0E1D /* TemperatureViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemperatureViewController.xib; sourceTree = "<group>"; };
+		026043DD2589FC6B004B0E1D /* HumidityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumidityViewController.swift; sourceTree = "<group>"; };
+		026043DE2589FC6B004B0E1D /* HumidityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HumidityViewController.xib; sourceTree = "<group>"; };
+		026043E22589FC7D004B0E1D /* SoilTemperatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoilTemperatureViewController.swift; sourceTree = "<group>"; };
+		026043E32589FC7D004B0E1D /* SoilTemperatureViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SoilTemperatureViewController.xib; sourceTree = "<group>"; };
+		026043E72589FC92004B0E1D /* SoilHumidityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoilHumidityViewController.swift; sourceTree = "<group>"; };
+		026043E82589FC92004B0E1D /* SoilHumidityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SoilHumidityViewController.xib; sourceTree = "<group>"; };
+		026043EC258A0A2B004B0E1D /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
+		026043EF258A0B0D004B0E1D /* MesurmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesurmentService.swift; sourceTree = "<group>"; };
+		026043F2258A0D9B004B0E1D /* MesurmentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesurmentsViewModel.swift; sourceTree = "<group>"; };
 		02BCE30F257A619B00482E97 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		02BCE310257A619B00482E97 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		02BCE314257A61AA00482E97 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		02BCE315257A61AB00482E97 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		02BCE31A257A768500482E97 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		02BCE31B257A768500482E97 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		14001745E15CD6B4D100733F /* Pods-PametnaPoljoprivreda.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PametnaPoljoprivreda.release.xcconfig"; path = "Target Support Files/Pods-PametnaPoljoprivreda/Pods-PametnaPoljoprivreda.release.xcconfig"; sourceTree = "<group>"; };
+		1EE6973FF6ED46EF0916576D /* Pods-PametnaPoljoprivreda.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PametnaPoljoprivreda.debug.xcconfig"; path = "Target Support Files/Pods-PametnaPoljoprivreda/Pods-PametnaPoljoprivreda.debug.xcconfig"; sourceTree = "<group>"; };
+		BA481875943F8CFE5BED0C61 /* Pods_PametnaPoljoprivreda.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PametnaPoljoprivreda.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				494A28BD731B22CB96423F8B /* Pods_PametnaPoljoprivreda.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +81,8 @@
 			children = (
 				025A34C1257A554F004A3E14 /* PametnaPoljoprivreda */,
 				025A34C0257A554F004A3E14 /* Products */,
+				65E2A9FEA2358EB0ABF40F98 /* Pods */,
+				D43F66F63777E2730D800A94 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +121,7 @@
 		025A34E1257A58CE004A3E14 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				026043EC258A0A2B004B0E1D /* Measurement.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -99,6 +129,8 @@
 		025A34E2257A58FA004A3E14 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				021E34AB25839013001434E1 /* LoginService.swift */,
+				026043EF258A0B0D004B0E1D /* MesurmentService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -106,6 +138,7 @@
 		025A34E3257A5906004A3E14 /* VIewModels */ = {
 			isa = PBXGroup;
 			children = (
+				026043F2258A0D9B004B0E1D /* MesurmentsViewModel.swift */,
 			);
 			path = VIewModels;
 			sourceTree = "<group>";
@@ -119,10 +152,34 @@
 				02BCE310257A619B00482E97 /* SignUpViewController.xib */,
 				02BCE314257A61AA00482E97 /* LoginViewController.swift */,
 				02BCE315257A61AB00482E97 /* LoginViewController.xib */,
-				02BCE31A257A768500482E97 /* HomeViewController.swift */,
-				02BCE31B257A768500482E97 /* HomeViewController.xib */,
+				026043D52589FB8C004B0E1D /* TabBarViewController.swift */,
+				026043D82589FC56004B0E1D /* TemperatureViewController.swift */,
+				026043D92589FC56004B0E1D /* TemperatureViewController.xib */,
+				026043DD2589FC6B004B0E1D /* HumidityViewController.swift */,
+				026043DE2589FC6B004B0E1D /* HumidityViewController.xib */,
+				026043E22589FC7D004B0E1D /* SoilTemperatureViewController.swift */,
+				026043E32589FC7D004B0E1D /* SoilTemperatureViewController.xib */,
+				026043E72589FC92004B0E1D /* SoilHumidityViewController.swift */,
+				026043E82589FC92004B0E1D /* SoilHumidityViewController.xib */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		65E2A9FEA2358EB0ABF40F98 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1EE6973FF6ED46EF0916576D /* Pods-PametnaPoljoprivreda.debug.xcconfig */,
+				14001745E15CD6B4D100733F /* Pods-PametnaPoljoprivreda.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D43F66F63777E2730D800A94 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA481875943F8CFE5BED0C61 /* Pods_PametnaPoljoprivreda.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,9 +189,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 025A34D3257A5550004A3E14 /* Build configuration list for PBXNativeTarget "PametnaPoljoprivreda" */;
 			buildPhases = (
+				181E9DF736F2939A9E5764CE /* [CP] Check Pods Manifest.lock */,
 				025A34BB257A554F004A3E14 /* Sources */,
 				025A34BC257A554F004A3E14 /* Frameworks */,
 				025A34BD257A554F004A3E14 /* Resources */,
+				7AAD30CA008E20E99F152562 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -184,7 +243,10 @@
 			files = (
 				02BCE317257A61AB00482E97 /* LoginViewController.xib in Resources */,
 				025A34CC257A5550004A3E14 /* Assets.xcassets in Resources */,
-				02BCE31D257A768500482E97 /* HomeViewController.xib in Resources */,
+				026043EA2589FC92004B0E1D /* SoilHumidityViewController.xib in Resources */,
+				026043DB2589FC56004B0E1D /* TemperatureViewController.xib in Resources */,
+				026043E52589FC7D004B0E1D /* SoilTemperatureViewController.xib in Resources */,
+				026043E02589FC6B004B0E1D /* HumidityViewController.xib in Resources */,
 				02BCE312257A619B00482E97 /* SignUpViewController.xib in Resources */,
 				025A34DC257A5577004A3E14 /* FirstViewController.xib in Resources */,
 			);
@@ -192,18 +254,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		181E9DF736F2939A9E5764CE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PametnaPoljoprivreda-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7AAD30CA008E20E99F152562 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PametnaPoljoprivreda/Pods-PametnaPoljoprivreda-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PametnaPoljoprivreda/Pods-PametnaPoljoprivreda-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PametnaPoljoprivreda/Pods-PametnaPoljoprivreda-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		025A34BB257A554F004A3E14 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				026043E92589FC92004B0E1D /* SoilHumidityViewController.swift in Sources */,
+				026043F3258A0D9B004B0E1D /* MesurmentsViewModel.swift in Sources */,
+				026043D62589FB8C004B0E1D /* TabBarViewController.swift in Sources */,
 				02BCE316257A61AB00482E97 /* LoginViewController.swift in Sources */,
 				025A34DB257A5577004A3E14 /* FirstViewController.swift in Sources */,
 				025A34C3257A554F004A3E14 /* AppDelegate.swift in Sources */,
 				025A34C5257A554F004A3E14 /* SceneDelegate.swift in Sources */,
+				026043DF2589FC6B004B0E1D /* HumidityViewController.swift in Sources */,
+				026043E42589FC7D004B0E1D /* SoilTemperatureViewController.swift in Sources */,
+				026043F0258A0B0D004B0E1D /* MesurmentService.swift in Sources */,
+				026043ED258A0A2B004B0E1D /* Measurement.swift in Sources */,
 				025A34E7257A595C004A3E14 /* Extensions.swift in Sources */,
-				02BCE31C257A768500482E97 /* HomeViewController.swift in Sources */,
 				02BCE311257A619B00482E97 /* SignUpViewController.swift in Sources */,
+				021E34AC25839013001434E1 /* LoginService.swift in Sources */,
+				026043DA2589FC56004B0E1D /* TemperatureViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +440,7 @@
 		};
 		025A34D4257A5550004A3E14 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1EE6973FF6ED46EF0916576D /* Pods-PametnaPoljoprivreda.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -347,6 +460,7 @@
 		};
 		025A34D5257A5550004A3E14 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14001745E15CD6B4D100733F /* Pods-PametnaPoljoprivreda.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
