@@ -7,4 +7,5 @@
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
     <include file="changes/1-add-measurements-table.xml" relativeToChangelogFile="true"/>
     <include file="changes/2-add-measurements-id-auto-increment.xml" relativeToChangelogFile="true"/>
+    <include file="changes/3-add-users.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>
