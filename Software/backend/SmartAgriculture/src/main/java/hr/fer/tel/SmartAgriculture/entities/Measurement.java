@@ -11,8 +11,9 @@ public class Measurement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "\"dev_id\"")
-    private String devId;
+    @ManyToOne
+    @JoinColumn(name = "\"dev_id\"")
+    private Device device;
 
     private Date time;
 
@@ -31,8 +32,8 @@ public class Measurement {
     public Measurement() {
     }
 
-    public Measurement(String devId, Date time, float airHumidity, float soilHumidity, float airTemperature, float soilTemperature) {
-        this.devId = devId;
+    public Measurement(Device device, Date time, float airHumidity, float soilHumidity, float airTemperature, float soilTemperature) {
+        this.device = device;
         this.time = time;
         this.airHumidity = airHumidity;
         this.soilHumidity = soilHumidity;
@@ -48,12 +49,12 @@ public class Measurement {
         this.id = id;
     }
 
-    public String getDevId() {
-        return devId;
+    public Device getDevice() {
+        return device;
     }
 
-    public void setDevId(String devId) {
-        this.devId = devId;
+    public void setDevice(Device device) {
+        this.device = device;
     }
 
     public Date getTime() {

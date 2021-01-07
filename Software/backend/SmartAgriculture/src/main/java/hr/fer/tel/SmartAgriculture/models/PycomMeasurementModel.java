@@ -1,7 +1,6 @@
 package hr.fer.tel.SmartAgriculture.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import hr.fer.tel.SmartAgriculture.entities.Measurement;
 
 public class PycomMeasurementModel {
 
@@ -40,12 +39,4 @@ public class PycomMeasurementModel {
         this.metadata = metadata;
     }
 
-    public Measurement toMeasurement() {
-        return new Measurement(this.devId,
-                this.metadata.getTime(),
-                this.payloadFields.getAirHumidity(),
-                this.payloadFields.getSoilHumidity(),
-                this.payloadFields.getAirTemperature(),
-                this.payloadFields.getSoilTemperature());
-    }
 }

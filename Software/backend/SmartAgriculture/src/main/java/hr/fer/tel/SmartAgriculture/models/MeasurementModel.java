@@ -2,17 +2,13 @@ package hr.fer.tel.SmartAgriculture.models;
 
 import hr.fer.tel.SmartAgriculture.entities.Measurement;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.util.Date;
 
 public class MeasurementModel {
 
     private Long id;
 
-    private String devId;
+    private DeviceModel device;
 
     private Date time;
 
@@ -29,7 +25,7 @@ public class MeasurementModel {
 
     public MeasurementModel(Measurement measurement) {
         this.id = measurement.getId();
-        this.devId = measurement.getDevId();
+        this.device = new DeviceModel(measurement.getDevice());
         this.time = measurement.getTime();
         this.airHumidity = measurement.getAirHumidity();
         this.soilHumidity = measurement.getSoilHumidity();
@@ -45,12 +41,12 @@ public class MeasurementModel {
         this.id = id;
     }
 
-    public String getDevId() {
-        return devId;
+    public DeviceModel getDevice() {
+        return device;
     }
 
-    public void setDevId(String devId) {
-        this.devId = devId;
+    public void setDevice(DeviceModel device) {
+        this.device = device;
     }
 
     public Date getTime() {

@@ -1,6 +1,7 @@
 package hr.fer.tel.SmartAgriculture.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "\"Devices\"")
@@ -13,8 +14,15 @@ public class Device {
     @Column(name = "\"devId\"")
     private String devId;
 
+    @OneToMany(mappedBy = "device")
+    private List<Measurement> measurements;
+
     public Device(){
 
+    }
+
+    public Device(String devId) {
+        this.devId = devId;
     }
 
     public Device(Long id, String devId) {
@@ -36,5 +44,13 @@ public class Device {
 
     public void setDevId(String devId) {
         this.devId = devId;
+    }
+
+    public List<Measurement> getMeasurements() {
+        return measurements;
+    }
+
+    public void setMeasurements(List<Measurement> measurements) {
+        this.measurements = measurements;
     }
 }
