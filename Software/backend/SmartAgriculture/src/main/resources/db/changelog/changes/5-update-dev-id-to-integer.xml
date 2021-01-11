@@ -7,8 +7,12 @@
         <dropColumn tableName="Measurements" columnName="dev_id"/>
         <addColumn tableName="Measurements">
             <column name="dev_id" type="integer">
-                <constraints foreignKeyName="fk_measurements_devices" references='"Devices"(id)'/>
+                <constraints nullable="false"/>
             </column>
         </addColumn>
+        <addForeignKeyConstraint baseTableName="Measurements" baseColumnNames="dev_id"
+                                 constraintName="fk_measurement_device"
+                                 referencedTableName="Devices"
+                                 referencedColumnNames="id" />
     </changeSet>
 </databaseChangeLog>

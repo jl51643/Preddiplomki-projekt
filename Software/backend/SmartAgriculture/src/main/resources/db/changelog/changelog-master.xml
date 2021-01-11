@@ -10,4 +10,6 @@
     <include file="changes/3-add-users.xml" relativeToChangelogFile="true"/>
     <include file="changes/3-add-cultures.xml" relativeToChangelogFile="true"/>
     <include file="changes/4-add-devices.xml" relativeToChangelogFile="true"/>
+    <include file="changes/5-update-dev-id-to-integer.xml" relativeToChangelogFile="true"/>
+    <include file="changes/6-update-username-and-email-unique-constraint.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>
