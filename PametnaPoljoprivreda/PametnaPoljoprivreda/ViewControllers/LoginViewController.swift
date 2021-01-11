@@ -6,15 +6,18 @@
 //
 
 import UIKit
+import Alamofire
 
 class LoginViewController: UIViewController {
     
     // MARK: Outlets
-    @IBOutlet weak var mailTF: UITextField!
+    @IBOutlet weak var usernameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
     // MARK: Properties
+    private var userModel: UserModel?
+    let baseUrlString = "http://ad8c14c1e2c4.ngrok.io"
     
     // MARK: Lifecycle methods
     override func viewDidLoad() {
@@ -22,31 +25,60 @@ class LoginViewController: UIViewController {
         
         setupUI()
 
-        // Do any additional setup after loading the view.
     }
 
     // MARK: Actions
     @IBAction func loginButtonTapped(_ sender: UIButton) {
+        
+        guard let username = usernameTF.text,
+              let password = passwordTF.text  else {print("textfildovi prazni"); return}
+        
+        loginUserWith(username: username, password: password)
         
     }
     
     // MARK: Class methods
     func setupUI(){
         UIButton.styleButton(button: loginButton)
-        UITextField.styleTextField(textfield: mailTF)
         UITextField.styleTextField(textfield: passwordTF)
+        UITextField.styleTextField(textfield: usernameTF)
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!).withAlphaComponent(CGFloat(0.7))
     }
     
-    func validateUserData() -> String? {
-        if mailTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-                passwordTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-                return "Some fields are empty"
-        }
-        // TODO: regex za mail i password jesu oke
-        // idealno bi bilo ove stringove ili pod neki error label ispisat ili na alertController
-        return nil
+ 
+    //sa userId-om
+    func navigateToHome(){
+        self.navigationController?.pushViewController(CultureTableViewController(), animated: true)
     }
     
     
+}
+
+extension LoginViewController {
+    func loginUserWith(username: String, password: String) {
+
+        let parameters: [String: String] = [
+            "username": username,
+            "password": password
+        ]
+
+        let urlStr = baseUrlString + "/api/auth/login"
+
+        AF.request(urlStr,method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            .validate()
+            .responseDecodable(of: UserModel.self) { response in
+                switch response.result {
+                case .success(let user):
+                    UserCredentials.shared.setToken(with: user.token)
+                    self.userModel = user
+                    self.navigateToHome()
+                case .failure(let err):
+                    print(err)
+                }
+            }
+
+
+
+
+    }
 }

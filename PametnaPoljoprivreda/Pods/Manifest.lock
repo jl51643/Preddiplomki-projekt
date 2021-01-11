@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.2.1)
   - AnimatedTabBar (0.1.7)
   - Charts (3.6.0):
     - Charts/Core (= 3.6.0)
@@ -7,6 +8,7 @@ PODS:
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
+  - Alamofire
   - AnimatedTabBar
   - Charts
   - PureLayout
@@ -14,17 +16,19 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - AnimatedTabBar
     - Charts
     - PureLayout
     - SVProgressHUD
 
 SPEC CHECKSUMS:
+  Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   AnimatedTabBar: ce6bc2c2993bd74b4b51c7977631e3321f417095
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   PureLayout: bd3c4ec3a3819ad387c99ebb72c6b129c3ed4d2d
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: fd0aeb411c8ec57ab3040b65a52cd826b51a6e05
+PODFILE CHECKSUM: 7272492a9aec4ae0bd2873d7d4cf613ffb291b84
 
 COCOAPODS: 1.10.0

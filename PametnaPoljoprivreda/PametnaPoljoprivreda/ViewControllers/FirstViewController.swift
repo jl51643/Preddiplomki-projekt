@@ -23,7 +23,9 @@ class FirstViewController: UIViewController {
     // MARK: Actions
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
         let signUpVC = SignUpViewController()
-        navigationController?.pushViewController(signUpVC, animated: true)
+        navigationController?.pushViewController(signUpVC, animated: false)
+        UIView.setAnimationTransition(UIView.AnimationTransition.flipFromLeft, for: (self.navigationController?.view)!, cache: false)
+        UIView.commitAnimations()
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {

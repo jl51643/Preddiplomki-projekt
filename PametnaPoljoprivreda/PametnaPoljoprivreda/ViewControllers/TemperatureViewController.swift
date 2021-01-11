@@ -53,7 +53,7 @@ class TemperatureViewController: UIViewController, ChartViewDelegate {
             entries.append(ChartDataEntry(x: Double(x), y: Double(arr[x])))
         }
         
-        let set = LineChartDataSet(entries: entries, label: "Humidity")
+        let set = LineChartDataSet(entries: entries, label: "Temperature")
         set.colors = ChartColorTemplates.pastel()
         
        

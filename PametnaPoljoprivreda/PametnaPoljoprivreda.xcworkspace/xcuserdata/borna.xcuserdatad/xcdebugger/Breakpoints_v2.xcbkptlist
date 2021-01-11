@@ -3,4 +3,86 @@
    uuid = "76951179-AB79-4061-BABA-621578982822"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2CC8A1EA-5041-48B0-8C80-B7941C0526D4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PametnaPoljoprivreda/ViewControllers/CultureTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "setUpViewModel()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2CC8A1EA-5041-48B0-8C80-B7941C0526D4 - 32fe1832ac33e5c3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Result&lt;Swift.Array&lt;PametnaPoljoprivreda.CulturesModel&gt;, Swift.Error&gt;) -&gt; () in PametnaPoljoprivreda.CultureTableViewController.setUpViewModel() -&gt; ()"
+                  moduleName = "PametnaPoljoprivreda"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/borna/FER3/PROJEKT/preddiplprojekt_2020_pametnapoljoprivreda/PametnaPoljoprivreda/PametnaPoljoprivreda/ViewControllers/CultureTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "166">
+               </Location>
+               <Location
+                  uuid = "2CC8A1EA-5041-48B0-8C80-B7941C0526D4 - 32fe1832ac33e5c3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Result&lt;Swift.Array&lt;PametnaPoljoprivreda.CulturesModel&gt;, Swift.Error&gt;) -&gt; () in PametnaPoljoprivreda.CultureTableViewController.setUpViewModel() -&gt; ()"
+                  moduleName = "PametnaPoljoprivreda"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/borna/FER3/PROJEKT/preddiplprojekt_2020_pametnapoljoprivreda/PametnaPoljoprivreda/PametnaPoljoprivreda/ViewControllers/CultureTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "191">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E03E82A6-2D62-4424-B9D1-6D5F5777A9B4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PametnaPoljoprivreda/ViewControllers/CultureTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "setUpViewModel()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BE37794C-A8FA-4D1B-BD27-38C61BF7B431"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PametnaPoljoprivreda/ViewControllers/CultureTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "setUpViewModel()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

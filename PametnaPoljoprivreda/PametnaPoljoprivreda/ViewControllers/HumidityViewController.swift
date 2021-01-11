@@ -53,7 +53,7 @@ class HumidityViewController: UIViewController, ChartViewDelegate {
             entries.append(ChartDataEntry(x: Double(x), y: Double(arr[x])))
         }
         
-        let set = LineChartDataSet(entries: entries, label: "Humidityu")
+        let set = LineChartDataSet(entries: entries, label: "Humidity")
         set.colors = ChartColorTemplates.pastel()
         
        

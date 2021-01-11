@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		021E34AC25839013001434E1 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021E34AB25839013001434E1 /* LoginService.swift */; };
+		022B1CDD25A7096400787C39 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022B1CDC25A7096400787C39 /* UserModel.swift */; };
+		022B1CE725A7130400787C39 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022B1CE525A7130400787C39 /* TableViewCell.swift */; };
+		022B1CE825A7130400787C39 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 022B1CE625A7130400787C39 /* TableViewCell.xib */; };
+		022B1CFA25A73CC000787C39 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022B1CF925A73CC000787C39 /* UserViewModel.swift */; };
+		022B1CFD25A73E2000787C39 /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022B1CFC25A73E2000787C39 /* UserCredentials.swift */; };
 		025A34C3257A554F004A3E14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025A34C2257A554F004A3E14 /* AppDelegate.swift */; };
 		025A34C5257A554F004A3E14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025A34C4257A554F004A3E14 /* SceneDelegate.swift */; };
 		025A34CC257A5550004A3E14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 025A34CB257A5550004A3E14 /* Assets.xcassets */; };
@@ -30,11 +35,22 @@
 		02BCE312257A619B00482E97 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02BCE310257A619B00482E97 /* SignUpViewController.xib */; };
 		02BCE316257A61AB00482E97 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE314257A61AA00482E97 /* LoginViewController.swift */; };
 		02BCE317257A61AB00482E97 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02BCE315257A61AB00482E97 /* LoginViewController.xib */; };
+		02C2443925ACBFE50011AB16 /* CultureTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C2443725ACBFE50011AB16 /* CultureTableViewController.swift */; };
+		02C2443A25ACBFE50011AB16 /* CultureTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02C2443825ACBFE50011AB16 /* CultureTableViewController.xib */; };
+		02C2443D25ACC0570011AB16 /* CulturesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C2443C25ACC0570011AB16 /* CulturesModel.swift */; };
+		02C2444025ACC0AA0011AB16 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C2443F25ACC0AA0011AB16 /* DeviceModel.swift */; };
+		02C2444425ACC1E00011AB16 /* CulturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C2444325ACC1E00011AB16 /* CulturesViewModel.swift */; };
+		02CE352425AC2FAA00E5DACF /* MeasurmentsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CE352325AC2FAA00E5DACF /* MeasurmentsCellModel.swift */; };
 		494A28BD731B22CB96423F8B /* Pods_PametnaPoljoprivreda.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA481875943F8CFE5BED0C61 /* Pods_PametnaPoljoprivreda.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		021E34AB25839013001434E1 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		022B1CDC25A7096400787C39 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		022B1CE525A7130400787C39 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		022B1CE625A7130400787C39 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		022B1CF925A73CC000787C39 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		022B1CFC25A73E2000787C39 /* UserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
 		025A34BF257A554F004A3E14 /* PametnaPoljoprivreda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PametnaPoljoprivreda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		025A34C2257A554F004A3E14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		025A34C4257A554F004A3E14 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +75,12 @@
 		02BCE310257A619B00482E97 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		02BCE314257A61AA00482E97 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		02BCE315257A61AB00482E97 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		02C2443725ACBFE50011AB16 /* CultureTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureTableViewController.swift; sourceTree = "<group>"; };
+		02C2443825ACBFE50011AB16 /* CultureTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CultureTableViewController.xib; sourceTree = "<group>"; };
+		02C2443C25ACC0570011AB16 /* CulturesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CulturesModel.swift; sourceTree = "<group>"; };
+		02C2443F25ACC0AA0011AB16 /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
+		02C2444325ACC1E00011AB16 /* CulturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CulturesViewModel.swift; sourceTree = "<group>"; };
+		02CE352325AC2FAA00E5DACF /* MeasurmentsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurmentsCellModel.swift; sourceTree = "<group>"; };
 		14001745E15CD6B4D100733F /* Pods-PametnaPoljoprivreda.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PametnaPoljoprivreda.release.xcconfig"; path = "Target Support Files/Pods-PametnaPoljoprivreda/Pods-PametnaPoljoprivreda.release.xcconfig"; sourceTree = "<group>"; };
 		1EE6973FF6ED46EF0916576D /* Pods-PametnaPoljoprivreda.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PametnaPoljoprivreda.debug.xcconfig"; path = "Target Support Files/Pods-PametnaPoljoprivreda/Pods-PametnaPoljoprivreda.debug.xcconfig"; sourceTree = "<group>"; };
 		BA481875943F8CFE5BED0C61 /* Pods_PametnaPoljoprivreda.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PametnaPoljoprivreda.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +98,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		022B1CE425A712DC00787C39 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				022B1CE525A7130400787C39 /* TableViewCell.swift */,
+				022B1CE625A7130400787C39 /* TableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		025A34B6257A554F004A3E14 = {
 			isa = PBXGroup;
 			children = (
@@ -101,7 +132,9 @@
 				025A34E1257A58CE004A3E14 /* Models */,
 				025A34E3257A5906004A3E14 /* VIewModels */,
 				025A34E2257A58FA004A3E14 /* Services */,
+				022B1CE425A712DC00787C39 /* Views */,
 				025A34DE257A56A3004A3E14 /* Supporting files */,
+				022B1CFC25A73E2000787C39 /* UserCredentials.swift */,
 			);
 			path = PametnaPoljoprivreda;
 			sourceTree = "<group>";
@@ -122,6 +155,9 @@
 			isa = PBXGroup;
 			children = (
 				026043EC258A0A2B004B0E1D /* Measurement.swift */,
+				022B1CDC25A7096400787C39 /* UserModel.swift */,
+				02C2443C25ACC0570011AB16 /* CulturesModel.swift */,
+				02C2443F25ACC0AA0011AB16 /* DeviceModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -139,6 +175,9 @@
 			isa = PBXGroup;
 			children = (
 				026043F2258A0D9B004B0E1D /* MesurmentsViewModel.swift */,
+				022B1CF925A73CC000787C39 /* UserViewModel.swift */,
+				02CE352325AC2FAA00E5DACF /* MeasurmentsCellModel.swift */,
+				02C2444325ACC1E00011AB16 /* CulturesViewModel.swift */,
 			);
 			path = VIewModels;
 			sourceTree = "<group>";
@@ -152,6 +191,8 @@
 				02BCE310257A619B00482E97 /* SignUpViewController.xib */,
 				02BCE314257A61AA00482E97 /* LoginViewController.swift */,
 				02BCE315257A61AB00482E97 /* LoginViewController.xib */,
+				02C2443725ACBFE50011AB16 /* CultureTableViewController.swift */,
+				02C2443825ACBFE50011AB16 /* CultureTableViewController.xib */,
 				026043D52589FB8C004B0E1D /* TabBarViewController.swift */,
 				026043D82589FC56004B0E1D /* TemperatureViewController.swift */,
 				026043D92589FC56004B0E1D /* TemperatureViewController.xib */,
@@ -242,8 +283,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				02BCE317257A61AB00482E97 /* LoginViewController.xib in Resources */,
+				022B1CE825A7130400787C39 /* TableViewCell.xib in Resources */,
 				025A34CC257A5550004A3E14 /* Assets.xcassets in Resources */,
 				026043EA2589FC92004B0E1D /* SoilHumidityViewController.xib in Resources */,
+				02C2443A25ACBFE50011AB16 /* CultureTableViewController.xib in Resources */,
 				026043DB2589FC56004B0E1D /* TemperatureViewController.xib in Resources */,
 				026043E52589FC7D004B0E1D /* SoilTemperatureViewController.xib in Resources */,
 				026043E02589FC6B004B0E1D /* HumidityViewController.xib in Resources */,
@@ -303,17 +346,26 @@
 			files = (
 				026043E92589FC92004B0E1D /* SoilHumidityViewController.swift in Sources */,
 				026043F3258A0D9B004B0E1D /* MesurmentsViewModel.swift in Sources */,
+				022B1CE725A7130400787C39 /* TableViewCell.swift in Sources */,
 				026043D62589FB8C004B0E1D /* TabBarViewController.swift in Sources */,
+				02C2444025ACC0AA0011AB16 /* DeviceModel.swift in Sources */,
 				02BCE316257A61AB00482E97 /* LoginViewController.swift in Sources */,
 				025A34DB257A5577004A3E14 /* FirstViewController.swift in Sources */,
 				025A34C3257A554F004A3E14 /* AppDelegate.swift in Sources */,
 				025A34C5257A554F004A3E14 /* SceneDelegate.swift in Sources */,
+				022B1CFD25A73E2000787C39 /* UserCredentials.swift in Sources */,
 				026043DF2589FC6B004B0E1D /* HumidityViewController.swift in Sources */,
 				026043E42589FC7D004B0E1D /* SoilTemperatureViewController.swift in Sources */,
 				026043F0258A0B0D004B0E1D /* MesurmentService.swift in Sources */,
+				02C2443D25ACC0570011AB16 /* CulturesModel.swift in Sources */,
+				02CE352425AC2FAA00E5DACF /* MeasurmentsCellModel.swift in Sources */,
+				022B1CDD25A7096400787C39 /* UserModel.swift in Sources */,
+				022B1CFA25A73CC000787C39 /* UserViewModel.swift in Sources */,
 				026043ED258A0A2B004B0E1D /* Measurement.swift in Sources */,
 				025A34E7257A595C004A3E14 /* Extensions.swift in Sources */,
+				02C2443925ACBFE50011AB16 /* CultureTableViewController.swift in Sources */,
 				02BCE311257A619B00482E97 /* SignUpViewController.swift in Sources */,
+				02C2444425ACC1E00011AB16 /* CulturesViewModel.swift in Sources */,
 				021E34AC25839013001434E1 /* LoginService.swift in Sources */,
 				026043DA2589FC56004B0E1D /* TemperatureViewController.swift in Sources */,
 			);
@@ -373,7 +425,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -428,7 +480,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -19,9 +19,7 @@ class MeasurementsViewModel {
                 compleation(result)
             }
         }
-       
-        
-        
+
     }
     
     func getTempData() -> [Double?]? {

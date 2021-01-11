@@ -11,8 +11,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="PametnaPoljoprivreda" customModuleProvider="target">
             <connections>
                 <outlet property="loginButton" destination="OAk-aP-Mqa" id="phf-Pt-zmt"/>
-                <outlet property="mailTF" destination="oDX-vZ-XU9" id="VDy-f1-Pag"/>
                 <outlet property="passwordTF" destination="HJ3-hu-X42" id="vqu-zf-sxT"/>
+                <outlet property="usernameTF" destination="oDX-vZ-XU9" id="vxT-lH-s1N"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,9 +22,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="z29-89-LyB">
-                    <rect key="frame" x="40" y="274" width="334" height="230"/>
+                    <rect key="frame" x="40" y="144" width="334" height="230"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oDX-vZ-XU9">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oDX-vZ-XU9">
                             <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Lvs-6E-qp6"/>
@@ -61,7 +61,7 @@
             <constraints>
                 <constraint firstItem="z29-89-LyB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="bKP-iI-rgE"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="z29-89-LyB" secondAttribute="trailing" constant="40" id="eEW-Ma-vdM"/>
-                <constraint firstItem="z29-89-LyB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="230" id="hpt-iB-KK4"/>
+                <constraint firstItem="z29-89-LyB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="hpt-iB-KK4"/>
             </constraints>
             <point key="canvasLocation" x="133" y="60"/>
         </view>

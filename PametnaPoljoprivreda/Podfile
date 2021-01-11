@@ -9,5 +9,6 @@ target 'PametnaPoljoprivreda' do
   pod 'PureLayout'
   pod 'SVProgressHUD'
   pod 'AnimatedTabBar'
+  pod 'Alamofire'
 
 end
