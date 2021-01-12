@@ -18,7 +18,7 @@ class SignUpViewController: UIViewController {
     
     // MARK: Properties
     private var userModel: UserModel?
-    let baseUrlString = "http://ad8c14c1e2c4.ngrok.io"
+    let baseUrlString = Constants.baseUrl
     
     // MARK: Lifecycle methods
     override func viewDidLoad() {

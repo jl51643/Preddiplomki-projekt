@@ -13,3 +13,7 @@ struct CulturesModel: Decodable {
     let devices: [DeviceModel]
     let description: String
 }
+
+struct AllCultures: Decodable {
+    let cultures: [CulturesModel]
+}

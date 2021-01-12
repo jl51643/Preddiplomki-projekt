@@ -28,8 +28,8 @@ class TableViewCell: UITableViewCell {
         descriptionLabel.text = ""
     }
     
-//    func configure(withMesurmnet measurment: UserModel ){
-//        self.nameLabel = measurment
-//        self.descriptionLabel = measurment
-//    }
+    func configure(with culture: CultureCellModel ){
+        self.nameLabel.text = culture.title
+        self.descriptionLabel.text = culture.description
+    }
 }

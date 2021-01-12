@@ -10,7 +10,7 @@ import Alamofire
 
 class LoginService {
     
-    let baseUrlString = "http://ad8c14c1e2c4.ngrok.io"
+    let baseUrlString = Constants.baseUrl
   
     
     func loginUserWith(username: String, password: String, completion: @escaping ((Result<UserModel, Error>) -> Void)){
@@ -24,7 +24,7 @@ class LoginService {
     
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         URLSession.shared.uploadTask(with: request, from: jsonData){ data,response,error in
             

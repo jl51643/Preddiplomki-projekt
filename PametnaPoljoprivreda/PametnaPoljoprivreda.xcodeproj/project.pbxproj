@@ -40,7 +40,10 @@
 		02C2443D25ACC0570011AB16 /* CulturesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C2443C25ACC0570011AB16 /* CulturesModel.swift */; };
 		02C2444025ACC0AA0011AB16 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C2443F25ACC0AA0011AB16 /* DeviceModel.swift */; };
 		02C2444425ACC1E00011AB16 /* CulturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C2444325ACC1E00011AB16 /* CulturesViewModel.swift */; };
-		02CE352425AC2FAA00E5DACF /* MeasurmentsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CE352325AC2FAA00E5DACF /* MeasurmentsCellModel.swift */; };
+		02C8B5C125AD848F00672675 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C8B5C025AD848E00672675 /* Constants.swift */; };
+		02C8B5C425AD95B000672675 /* CultureCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C8B5C325AD95B000672675 /* CultureCellModel.swift */; };
+		02C8B5CA25ADA11700672675 /* AddCultureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C8B5C825ADA11700672675 /* AddCultureViewController.swift */; };
+		02C8B5CB25ADA11700672675 /* AddCultureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02C8B5C925ADA11700672675 /* AddCultureViewController.xib */; };
 		494A28BD731B22CB96423F8B /* Pods_PametnaPoljoprivreda.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA481875943F8CFE5BED0C61 /* Pods_PametnaPoljoprivreda.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,7 +83,10 @@
 		02C2443C25ACC0570011AB16 /* CulturesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CulturesModel.swift; sourceTree = "<group>"; };
 		02C2443F25ACC0AA0011AB16 /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
 		02C2444325ACC1E00011AB16 /* CulturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CulturesViewModel.swift; sourceTree = "<group>"; };
-		02CE352325AC2FAA00E5DACF /* MeasurmentsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurmentsCellModel.swift; sourceTree = "<group>"; };
+		02C8B5C025AD848E00672675 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		02C8B5C325AD95B000672675 /* CultureCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureCellModel.swift; sourceTree = "<group>"; };
+		02C8B5C825ADA11700672675 /* AddCultureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCultureViewController.swift; sourceTree = "<group>"; };
+		02C8B5C925ADA11700672675 /* AddCultureViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCultureViewController.xib; sourceTree = "<group>"; };
 		14001745E15CD6B4D100733F /* Pods-PametnaPoljoprivreda.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PametnaPoljoprivreda.release.xcconfig"; path = "Target Support Files/Pods-PametnaPoljoprivreda/Pods-PametnaPoljoprivreda.release.xcconfig"; sourceTree = "<group>"; };
 		1EE6973FF6ED46EF0916576D /* Pods-PametnaPoljoprivreda.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PametnaPoljoprivreda.debug.xcconfig"; path = "Target Support Files/Pods-PametnaPoljoprivreda/Pods-PametnaPoljoprivreda.debug.xcconfig"; sourceTree = "<group>"; };
 		BA481875943F8CFE5BED0C61 /* Pods_PametnaPoljoprivreda.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PametnaPoljoprivreda.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +153,7 @@
 				025A34CB257A5550004A3E14 /* Assets.xcassets */,
 				025A34D0257A5550004A3E14 /* Info.plist */,
 				025A34E6257A595C004A3E14 /* Extensions.swift */,
+				02C8B5C025AD848E00672675 /* Constants.swift */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -174,10 +181,10 @@
 		025A34E3257A5906004A3E14 /* VIewModels */ = {
 			isa = PBXGroup;
 			children = (
-				026043F2258A0D9B004B0E1D /* MesurmentsViewModel.swift */,
 				022B1CF925A73CC000787C39 /* UserViewModel.swift */,
-				02CE352325AC2FAA00E5DACF /* MeasurmentsCellModel.swift */,
+				02C8B5C325AD95B000672675 /* CultureCellModel.swift */,
 				02C2444325ACC1E00011AB16 /* CulturesViewModel.swift */,
+				026043F2258A0D9B004B0E1D /* MesurmentsViewModel.swift */,
 			);
 			path = VIewModels;
 			sourceTree = "<group>";
@@ -202,6 +209,8 @@
 				026043E32589FC7D004B0E1D /* SoilTemperatureViewController.xib */,
 				026043E72589FC92004B0E1D /* SoilHumidityViewController.swift */,
 				026043E82589FC92004B0E1D /* SoilHumidityViewController.xib */,
+				02C8B5C825ADA11700672675 /* AddCultureViewController.swift */,
+				02C8B5C925ADA11700672675 /* AddCultureViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -291,6 +300,7 @@
 				026043E52589FC7D004B0E1D /* SoilTemperatureViewController.xib in Resources */,
 				026043E02589FC6B004B0E1D /* HumidityViewController.xib in Resources */,
 				02BCE312257A619B00482E97 /* SignUpViewController.xib in Resources */,
+				02C8B5CB25ADA11700672675 /* AddCultureViewController.xib in Resources */,
 				025A34DC257A5577004A3E14 /* FirstViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02C8B5C125AD848F00672675 /* Constants.swift in Sources */,
 				026043E92589FC92004B0E1D /* SoilHumidityViewController.swift in Sources */,
 				026043F3258A0D9B004B0E1D /* MesurmentsViewModel.swift in Sources */,
 				022B1CE725A7130400787C39 /* TableViewCell.swift in Sources */,
@@ -355,10 +366,10 @@
 				025A34C5257A554F004A3E14 /* SceneDelegate.swift in Sources */,
 				022B1CFD25A73E2000787C39 /* UserCredentials.swift in Sources */,
 				026043DF2589FC6B004B0E1D /* HumidityViewController.swift in Sources */,
+				02C8B5C425AD95B000672675 /* CultureCellModel.swift in Sources */,
 				026043E42589FC7D004B0E1D /* SoilTemperatureViewController.swift in Sources */,
 				026043F0258A0B0D004B0E1D /* MesurmentService.swift in Sources */,
 				02C2443D25ACC0570011AB16 /* CulturesModel.swift in Sources */,
-				02CE352425AC2FAA00E5DACF /* MeasurmentsCellModel.swift in Sources */,
 				022B1CDD25A7096400787C39 /* UserModel.swift in Sources */,
 				022B1CFA25A73CC000787C39 /* UserViewModel.swift in Sources */,
 				026043ED258A0A2B004B0E1D /* Measurement.swift in Sources */,
@@ -368,6 +379,7 @@
 				02C2444425ACC1E00011AB16 /* CulturesViewModel.swift in Sources */,
 				021E34AC25839013001434E1 /* LoginService.swift in Sources */,
 				026043DA2589FC56004B0E1D /* TemperatureViewController.swift in Sources */,
+				02C8B5CA25ADA11700672675 /* AddCultureViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

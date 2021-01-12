@@ -6,15 +6,32 @@
 //
 
 import UIKit
+import Alamofire
 
-class CultureTableViewController: UITableViewController {
+class CultureTableViewController: UIViewController {
+    
+    @IBOutlet var tableView: UITableView!
     
     private var viewModel: CulturesViewModel?
+    private var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupNavigationBar()
+        setupTableView()
         setUpViewModel()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.refresh()
+    }
+
+    func setupNavigationBar() {
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.title = "Cultures"
+        let addButton = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(CultureTableViewController.didSelectAddCulture))
+        navigationItem.rightBarButtonItem = addButton
     }
 
     
@@ -27,6 +44,7 @@ class CultureTableViewController: UITableViewController {
                 switch result {
                 case .success(let model):
                     self.viewModel?.cultures = model
+                    self.refresh()
                 case .failure(let err):
                     self.showAlert(title: "Error", message: err.localizedDescription)
                 }
@@ -34,71 +52,97 @@ class CultureTableViewController: UITableViewController {
         })
     }
     
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
     
-        return 0
+    
+  
+    func setupTableView() {
+       
+        tableView.delegate = self
+        tableView.dataSource = self
+      
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(CultureTableViewController.refresh), for: UIControl.Event.valueChanged)
+        tableView.refreshControl = refreshControl
+        
+        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: Constants.cellReuseIdentifier)
+    }
+    
+    @objc func refresh() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+        }
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    @objc func didSelectAddCulture() {
+        let addCultureVC = AddCultureViewController()
+        addCultureVC.resultDelagate = self
+        navigationController?.present(addCultureVC, animated: true, completion: nil)
     }
+    
+   
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+  
+    
+}
 
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+extension CultureTableViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    } // visina jednog cella
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            guard let cultureToDelete = viewModel?.cultures?[indexPath.row] else{return}
+            viewModel?.cultures?.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            viewModel?.deleteCulture(cultureID: cultureToDelete.cultureId)
         } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            print("nije delete")
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//
+//        UIView.beginAnimations("flipajVC", context: nil)
+//        UIView.setAnimationDuration(1.0)
+//
+//        guard let viewModel = self.viewModel?.singleQuizViewModel(forIndexPath: indexPath) else {return}
+//        let quizViewController = QuizViewController(viewModel: viewModel)
+//        navigationController?.pushViewController(quizViewController, animated: true)
+//
+//        UIView.setAnimationTransition(UIView.AnimationTransition.flipFromLeft, for: (self.navigationController?.view)!, cache: false)
+//        UIView.commitAnimations()
+//    }//na tap cella prijedi na quizvc
+}
+
+extension CultureTableViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel?.cultures?.count ?? 0
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       if let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellReuseIdentifier, for: indexPath) as? TableViewCell {
+           if let culture = viewModel?.culturesForTVC(forIndexPath: indexPath) {
+               cell.configure(with: culture)
+           }
+           return cell
+       }
+
+       return TableViewCell()
+   }
+    
+}
+
+extension CultureTableViewController: ResultSuccessDelegate {
+    func didAddCulture() {
+        self.setUpViewModel()
+        self.refresh()
+    }
+
+
 }

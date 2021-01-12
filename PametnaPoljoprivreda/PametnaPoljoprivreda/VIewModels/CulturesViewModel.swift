@@ -19,4 +19,13 @@ class CulturesViewModel {
             }
         }
     }
+    
+    func culturesForTVC(forIndexPath indexpath: IndexPath) -> CultureCellModel? {
+        return CultureCellModel(culture: cultures![indexpath.row])
+    }
+    
+    func deleteCulture(cultureID: Int){
+        let service = MeasurementsService()
+        service.deleteCulture(cultureID: cultureID)
+    }
 }
