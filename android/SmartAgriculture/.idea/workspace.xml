@@ -11,32 +11,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d67a57c9-4a44-4ba7-8bcf-d97938cbf472" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/MainViewModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/MainViewModelFactory.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/api/ApiService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/api/RetrofitInstance.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/repository/Repository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/util/Constants.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/activities/LogInActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/activities/RegisterInActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/model/CultureModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/model/DeviceModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/model/LoginModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/model/RegistrationModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/model/TokenModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/model/User.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/veiwModel/LoginViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/veiwModel/LoginViewModelFactory.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/veiwModel/RegisterViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/veiwModel/RegisterViewModelFactory.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_log_in.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/RegisterInActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/RegisterInActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/SlideAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/SlideAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/model/MeasurementModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/model/MeasurementModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/net/RestFactory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/net/RestFactory.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/net/RestRetrofit.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/net/RestRetrofit.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/net/Service.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/net/Service.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_sliding.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_sliding.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/activities/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/MainViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/veiwModel/MainViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/MainViewModelFactory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/veiwModel/MainViewModelFactory.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/RegisterInActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/SlideAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/activities/adapters/SlideAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/api/ApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/api/ApiService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/net/RestFactory.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/net/RestInterface.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/net/RestRetrofit.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/net/Service.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/repository/Repository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/repository/Repository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/util/Constants.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/util/Constants.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_register_in.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_register_in.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/slide_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/slide_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,8 +74,9 @@
       <list>
         <option value="layoutResourceFile" />
         <option value="Kotlin Interface" />
-        <option value="Kotlin Object" />
+        <option value="Kotlin File" />
         <option value="Kotlin Class" />
+        <option value="Kotlin Object" />
       </list>
     </option>
   </component>
@@ -82,15 +95,22 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/test/java/hr/fer" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="C:/playground/preddiplprojekt_2020_pametnapoljoprivreda/preddiplprojekt_2020_pametnapoljoprivreda/android/SmartAgriculture" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RecentsManager">
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="hr.fer.projekt.smartAgriculture.model" />
+      <recent name="hr.fer.projekt.smartAgriculture.activities.adapters" />
+      <recent name="hr.fer.projekt.smartAgriculture.veiwModel" />
+      <recent name="hr.fer.projekt.smartAgriculture.activities" />
       <recent name="hr.fer.projekt.smartAgriculture.net" />
-      <recent name="hr.fer.projekt.smartAgriculture" />
     </key>
     <key name="android.template.packageName">
+      <recent name="hr.fer.projekt.smartAgriculture" />
       <recent name="hr.fer.ruazosa.iotagriculture" />
     </key>
     <key name="CreateKotlinClassDialog.RecentsKey">
@@ -249,32 +269,28 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/MainActivity.kt</url>
-          <line>29</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/MainActivity.kt</url>
-          <line>47</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/activities/RegisterInActivity.kt</url>
+          <line>45</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-function">
-          <url>file://$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/MainActivity.kt</url>
-          <line>43</line>
-          <properties class="hr.fer.projekt.smartAgriculture.MainActivity" method="onCreate" />
-          <option name="timeStamp" value="3" />
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/activities/LogInActivity.kt</url>
+          <line>48</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-function">
-          <url>file://$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/MainActivity.kt</url>
-          <line>57</line>
-          <properties class="hr.fer.projekt.smartAgriculture.MainActivity" method="getLatestMeasurements" />
-          <option name="timeStamp" value="4" />
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/hr/fer/projekt/smartAgriculture/activities/MainActivity.kt</url>
+          <line>65</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="app">
         <watch expression="Constants.BASE_URL" language="kotlin" custom="import hr.fer.projekt.smartAgriculture.util.Constants" />
+        <watch expression="username.text.toString()" language="kotlin" custom="import kotlinx.android.synthetic.main.activity_log_in.username" />
+        <watch expression="viewModel.responseLiveData.value" language="kotlin" />
+        <watch expression="User.user" language="kotlin" />
       </configuration>
     </watches-manager>
   </component>

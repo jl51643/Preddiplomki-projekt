@@ -1,11 +1,17 @@
 <resources>
     <string name="app_name">Smart agriculture</string>
     <string name="title_activity_login">Sign in</string>
+    <string name="title_activity_registerin">Register in</string>
+    <string name="username">Username</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
+    <string name="prompt_username">Username</string>
+    <string name="action_register_in">Register in</string>
+    <string name="action_sign_in">Sign in</string>
     <string name="welcome">"Welcome !"</string>
     <string name="prompt_firstName">First Name</string>
     <string name="prompt_lastName">Last Name</string>
+    <string name="register_in_link">Don\'t have account? click here to register</string>
+    <string name="login_error">Could not log in. Try again</string>
+    <string name="last_measurement_text">Last measurement</string>
 </resources>

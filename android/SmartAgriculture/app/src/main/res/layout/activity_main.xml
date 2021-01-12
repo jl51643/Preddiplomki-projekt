@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wp6398565"
-    tools:context="hr.fer.projekt.smartAgriculture.MainActivity" >
+    tools:context="hr.fer.projekt.smartAgriculture.activities.MainActivity" >
 
     <ImageView
         android:id="@+id/cloud"

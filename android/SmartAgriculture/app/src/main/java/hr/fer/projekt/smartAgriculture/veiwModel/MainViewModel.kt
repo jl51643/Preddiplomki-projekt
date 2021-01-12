@@ -1,4 +1,4 @@
-package hr.fer.projekt.smartAgriculture
+package hr.fer.projekt.smartAgriculture.veiwModel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,9 +12,9 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
 
     val responseLiveData: MutableLiveData<Response<List<MeasurementModel>>> = MutableLiveData()
 
-    fun getMeasurements() {
+    fun getMeasurements(token: String) {
         viewModelScope.launch {
-            val response = repository.getMeasurements()
+            val response = repository.getMeasurements(token)
             responseLiveData.value = response
         }
     }

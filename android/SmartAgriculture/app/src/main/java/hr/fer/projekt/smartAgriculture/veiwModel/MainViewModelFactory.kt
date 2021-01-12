@@ -1,4 +1,4 @@
-package hr.fer.projekt.smartAgriculture
+package hr.fer.projekt.smartAgriculture.veiwModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

@@ -1,4 +1,4 @@
-package hr.fer.projekt.smartAgriculture
+package hr.fer.projekt.smartAgriculture.activities.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -12,6 +12,7 @@ import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
+import hr.fer.projekt.smartAgriculture.R
 import hr.fer.projekt.smartAgriculture.model.MeasurementModel
 import java.util.*
 
@@ -26,15 +27,20 @@ class SlideAdapter(context: Context, measurementsList: MutableList<MeasurementMo
 
     init {
 
-        slideImages = arrayOf(R.drawable.temperature_icon, R.drawable.humidity_icon, R.drawable.soil_temperature_icon, R.drawable.soil_humidity_icon)
+        slideImages = arrayOf(
+            R.drawable.temperature_icon,
+            R.drawable.humidity_icon,
+            R.drawable.soil_temperature_icon,
+            R.drawable.soil_humidity_icon
+        )
 
-        measurementsList?.sortByDescending { measurementModel: MeasurementModel -> measurementModel.time.time }
+        measurementsList?.sortBy { measurementModel: MeasurementModel -> measurementModel.time.time }
 
         values = arrayOf(
-            measurementsList?.get(0)?.airTemperature.toString() + "°",
-            measurementsList?.get(0)?.airHumidity.toString() + "%",
-            measurementsList?.get(0)?.soilTemperature.toString() + "°",
-            measurementsList?.get(0)?.soilHumidity.toString() + "%"
+            measurementsList?.get(measurementsList.size-1)?.airTemperature.toString() + "°",
+            measurementsList?.get(measurementsList.size-1)?.airHumidity.toString() + "%",
+            measurementsList?.get(measurementsList.size-1)?.soilTemperature.toString() + "°",
+            measurementsList?.get(measurementsList.size-1)?.soilHumidity.toString() + "%"
         )
 
         graphLineDatas = initializeGraphs(measurementsList)
@@ -91,30 +97,35 @@ class SlideAdapter(context: Context, measurementsList: MutableList<MeasurementMo
 
         val airTemperatureEntries = mutableListOf<Entry>()
         if (measurementsList != null) {
+            var i : Float = 1.0f
             for (m : MeasurementModel in measurementsList) {
+
                 //returns difference in milliseconds => * 1000 to seconds, * 60 to minutes * 60 to hours
-                airTemperatureEntries.add(Entry((currentTime.time - m.time.time) * 1000 * 60 * 60.0f, m.airTemperature))
+                airTemperatureEntries.add(Entry(/*abs(m.time.time - currentTime.time) * 1000 * 60 * 60.0f*/i++, m.airTemperature))
             }
         }
 
         val airHumidityEntries = mutableListOf<Entry>()
         if (measurementsList != null) {
+            var i : Float = 1.0f
             for (m : MeasurementModel in measurementsList) {
-                airHumidityEntries.add(Entry((currentTime.time - m.time.time) * 1000 * 60 * 60.0f, m.airHumidity))
+                airHumidityEntries.add(Entry(/*abs(m.time.time - currentTime.time) * 1000 * 60 * 60.0f*/i++, m.airHumidity))
             }
         }
 
         val soilTemperatureEntries = mutableListOf<Entry>()
         if (measurementsList != null) {
+            var i : Float = 1.0f
             for (m : MeasurementModel in measurementsList) {
-                soilTemperatureEntries.add(Entry((currentTime.time - m.time.time) * 1000 * 60 * 60.0f, m.soilTemperature))
+                soilTemperatureEntries.add(Entry(/*abs(m.time.time - currentTime.time) * 1000 * 60 * 60.0f*/i++, m.soilTemperature))
             }
         }
 
         val soilHumidityEntries = mutableListOf<Entry>()
         if (measurementsList != null) {
+            var i : Float = 1.0f
             for (m : MeasurementModel in measurementsList) {
-                soilHumidityEntries.add(Entry((currentTime.time - m.time.time) * 1000 * 60 * 60.0f, m.soilHumidity))
+                soilHumidityEntries.add(Entry(/*abs(m.time.time - currentTime.time) * 1000 * 60 * 60.0f*/i++, m.soilHumidity))
             }
         }
 
