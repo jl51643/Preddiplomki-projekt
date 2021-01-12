@@ -12,13 +12,15 @@ public class MeasurementModel {
 
     private Date time;
 
-    private float airHumidity;
+    private Double airHumidity;
 
-    private float soilHumidity;
+    private Double soilHumidity;
 
-    private float airTemperature;
+    private Double airTemperature;
 
-    private float soilTemperature;
+    private Double soilTemperature;
+
+    private Double pressure;
 
     public MeasurementModel() {
     }
@@ -31,6 +33,7 @@ public class MeasurementModel {
         this.soilHumidity = measurement.getSoilHumidity();
         this.airTemperature = measurement.getAirTemperature();
         this.soilTemperature = measurement.getSoilTemperature();
+        this.pressure = measurement.getPressure();
     }
 
     public Long getId() {
@@ -57,35 +60,43 @@ public class MeasurementModel {
         this.time = time;
     }
 
-    public float getAirHumidity() {
+    public Double getAirHumidity() {
         return airHumidity;
     }
 
-    public void setAirHumidity(float airHumidity) {
+    public void setAirHumidity(Double airHumidity) {
         this.airHumidity = airHumidity;
     }
 
-    public float getSoilHumidity() {
+    public Double getSoilHumidity() {
         return soilHumidity;
     }
 
-    public void setSoilHumidity(float soilHumidity) {
+    public void setSoilHumidity(Double soilHumidity) {
         this.soilHumidity = soilHumidity;
     }
 
-    public float getAirTemperature() {
+    public Double getAirTemperature() {
         return airTemperature;
     }
 
-    public void setAirTemperature(float airTemperature) {
+    public void setAirTemperature(Double airTemperature) {
         this.airTemperature = airTemperature;
     }
 
-    public float getSoilTemperature() {
+    public Double getSoilTemperature() {
         return soilTemperature;
     }
 
-    public void setSoilTemperature(float soilTemperature) {
+    public void setSoilTemperature(Double soilTemperature) {
         this.soilTemperature = soilTemperature;
+    }
+
+    public Double getPressure() {
+        return pressure;
+    }
+
+    public void setPressure(Double pressure) {
+        this.pressure = pressure;
     }
 }

@@ -56,7 +56,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/api/measurements/pycom/add").permitAll()
+                .antMatchers("/api/measurement/pycom/add").permitAll()
                 .antMatchers("/api/auth/**").permitAll()
                 .antMatchers("/swagger-ui.html").permitAll()
                 .antMatchers("/swagger-ui/**").permitAll()

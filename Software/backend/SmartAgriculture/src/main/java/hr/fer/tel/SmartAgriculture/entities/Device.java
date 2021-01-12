@@ -17,6 +17,9 @@ public class Device {
     @OneToMany(mappedBy = "device")
     private List<Measurement> measurements;
 
+    @ManyToMany(mappedBy = "devices")
+    private List<Culture> cultures;
+
     public Device(){
 
     }
@@ -52,5 +55,13 @@ public class Device {
 
     public void setMeasurements(List<Measurement> measurements) {
         this.measurements = measurements;
+    }
+
+    public List<Culture> getCultures() {
+        return cultures;
+    }
+
+    public void setCultures(List<Culture> cultures) {
+        this.cultures = cultures;
     }
 }

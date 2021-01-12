@@ -18,27 +18,31 @@ public class Measurement {
     private Date time;
 
     @Column(name = "\"air_humidity\"")
-    private float airHumidity;
+    private Double airHumidity;
 
     @Column(name = "\"soil_humidity\"")
-    private float soilHumidity;
+    private Double soilHumidity;
 
     @Column(name = "\"air_temperature\"")
-    private float airTemperature;
+    private Double airTemperature;
 
     @Column(name = "\"soil_temperature\"")
-    private float soilTemperature;
+    private Double soilTemperature;
+
+    @Column(precision = 8, scale = 2)
+    private Double pressure;
 
     public Measurement() {
     }
 
-    public Measurement(Device device, Date time, float airHumidity, float soilHumidity, float airTemperature, float soilTemperature) {
+    public Measurement(Device device, Date time, Double airHumidity, Double soilHumidity, Double airTemperature, Double soilTemperature, Double pressure) {
         this.device = device;
         this.time = time;
         this.airHumidity = airHumidity;
         this.soilHumidity = soilHumidity;
         this.airTemperature = airTemperature;
         this.soilTemperature = soilTemperature;
+        this.pressure = pressure;
     }
 
     public Long getId() {
@@ -65,35 +69,43 @@ public class Measurement {
         this.time = time;
     }
 
-    public float getAirHumidity() {
+    public Double getAirHumidity() {
         return airHumidity;
     }
 
-    public void setAirHumidity(float airHumidity) {
+    public void setAirHumidity(Double airHumidity) {
         this.airHumidity = airHumidity;
     }
 
-    public float getSoilHumidity() {
+    public Double getSoilHumidity() {
         return soilHumidity;
     }
 
-    public void setSoilHumidity(float soilHumidity) {
+    public void setSoilHumidity(Double soilHumidity) {
         this.soilHumidity = soilHumidity;
     }
 
-    public float getAirTemperature() {
+    public Double getAirTemperature() {
         return airTemperature;
     }
 
-    public void setAirTemperature(float airTemperature) {
+    public void setAirTemperature(Double airTemperature) {
         this.airTemperature = airTemperature;
     }
 
-    public float getSoilTemperature() {
+    public Double getSoilTemperature() {
         return soilTemperature;
     }
 
-    public void setSoilTemperature(float soilTemperature) {
+    public void setSoilTemperature(Double soilTemperature) {
         this.soilTemperature = soilTemperature;
+    }
+
+    public Double getPressure() {
+        return pressure;
+    }
+
+    public void setPressure(Double pressure) {
+        this.pressure = pressure;
     }
 }

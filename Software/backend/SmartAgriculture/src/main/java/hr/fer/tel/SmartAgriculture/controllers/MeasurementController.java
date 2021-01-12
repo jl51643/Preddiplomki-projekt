@@ -23,7 +23,7 @@ public class MeasurementController {
 
     @PostMapping("/pycom/add")
     public ResponseEntity<?> pycomAddMeasurement(@RequestBody PycomMeasurementModel measurementModel) throws URISyntaxException {
-        Long id = this.measurementService.addMeasurement(measurementModel);
+        Long id = this.measurementService.addPycomMeasurement(measurementModel);
         return ResponseEntity.created(new URI("/api/measurement/" + id)).build();
     }
 

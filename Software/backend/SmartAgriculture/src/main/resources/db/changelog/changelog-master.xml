@@ -12,4 +12,8 @@
     <include file="changes/4-add-devices.xml" relativeToChangelogFile="true"/>
     <include file="changes/5-update-dev-id-to-integer.xml" relativeToChangelogFile="true"/>
     <include file="changes/6-update-username-and-email-unique-constraint.xml" relativeToChangelogFile="true"/>
+    <include file="changes/7-add-pressure-to-measurements.xml" relativeToChangelogFile="true"/>
+    <include file="changes/8-add-notifications-table.xml" relativeToChangelogFile="true"/>
+    <include file="changes/9-add-boundaries-table.xml" relativeToChangelogFile="true"/>
+    <include file="changes/10-update-notifications-add-time.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>
