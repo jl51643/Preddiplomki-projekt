@@ -1,5 +1,5 @@
 //
-//  SoilTemperatureViewController.swift
+//  SoilHumidityViewController.swift
 //  PametnaPoljoprivreda
 //
 //  Created by Borna on 16.12.2020..
@@ -8,7 +8,7 @@
 import UIKit
 import Charts
 
-class SoilTemperatureViewController: UIViewController, ChartViewDelegate {
+class SoilHumidityViewController: UIViewController, ChartViewDelegate {
     
     private var chartView = LineChartView()
     private var viewModel: MeasurementsViewModel?
@@ -17,12 +17,10 @@ class SoilTemperatureViewController: UIViewController, ChartViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = "Soil Temperature"
-        
-        setUpViewModel()
-        
-    }
+        navigationItem.title = "Soil Humidity"
 
+        setUpViewModel()
+    }
 
     func setUpCharth(arr: [Double]){
         chartView.delegate = self
@@ -48,11 +46,11 @@ class SoilTemperatureViewController: UIViewController, ChartViewDelegate {
         //data
         var entries = [ChartDataEntry]()
     
-        for x in 0..<arr.count{
+        for x in 0..<arr.count {
             entries.append(ChartDataEntry(x: Double(x), y: Double(arr[x])))
         }
         
-        let set = LineChartDataSet(entries: entries, label: "SoilTemperature")
+        let set = LineChartDataSet(entries: entries, label: "SoilHumidity")
         set.colors = ChartColorTemplates.pastel()
         
        
@@ -66,13 +64,14 @@ class SoilTemperatureViewController: UIViewController, ChartViewDelegate {
     }
     
     func setUpViewModel(){
-        let servis = MeasurementsService()
+        let servis = MeasurmentsService()
         servis.fetchMeasurmentData { (result) in
             switch result {
             case .success(let model):
                 self.viewModel?.measurements = model
+                print(model.capacity)
                 let arr = model.map { (m) -> Double in
-                    return (m.soilTemperature ?? 1)
+                    return (m.soilHumidity ?? 1)
                 }
                 self.setUpCharth(arr: arr)
             case .failure( _):

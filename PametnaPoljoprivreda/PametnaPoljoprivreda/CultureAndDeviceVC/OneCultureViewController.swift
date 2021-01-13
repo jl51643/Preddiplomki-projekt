@@ -13,33 +13,35 @@ class OneCultureViewController: UIViewController {
     @IBOutlet weak var devicesButton: UIButton!
     @IBOutlet weak var measurmentsButton: UIButton!
     
-    var model: CulturesModel?
+    private var viewModel: CulturesViewModel
     
-    convenience init(model: CulturesModel) {
-        self.init()
-        self.model = model
+    init(viewModel: CulturesViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: "OneCultureViewController", bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleLabel.text = model?.title
-        descLabel.text = model?.description
+        titleLabel.text = viewModel.selectedCulture?.title
+        descLabel.text = viewModel.selectedCulture?.description
         UILabel.styleLabel(label: titleLabel)
         UILabel.styleLabel(label: descLabel)
         UIButton.styleButton(button: devicesButton)
         UIButton.styleButton(button: measurmentsButton)
-
-        
     }
 
 
     @IBAction func devicesButtonTapped(_ sender: UIButton) {
         
-        guard let devices = model?.devices,
-              let cultureID = model?.cultureId else {return}
+//        guard let devices = model?.devices,
+//              let cultureID = model?.cultureId else {return}
         
-        let deviceVC = DevicesViewController(model: devices, cultureID: cultureID)
+        let deviceVC = DevicesViewController(viewModel: viewModel)
         
         navigationController?.pushViewController(deviceVC, animated: true)
     }

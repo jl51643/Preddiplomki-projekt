@@ -49,6 +49,7 @@ class LoginViewController: UIViewController {
     //sa userId-om
     func navigateToHome(){
         self.navigationController?.pushViewController(CultureTableViewController(), animated: true)
+        
     }
     
     

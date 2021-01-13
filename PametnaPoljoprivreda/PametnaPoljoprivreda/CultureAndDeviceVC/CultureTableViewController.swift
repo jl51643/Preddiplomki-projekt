@@ -12,7 +12,7 @@ class CultureTableViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    private var viewModel: CulturesViewModel?
+    private var viewModel: CulturesViewModel = CulturesViewModel()
     private var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
@@ -38,19 +38,14 @@ class CultureTableViewController: UIViewController {
 
     
     func setUpViewModel(){
-
-        viewModel = CulturesViewModel()
         
-        viewModel?.fetchCultures(completion: { (result) in
-            DispatchQueue.main.async {
+        viewModel.fetchCultures(completion: { (result) in
                 switch result {
-                case .success(let model):
-                    self.viewModel?.cultures = model
+                case .success():
                     self.refresh()
                 case .failure(let err):
                     self.showAlert(title: "Error", message: err.localizedDescription)
                 }
-            }
         })
     }
     
@@ -62,10 +57,14 @@ class CultureTableViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
       
+        tableView.backgroundColor = UIColor.lightGray
         
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(CultureTableViewController.refresh), for: UIControl.Event.valueChanged)
         tableView.refreshControl = refreshControl
+        
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        tableView.separatorColor = UIColor.green
         
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: Constants.cellReuseIdentifier)
     }
@@ -96,10 +95,10 @@ extension CultureTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            guard let cultureToDelete = viewModel?.cultures?[indexPath.row] else{return}
-            viewModel?.cultures?.remove(at: indexPath.row)
+            let cultureToDelete = viewModel.cultures[indexPath.row]
+            viewModel.cultures.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            viewModel?.deleteCulture(cultureID: cultureToDelete.cultureId)
+            viewModel.deleteCulture(cultureID: cultureToDelete.cultureId)
         } else if editingStyle == .insert {
             print("nije delete")
         }
@@ -111,12 +110,9 @@ extension CultureTableViewController: UITableViewDelegate {
 
         UIView.beginAnimations("flipajVC", context: nil)
         UIView.setAnimationDuration(1.0)
-
-        guard let viewModel = viewModel else {
-            return
-        }
       
-        let cultureVC = OneCultureViewController(model: (viewModel.cultures?[indexPath.row])!)
+        viewModel.selectedCulture = viewModel.cultures[indexPath.row]
+        let cultureVC = OneCultureViewController(viewModel: viewModel)
         navigationController?.pushViewController(cultureVC, animated: false)
 
         UIView.setAnimationTransition(UIView.AnimationTransition.flipFromLeft, for: (self.navigationController?.view)!, cache: false)
@@ -126,14 +122,15 @@ extension CultureTableViewController: UITableViewDelegate {
 
 extension CultureTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.cultures?.count ?? 0
+        return viewModel.cultures.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        if let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellReuseIdentifier, for: indexPath) as? TableViewCell {
-           if let culture = viewModel?.culturesForTVC(forIndexPath: indexPath) {
+           if let culture = viewModel.culturesForTVC(forIndexPath: indexPath) {
                cell.configure(with: culture)
+            cell.backgroundColor = UIColor.clear
            }
            return cell
        }

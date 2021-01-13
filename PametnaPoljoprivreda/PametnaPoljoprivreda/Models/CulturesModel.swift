@@ -10,7 +10,7 @@ import Foundation
 struct CulturesModel: Decodable {
     let cultureId: Int
     let title: String
-    let devices: [DeviceModel]
+    var devices: [DeviceModel]
     let description: String
 }
 

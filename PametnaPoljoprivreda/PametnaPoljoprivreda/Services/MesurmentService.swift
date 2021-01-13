@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class MeasurementsService {
+class MeasurmentsService {
     
     let baseUrlString = Constants.baseUrl
     
@@ -41,17 +41,17 @@ class MeasurementsService {
     }
     
     func fetchCultures(completion: @escaping ((Result<[CulturesModel], Error>)->Void)) {
-        
+
         let urlString = baseUrlString + "/api/culture/all"
         guard let url = URL(string: urlString) else {return}
-        
+
         guard let token = UserCredentials.shared.getToken() else {return}
-        
+
         var request = URLRequest(url: url)
         //request.httpMethod = "GET"
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        
-        
+
+
         URLSession.shared.dataTask(with: request) { (data,response,error) in
             if let data = data {
                 do {
@@ -61,9 +61,9 @@ class MeasurementsService {
                     completion(.failure(decodeError))
                     return
                 }
-            }
+             }
         }.resume()
-        
+
     }
     
     func addCulture(cultureID: String, title :String, deviceID: String, deviceDevID: String, description: String) {
@@ -122,7 +122,7 @@ class MeasurementsService {
         }.resume()
     }
     
-    func addDeviceToCulture(cultureID: Int, id: String, devID: String) {
+    func addDeviceToCulture(cultureID: Int, id: String, devID: String, completion: @escaping ((Result<[CulturesModel], Error>)->Void)) {
         let urlString = baseUrlString + "/api/culture/\(cultureID)/devices/add"
         guard let url = URL(string: urlString) else {return}
         
@@ -143,14 +143,21 @@ class MeasurementsService {
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
-                print(data)
+                self.fetchCultures { result in
+                    switch result {
+                    case .success(let cultures):
+                        completion(.success(cultures))
+                    case .failure(let err):
+                        completion(.failure(err))
+                    }
+                }
             } else if let err = error {
-                print(err.localizedDescription)
+                completion(.failure(err))
             }
         }.resume()
     }
     
-    func deleteDeviceFromCulture(cultureID: Int, devID: Int) {
+    func deleteDeviceFromCulture(cultureID: Int, devID: Int, completion: @escaping ((Result<[CulturesModel], Error>)->Void)) {
         let urlString = baseUrlString + "/api/culture/\(cultureID)/devices/delete/\(devID)"
         guard let url = URL(string: urlString) else {return}
         
@@ -162,11 +169,17 @@ class MeasurementsService {
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
-                print(data)
+                self.fetchCultures { result in
+                    switch result {
+                    case .success(let cultures):
+                        completion(.success(cultures))
+                    case .failure(let err):
+                        completion(.failure(err))
+                    }
+                }
             } else if let err = error {
                 print(err.localizedDescription)
-            } else if let response = response {
-                print(response)
+                completion(.failure(err))
             }
         }.resume()
     }

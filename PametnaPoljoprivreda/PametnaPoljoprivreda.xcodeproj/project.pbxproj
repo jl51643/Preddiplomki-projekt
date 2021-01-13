@@ -20,7 +20,6 @@
 		022E57A425AEEEE3006E03A6 /* DeviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022E57A225AEEEE3006E03A6 /* DeviceTableViewCell.swift */; };
 		022E57A525AEEEE3006E03A6 /* DeviceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 022E57A325AEEEE3006E03A6 /* DeviceTableViewCell.xib */; };
 		022E57A825AEEF9B006E03A6 /* DeviceCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022E57A725AEEF9B006E03A6 /* DeviceCellModel.swift */; };
-		022E57AB25AEF478006E03A6 /* DeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022E57AA25AEF478006E03A6 /* DeviceViewModel.swift */; };
 		022E57AF25AEFA80006E03A6 /* AddDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022E57AD25AEFA80006E03A6 /* AddDeviceViewController.swift */; };
 		022E57B025AEFA80006E03A6 /* AddDeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 022E57AE25AEFA80006E03A6 /* AddDeviceViewController.xib */; };
 		025A34C3257A554F004A3E14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025A34C2257A554F004A3E14 /* AppDelegate.swift */; };
@@ -71,7 +70,6 @@
 		022E57A225AEEEE3006E03A6 /* DeviceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTableViewCell.swift; sourceTree = "<group>"; };
 		022E57A325AEEEE3006E03A6 /* DeviceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeviceTableViewCell.xib; sourceTree = "<group>"; };
 		022E57A725AEEF9B006E03A6 /* DeviceCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCellModel.swift; sourceTree = "<group>"; };
-		022E57AA25AEF478006E03A6 /* DeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceViewModel.swift; sourceTree = "<group>"; };
 		022E57AD25AEFA80006E03A6 /* AddDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeviceViewController.swift; sourceTree = "<group>"; };
 		022E57AE25AEFA80006E03A6 /* AddDeviceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddDeviceViewController.xib; sourceTree = "<group>"; };
 		025A34BF257A554F004A3E14 /* PametnaPoljoprivreda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PametnaPoljoprivreda.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,12 +125,67 @@
 		022B1CE425A712DC00787C39 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		022E57B225AF2021006E03A6 /* LoginVC */ = {
+			isa = PBXGroup;
+			children = (
+				025A34D9257A5577004A3E14 /* FirstViewController.swift */,
+				025A34DA257A5577004A3E14 /* FirstViewController.xib */,
+				02BCE30F257A619B00482E97 /* SignUpViewController.swift */,
+				02BCE310257A619B00482E97 /* SignUpViewController.xib */,
+				02BCE314257A61AA00482E97 /* LoginViewController.swift */,
+				02BCE315257A61AB00482E97 /* LoginViewController.xib */,
+			);
+			path = LoginVC;
+			sourceTree = "<group>";
+		};
+		022E57B325AF2049006E03A6 /* CultureAndDeviceVC */ = {
+			isa = PBXGroup;
+			children = (
+				02C2443725ACBFE50011AB16 /* CultureTableViewController.swift */,
+				02C2443825ACBFE50011AB16 /* CultureTableViewController.xib */,
+				02C8B5C825ADA11700672675 /* AddCultureViewController.swift */,
+				02C8B5C925ADA11700672675 /* AddCultureViewController.xib */,
+				022E579825AEE5BE006E03A6 /* OneCultureViewController.swift */,
+				022E579925AEE5BE006E03A6 /* OneCultureViewController.xib */,
+				022E579D25AEEAEE006E03A6 /* DevicesViewController.swift */,
+				022E579E25AEEAEE006E03A6 /* DevicesViewController.xib */,
+				022E57AD25AEFA80006E03A6 /* AddDeviceViewController.swift */,
+				022E57AE25AEFA80006E03A6 /* AddDeviceViewController.xib */,
+			);
+			path = CultureAndDeviceVC;
+			sourceTree = "<group>";
+		};
+		022E57B425AF2079006E03A6 /* MeasurmentsVC */ = {
+			isa = PBXGroup;
+			children = (
+				026043D52589FB8C004B0E1D /* TabBarViewController.swift */,
+				026043D82589FC56004B0E1D /* TemperatureViewController.swift */,
+				026043D92589FC56004B0E1D /* TemperatureViewController.xib */,
+				026043DD2589FC6B004B0E1D /* HumidityViewController.swift */,
+				026043DE2589FC6B004B0E1D /* HumidityViewController.xib */,
+				026043E22589FC7D004B0E1D /* SoilTemperatureViewController.swift */,
+				026043E32589FC7D004B0E1D /* SoilTemperatureViewController.xib */,
+				026043E72589FC92004B0E1D /* SoilHumidityViewController.swift */,
+				026043E82589FC92004B0E1D /* SoilHumidityViewController.xib */,
+			);
+			path = MeasurmentsVC;
+			sourceTree = "<group>";
+		};
+		022E57B625AF20D0006E03A6 /* TableViewCellovi */ = {
+			isa = PBXGroup;
+			children = (
+				02C8B5C325AD95B000672675 /* CultureCellModel.swift */,
 				022B1CE525A7130400787C39 /* TableViewCell.swift */,
 				022B1CE625A7130400787C39 /* TableViewCell.xib */,
+				022E57A725AEEF9B006E03A6 /* DeviceCellModel.swift */,
 				022E57A225AEEEE3006E03A6 /* DeviceTableViewCell.swift */,
 				022E57A325AEEEE3006E03A6 /* DeviceTableViewCell.xib */,
 			);
-			path = Views;
+			path = TableViewCellovi;
 			sourceTree = "<group>";
 		};
 		025A34B6257A554F004A3E14 = {
@@ -156,8 +209,11 @@
 		025A34C1257A554F004A3E14 /* PametnaPoljoprivreda */ = {
 			isa = PBXGroup;
 			children = (
-				025A34E4257A590E004A3E14 /* ViewControllers */,
+				022E57B225AF2021006E03A6 /* LoginVC */,
+				022E57B325AF2049006E03A6 /* CultureAndDeviceVC */,
+				022E57B425AF2079006E03A6 /* MeasurmentsVC */,
 				025A34E1257A58CE004A3E14 /* Models */,
+				022E57B625AF20D0006E03A6 /* TableViewCellovi */,
 				025A34E3257A5906004A3E14 /* VIewModels */,
 				025A34E2257A58FA004A3E14 /* Services */,
 				022B1CE425A712DC00787C39 /* Views */,
@@ -204,45 +260,10 @@
 			isa = PBXGroup;
 			children = (
 				022B1CF925A73CC000787C39 /* UserViewModel.swift */,
-				02C8B5C325AD95B000672675 /* CultureCellModel.swift */,
 				02C2444325ACC1E00011AB16 /* CulturesViewModel.swift */,
 				026043F2258A0D9B004B0E1D /* MesurmentsViewModel.swift */,
-				022E57A725AEEF9B006E03A6 /* DeviceCellModel.swift */,
-				022E57AA25AEF478006E03A6 /* DeviceViewModel.swift */,
 			);
 			path = VIewModels;
-			sourceTree = "<group>";
-		};
-		025A34E4257A590E004A3E14 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				025A34D9257A5577004A3E14 /* FirstViewController.swift */,
-				025A34DA257A5577004A3E14 /* FirstViewController.xib */,
-				02BCE30F257A619B00482E97 /* SignUpViewController.swift */,
-				02BCE310257A619B00482E97 /* SignUpViewController.xib */,
-				02BCE314257A61AA00482E97 /* LoginViewController.swift */,
-				02BCE315257A61AB00482E97 /* LoginViewController.xib */,
-				02C2443725ACBFE50011AB16 /* CultureTableViewController.swift */,
-				02C2443825ACBFE50011AB16 /* CultureTableViewController.xib */,
-				026043D52589FB8C004B0E1D /* TabBarViewController.swift */,
-				026043D82589FC56004B0E1D /* TemperatureViewController.swift */,
-				026043D92589FC56004B0E1D /* TemperatureViewController.xib */,
-				026043DD2589FC6B004B0E1D /* HumidityViewController.swift */,
-				026043DE2589FC6B004B0E1D /* HumidityViewController.xib */,
-				026043E22589FC7D004B0E1D /* SoilTemperatureViewController.swift */,
-				026043E32589FC7D004B0E1D /* SoilTemperatureViewController.xib */,
-				026043E72589FC92004B0E1D /* SoilHumidityViewController.swift */,
-				026043E82589FC92004B0E1D /* SoilHumidityViewController.xib */,
-				02C8B5C825ADA11700672675 /* AddCultureViewController.swift */,
-				02C8B5C925ADA11700672675 /* AddCultureViewController.xib */,
-				022E579825AEE5BE006E03A6 /* OneCultureViewController.swift */,
-				022E579925AEE5BE006E03A6 /* OneCultureViewController.xib */,
-				022E579D25AEEAEE006E03A6 /* DevicesViewController.swift */,
-				022E579E25AEEAEE006E03A6 /* DevicesViewController.xib */,
-				022E57AD25AEFA80006E03A6 /* AddDeviceViewController.swift */,
-				022E57AE25AEFA80006E03A6 /* AddDeviceViewController.xib */,
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		65E2A9FEA2358EB0ABF40F98 /* Pods */ = {
@@ -395,7 +416,6 @@
 				026043D62589FB8C004B0E1D /* TabBarViewController.swift in Sources */,
 				02C2444025ACC0AA0011AB16 /* DeviceModel.swift in Sources */,
 				02BCE316257A61AB00482E97 /* LoginViewController.swift in Sources */,
-				022E57AB25AEF478006E03A6 /* DeviceViewModel.swift in Sources */,
 				022E579A25AEE5BE006E03A6 /* OneCultureViewController.swift in Sources */,
 				022E579F25AEEAEE006E03A6 /* DevicesViewController.swift in Sources */,
 				025A34DB257A5577004A3E14 /* FirstViewController.swift in Sources */,

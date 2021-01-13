@@ -19,18 +19,21 @@ class AddDeviceViewController: UIViewController {
     
     weak var delegate: AddDeviceDelagate?
     
-    var cultureId: Int?
+    private var viewModel: CulturesViewModel
     
-    convenience init(cultureId: Int){
-        self.init()
-        self.cultureId = cultureId
+    init(viewModel: CulturesViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: "AddDeviceViewController", bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupUI()
-        // Do any additional setup after loading the view.
     }
 
 
@@ -43,10 +46,18 @@ class AddDeviceViewController: UIViewController {
         guard let id = idTF.text,
               let devId = devIdTF.text else {return}
         
-        let servise = MeasurementsService()
-        guard let cultureId = cultureId else {return}
+        let servise = MeasurmentsService()
+        guard let cultureId = viewModel.selectedCulture?.cultureId else {return}
         DispatchQueue.main.async {
-            servise.addDeviceToCulture(cultureID: cultureId, id: id, devID: devId)
+            servise.addDeviceToCulture(cultureID: cultureId, id: id, devID: devId) { result in
+                switch result {
+                case.success(let cultures):
+                    self.viewModel.cultures = cultures
+                    self.delegate?.didAddDevice()
+                case .failure(let error):
+                    debugPrint(error)
+                }
+            }
             self.delegate?.didAddDevice()
         }
         self.dismiss(animated: true, completion: nil)

@@ -3,4 +3,230 @@
    uuid = "76951179-AB79-4061-BABA-621578982822"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "906604C0-7750-49FB-8A1E-A724202A7F77"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PametnaPoljoprivreda/CultureAndDeviceVC/DevicesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "deleteDevice(cultureID:devID:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "906604C0-7750-49FB-8A1E-A724202A7F77 - 9cd4826a4b6f8334"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PametnaPoljoprivreda.DevicesViewController.deleteDevice(cultureID: Swift.Int, devID: Swift.Int) -&gt; ()"
+                  moduleName = "PametnaPoljoprivreda"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/borna/FER3/PROJEKT/preddiplprojekt_2020_pametnapoljoprivreda/PametnaPoljoprivreda/PametnaPoljoprivreda/CultureAndDeviceVC/DevicesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "149">
+               </Location>
+               <Location
+                  uuid = "906604C0-7750-49FB-8A1E-A724202A7F77 - fed1a0d44bd2ad16"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;PametnaPoljoprivreda.CulturesModel&gt;, Swift.Error&gt;) -&gt; () in PametnaPoljoprivreda.DevicesViewController.deleteDevice(cultureID: Swift.Int, devID: Swift.Int) -&gt; ()"
+                  moduleName = "PametnaPoljoprivreda"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/borna/FER3/PROJEKT/preddiplprojekt_2020_pametnapoljoprivreda/PametnaPoljoprivreda/PametnaPoljoprivreda/CultureAndDeviceVC/DevicesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "163">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1AC18952-853B-4F28-818F-4AF731471F25"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PametnaPoljoprivreda/CultureAndDeviceVC/DevicesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "deleteDevice(cultureID:devID:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1AC18952-853B-4F28-818F-4AF731471F25 - fed1a0d44bd2ad16"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;PametnaPoljoprivreda.CulturesModel&gt;, Swift.Error&gt;) -&gt; () in PametnaPoljoprivreda.DevicesViewController.deleteDevice(cultureID: Swift.Int, devID: Swift.Int) -&gt; ()"
+                  moduleName = "PametnaPoljoprivreda"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/borna/FER3/PROJEKT/preddiplprojekt_2020_pametnapoljoprivreda/PametnaPoljoprivreda/PametnaPoljoprivreda/CultureAndDeviceVC/DevicesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "163">
+               </Location>
+               <Location
+                  uuid = "1AC18952-853B-4F28-818F-4AF731471F25 - fed1a0d44bd2ad16"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;PametnaPoljoprivreda.CulturesModel&gt;, Swift.Error&gt;) -&gt; () in PametnaPoljoprivreda.DevicesViewController.deleteDevice(cultureID: Swift.Int, devID: Swift.Int) -&gt; ()"
+                  moduleName = "PametnaPoljoprivreda"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/borna/FER3/PROJEKT/preddiplprojekt_2020_pametnapoljoprivreda/PametnaPoljoprivreda/PametnaPoljoprivreda/CultureAndDeviceVC/DevicesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "185">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CF265AA9-F459-4DB3-98A4-04B6613A9F40"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PametnaPoljoprivreda/Services/MesurmentService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "addDeviceToCulture(cultureID:id:devID:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CF526923-1CCB-44A5-96E5-5045B7D254F1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PametnaPoljoprivreda/Services/MesurmentService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "addDeviceToCulture(cultureID:id:devID:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CF526923-1CCB-44A5-96E5-5045B7D254F1 - 3009761f9d7fb8fa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PametnaPoljoprivreda.MeasurmentsService.addDeviceToCulture(cultureID: Swift.Int, id: Swift.String, devID: Swift.String, completion: (Swift.Result&lt;Swift.Array&lt;PametnaPoljoprivreda.CulturesModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "PametnaPoljoprivreda"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/borna/FER3/PROJEKT/preddiplprojekt_2020_pametnapoljoprivreda/PametnaPoljoprivreda/PametnaPoljoprivreda/Services/MesurmentService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "2808">
+               </Location>
+               <Location
+                  uuid = "CF526923-1CCB-44A5-96E5-5045B7D254F1 - e92ac57f003215e2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in PametnaPoljoprivreda.MeasurmentsService.addDeviceToCulture(cultureID: Swift.Int, id: Swift.String, devID: Swift.String, completion: (Swift.Result&lt;Swift.Array&lt;PametnaPoljoprivreda.CulturesModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "PametnaPoljoprivreda"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/borna/FER3/PROJEKT/preddiplprojekt_2020_pametnapoljoprivreda/PametnaPoljoprivreda/PametnaPoljoprivreda/Services/MesurmentService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "312">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2F8109B0-21F7-43DD-90CD-1642E0968628"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PametnaPoljoprivreda/Services/MesurmentService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "addDeviceToCulture(cultureID:id:devID:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2F8109B0-21F7-43DD-90CD-1642E0968628 - bd46432101de38e3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;PametnaPoljoprivreda.CulturesModel&gt;, Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in PametnaPoljoprivreda.MeasurmentsService.addDeviceToCulture(cultureID: Swift.Int, id: Swift.String, devID: Swift.String, completion: (Swift.Result&lt;Swift.Array&lt;PametnaPoljoprivreda.CulturesModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "PametnaPoljoprivreda"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/borna/FER3/PROJEKT/preddiplprojekt_2020_pametnapoljoprivreda/PametnaPoljoprivreda/PametnaPoljoprivreda/Services/MesurmentService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "148"
+                  endingLineNumber = "148"
+                  offsetFromSymbolStart = "177">
+               </Location>
+               <Location
+                  uuid = "2F8109B0-21F7-43DD-90CD-1642E0968628 - bd46432101de38e3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;PametnaPoljoprivreda.CulturesModel&gt;, Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in PametnaPoljoprivreda.MeasurmentsService.addDeviceToCulture(cultureID: Swift.Int, id: Swift.String, devID: Swift.String, completion: (Swift.Result&lt;Swift.Array&lt;PametnaPoljoprivreda.CulturesModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "PametnaPoljoprivreda"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/borna/FER3/PROJEKT/preddiplprojekt_2020_pametnapoljoprivreda/PametnaPoljoprivreda/PametnaPoljoprivreda/Services/MesurmentService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "148"
+                  endingLineNumber = "148"
+                  offsetFromSymbolStart = "193">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5931CA8F-508D-4039-8047-7CBBAC9B1C28"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PametnaPoljoprivreda/Services/MesurmentService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "fetchCultures(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

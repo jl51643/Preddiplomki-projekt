@@ -42,7 +42,7 @@ class AddCultureViewController: UIViewController {
               let desc = descriptionTF.text else {return}
         
         
-        let service = MeasurementsService()
+        let service = MeasurmentsService()
         
         DispatchQueue.main.async {
             service.addCulture(cultureID: cultureID, title: title, deviceID: deviceID, deviceDevID: deviceDevID, description: desc)

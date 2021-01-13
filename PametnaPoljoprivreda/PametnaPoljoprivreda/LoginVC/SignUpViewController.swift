@@ -53,7 +53,9 @@ class SignUpViewController: UIViewController {
     
     //sa userId-om
     func navigateToHome(){
-        navigationController?.pushViewController(CultureTableViewController(), animated: true)
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            
+        }
     }
  
 }
@@ -81,9 +83,5 @@ extension SignUpViewController {
                     print(err)
                 }
             }
-
-
-
-
     }
 }

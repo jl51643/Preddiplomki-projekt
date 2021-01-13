@@ -12,7 +12,7 @@ class MeasurementsViewModel {
     var measurements: [MeasurementsModel]?
     
     func fetchMeasurments(compleation: @escaping((Result<[MeasurementsModel],Error>)->Void)) {
-        let measurmentsService = MeasurementsService()
+        let measurmentsService = MeasurmentsService()
         
         measurmentsService.fetchMeasurmentData { (result) in
             DispatchQueue.main.async {

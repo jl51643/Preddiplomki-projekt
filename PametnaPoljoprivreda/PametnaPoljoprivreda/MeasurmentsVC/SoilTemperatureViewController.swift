@@ -1,5 +1,5 @@
 //
-//  SoilHumidityViewController.swift
+//  SoilTemperatureViewController.swift
 //  PametnaPoljoprivreda
 //
 //  Created by Borna on 16.12.2020..
@@ -8,7 +8,7 @@
 import UIKit
 import Charts
 
-class SoilHumidityViewController: UIViewController, ChartViewDelegate {
+class SoilTemperatureViewController: UIViewController, ChartViewDelegate {
     
     private var chartView = LineChartView()
     private var viewModel: MeasurementsViewModel?
@@ -17,10 +17,12 @@ class SoilHumidityViewController: UIViewController, ChartViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = "Soil Humidity"
-
+        navigationItem.title = "Soil Temperature"
+        
         setUpViewModel()
+        
     }
+
 
     func setUpCharth(arr: [Double]){
         chartView.delegate = self
@@ -46,11 +48,11 @@ class SoilHumidityViewController: UIViewController, ChartViewDelegate {
         //data
         var entries = [ChartDataEntry]()
     
-        for x in 0..<arr.count {
+        for x in 0..<arr.count{
             entries.append(ChartDataEntry(x: Double(x), y: Double(arr[x])))
         }
         
-        let set = LineChartDataSet(entries: entries, label: "SoilHumidity")
+        let set = LineChartDataSet(entries: entries, label: "SoilTemperature")
         set.colors = ChartColorTemplates.pastel()
         
        
@@ -64,14 +66,13 @@ class SoilHumidityViewController: UIViewController, ChartViewDelegate {
     }
     
     func setUpViewModel(){
-        let servis = MeasurementsService()
+        let servis = MeasurmentsService()
         servis.fetchMeasurmentData { (result) in
             switch result {
             case .success(let model):
                 self.viewModel?.measurements = model
-                print(model.capacity)
                 let arr = model.map { (m) -> Double in
-                    return (m.soilHumidity ?? 1)
+                    return (m.soilTemperature ?? 1)
                 }
                 self.setUpCharth(arr: arr)
             case .failure( _):

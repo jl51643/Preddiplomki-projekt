@@ -11,19 +11,24 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
+    var navigationControler: UINavigationController?
 
     
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        
+        navigationControler = UINavigationController(rootViewController: FirstViewController())
        
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = UINavigationController(rootViewController: FirstViewController())
+        window.rootViewController = navigationControler
         //window.rootViewController = TabBarViewController()
         self.window = window
         window.makeKeyAndVisible()
+    }
+    
+    func gotoHOME() {
+        navigationControler?.viewControllers = [CultureTableViewController()]
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

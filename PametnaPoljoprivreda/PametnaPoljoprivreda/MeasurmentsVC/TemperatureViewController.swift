@@ -1,5 +1,5 @@
 //
-//  HumidityViewController.swift
+//  TemperatureViewController.swift
 //  PametnaPoljoprivreda
 //
 //  Created by Borna on 16.12.2020..
@@ -7,24 +7,22 @@
 
 import UIKit
 import Charts
+import SVProgressHUD
 
-class HumidityViewController: UIViewController, ChartViewDelegate {
+class TemperatureViewController: UIViewController, ChartViewDelegate {
     
     private var chartView = LineChartView()
     private var viewModel: MeasurementsViewModel?
-  
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navigationItem.title = "Humidity"
-     
-      
-        setUpViewModel()
         
+       
+        setUpViewModel()
     }
-
-
+    
+    
+    
     func setUpCharth(arr: [Double]){
         chartView.delegate = self
         
@@ -48,12 +46,14 @@ class HumidityViewController: UIViewController, ChartViewDelegate {
         
         //data
         var entries = [ChartDataEntry]()
+        
+
     
         for x in 0 ..< arr.count {
             entries.append(ChartDataEntry(x: Double(x), y: Double(arr[x])))
         }
         
-        let set = LineChartDataSet(entries: entries, label: "Humidity")
+        let set = LineChartDataSet(entries: entries, label: "Temperature")
         set.colors = ChartColorTemplates.pastel()
         
        
@@ -63,26 +63,28 @@ class HumidityViewController: UIViewController, ChartViewDelegate {
         
         let data = LineChartData(dataSet: set)
         chartView.data = data
-        
     }
     
-    func setUpViewModel() {
-        let servis = MeasurementsService()
-
+    
+    func setUpViewModel(){
+        SVProgressHUD.show()
+        let servis = MeasurmentsService()
         servis.fetchMeasurmentData { (result) in
-
             switch result {
             case .success(let model):
                 self.viewModel?.measurements = model
                 let arr = model.map { (m) -> Double in
-                    return (m.airHumidity ?? 1)
+                    return (m.airTemperature ?? 1)
                 }
                 self.setUpCharth(arr: arr)
-            case .failure( _):
-                print("errrr")
+                SVProgressHUD.dismiss(withDelay: TimeInterval(5))
+            case .failure(_):
+                SVProgressHUD.showError(withStatus: "Error while fetching data")
             }
         }
+    
 
     }
+    
 
 }

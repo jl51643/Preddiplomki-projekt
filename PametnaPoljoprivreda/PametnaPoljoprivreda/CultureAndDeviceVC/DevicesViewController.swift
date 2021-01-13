@@ -12,18 +12,15 @@ class DevicesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     private var refreshControl: UIRefreshControl!
+    private var viewModel: CulturesViewModel
     
-    var model: [DeviceModel]? {
-        didSet{
-            self.refresh()
-        }
+    init(viewModel: CulturesViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: "DevicesViewController", bundle: nil)
     }
-    var cultureID: Int?
     
-    convenience init(model: [DeviceModel], cultureID: Int){
-        self.init()
-        self.model = model
-        self.cultureID = cultureID
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -46,9 +43,17 @@ class DevicesViewController: UIViewController {
     }
     
     func deleteDevice(cultureID: Int, devID: Int){
-        let servis = MeasurementsService()
+        let servis = MeasurmentsService()
         
-        servis.deleteDeviceFromCulture(cultureID: cultureID, devID: devID)
+        servis.deleteDeviceFromCulture(cultureID: cultureID, devID: devID) { result in
+            switch result {
+            case.success(let cultures):
+                self.viewModel.cultures = cultures
+                self.refresh()
+            case .failure(let error):
+                debugPrint(error)
+            }
+        }
     }
     
     func setupTableView() {
@@ -72,10 +77,11 @@ class DevicesViewController: UIViewController {
     }
 
     @objc func didSelectAddDevice() {
-        guard let cultureId = cultureID else {return}
-        let addDeviceVC = AddDeviceViewController(cultureId: cultureId)
-        addDeviceVC.delegate = self
-        navigationController?.present(addDeviceVC, animated: true, completion: nil)
+        if let cultureID = viewModel.selectedCulture?.cultureId {
+            let addDeviceVC = AddDeviceViewController(viewModel: viewModel)
+            addDeviceVC.delegate = self
+            navigationController?.present(addDeviceVC, animated: true, completion: nil)
+        }
     }
 }
 
@@ -86,10 +92,10 @@ extension DevicesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            guard let id = model?[indexPath.row].id,
-                  let cultureID = cultureID,
+            guard let id = viewModel.selectedCulture?.devices[indexPath.row].id,
+                  let cultureID = viewModel.selectedCulture?.cultureId,
                   let IDInt = try? Int(id) else {  return}
-            model?.remove(at: indexPath.row)
+            viewModel.selectedCulture?.devices.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .top)
             deleteDevice(cultureID: cultureID, devID: IDInt)
             
@@ -103,13 +109,13 @@ extension DevicesViewController: UITableViewDelegate {
 
 extension DevicesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model?.count ?? 0
+        return viewModel.selectedCulture?.devices.count ?? 0
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        if let cell = tableView.dequeueReusableCell(withIdentifier: Constants.deviceCellReuseIdentifier, for: indexPath) as? DeviceTableViewCell {
-        if let device = model?[indexPath.row] {
+        if let device = viewModel.selectedCulture?.devices[indexPath.row] {
             cell.configure(with: DeviceCellModel(id: String(device.id), devId: device.devId))
         }
            return cell
@@ -124,6 +130,4 @@ extension DevicesViewController: AddDeviceDelagate {
     func didAddDevice() {
         self.refresh()
     }
-
-
 }
