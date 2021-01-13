@@ -16,9 +16,13 @@ class MeasurementsService {
     
         let urlString = baseUrlString + "/api/measurement/all"
         guard let url = URL(string: urlString) else {return}
-        
+        guard let token = UserCredentials.shared.getToken() else {
+            return
+        }
+    
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (data,response,error) in
             if let data = data {
@@ -99,6 +103,55 @@ class MeasurementsService {
     
     func deleteCulture(cultureID: Int) {
         let urlString = baseUrlString + "/api/culture/delete/\(cultureID)"
+        guard let url = URL(string: urlString) else {return}
+        
+        guard let token = UserCredentials.shared.getToken() else {return}
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data {
+                print(data)
+            } else if let err = error {
+                print(err.localizedDescription)
+            } else if let response = response {
+                print(response)
+            }
+        }.resume()
+    }
+    
+    func addDeviceToCulture(cultureID: Int, id: String, devID: String) {
+        let urlString = baseUrlString + "/api/culture/\(cultureID)/devices/add"
+        guard let url = URL(string: urlString) else {return}
+        
+        guard let token = UserCredentials.shared.getToken() else {return}
+        
+        let data = [
+            "id" : id,
+            "devID" : devID
+        ]
+        
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: data, options: []) else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonData
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data {
+                print(data)
+            } else if let err = error {
+                print(err.localizedDescription)
+            }
+        }.resume()
+    }
+    
+    func deleteDeviceFromCulture(cultureID: Int, devID: Int) {
+        let urlString = baseUrlString + "/api/culture/\(cultureID)/devices/delete/\(devID)"
         guard let url = URL(string: urlString) else {return}
         
         guard let token = UserCredentials.shared.getToken() else {return}

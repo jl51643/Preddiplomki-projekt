@@ -16,7 +16,7 @@ class TemperatureViewController: UIViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Temperature"
+        
        
         setUpViewModel()
     }

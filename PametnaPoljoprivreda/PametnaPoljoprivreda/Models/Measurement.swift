@@ -9,12 +9,13 @@ import Foundation
 
 struct MeasurementsModel: Decodable{
     let id: Int?
-    let devId: String?
+    let device: DeviceModel?
     let time: String?
     let airHumidity: Double?
     let soilHumidity: Double?
     let airTemperature: Double?
     let soilTemperature: Double?
+    let pressure: Double?
 }
 
 struct AllMeasurements: Decodable {

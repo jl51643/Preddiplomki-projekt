@@ -9,7 +9,8 @@ import Foundation
 
 final class Constants {
     //dodat endPointove i reuse identifiare
-    static let baseUrl = "http://f0db5dac1e14.ngrok.io"
+    static let baseUrl = "http://4ccb97987cf0.ngrok.io"
     static let cellReuseIdentifier = "cellReuseIdentifier"
+    static let deviceCellReuseIdentifier = "deviceCellReuseIdentifier"
 
 }

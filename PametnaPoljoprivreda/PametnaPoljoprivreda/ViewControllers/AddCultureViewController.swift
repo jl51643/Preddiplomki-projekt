@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ResultSuccessDelegate: class {
+protocol AddCultureDelegate: class {
     func didAddCulture()
 }
 
@@ -20,7 +20,7 @@ class AddCultureViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var dissmisButton: UIButton!
     
-    weak var resultDelagate: ResultSuccessDelegate?
+    weak var resultDelagate: AddCultureDelegate?
     
     
     override func viewDidLoad() {

@@ -29,9 +29,11 @@ extension UITextField {
 
 extension UILabel {
     static func styleLabel(label: UILabel){
-        label.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
-        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0.5019607843, alpha: 1)
-        label.layer.cornerRadius = 5
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0, y: label.frame.height - 2, width: label.frame.width, height: 2)
+        bottomLine.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+        bottomLine.cornerRadius = 20
+        label.layer.addSublayer(bottomLine)
         label.layer.masksToBounds = true
     }
 }

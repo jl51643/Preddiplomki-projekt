@@ -13,6 +13,16 @@
 		022B1CE825A7130400787C39 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 022B1CE625A7130400787C39 /* TableViewCell.xib */; };
 		022B1CFA25A73CC000787C39 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022B1CF925A73CC000787C39 /* UserViewModel.swift */; };
 		022B1CFD25A73E2000787C39 /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022B1CFC25A73E2000787C39 /* UserCredentials.swift */; };
+		022E579A25AEE5BE006E03A6 /* OneCultureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022E579825AEE5BE006E03A6 /* OneCultureViewController.swift */; };
+		022E579B25AEE5BE006E03A6 /* OneCultureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 022E579925AEE5BE006E03A6 /* OneCultureViewController.xib */; };
+		022E579F25AEEAEE006E03A6 /* DevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022E579D25AEEAEE006E03A6 /* DevicesViewController.swift */; };
+		022E57A025AEEAEE006E03A6 /* DevicesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 022E579E25AEEAEE006E03A6 /* DevicesViewController.xib */; };
+		022E57A425AEEEE3006E03A6 /* DeviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022E57A225AEEEE3006E03A6 /* DeviceTableViewCell.swift */; };
+		022E57A525AEEEE3006E03A6 /* DeviceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 022E57A325AEEEE3006E03A6 /* DeviceTableViewCell.xib */; };
+		022E57A825AEEF9B006E03A6 /* DeviceCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022E57A725AEEF9B006E03A6 /* DeviceCellModel.swift */; };
+		022E57AB25AEF478006E03A6 /* DeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022E57AA25AEF478006E03A6 /* DeviceViewModel.swift */; };
+		022E57AF25AEFA80006E03A6 /* AddDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022E57AD25AEFA80006E03A6 /* AddDeviceViewController.swift */; };
+		022E57B025AEFA80006E03A6 /* AddDeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 022E57AE25AEFA80006E03A6 /* AddDeviceViewController.xib */; };
 		025A34C3257A554F004A3E14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025A34C2257A554F004A3E14 /* AppDelegate.swift */; };
 		025A34C5257A554F004A3E14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025A34C4257A554F004A3E14 /* SceneDelegate.swift */; };
 		025A34CC257A5550004A3E14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 025A34CB257A5550004A3E14 /* Assets.xcassets */; };
@@ -54,6 +64,16 @@
 		022B1CE625A7130400787C39 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		022B1CF925A73CC000787C39 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		022B1CFC25A73E2000787C39 /* UserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
+		022E579825AEE5BE006E03A6 /* OneCultureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneCultureViewController.swift; sourceTree = "<group>"; };
+		022E579925AEE5BE006E03A6 /* OneCultureViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OneCultureViewController.xib; sourceTree = "<group>"; };
+		022E579D25AEEAEE006E03A6 /* DevicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewController.swift; sourceTree = "<group>"; };
+		022E579E25AEEAEE006E03A6 /* DevicesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DevicesViewController.xib; sourceTree = "<group>"; };
+		022E57A225AEEEE3006E03A6 /* DeviceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTableViewCell.swift; sourceTree = "<group>"; };
+		022E57A325AEEEE3006E03A6 /* DeviceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeviceTableViewCell.xib; sourceTree = "<group>"; };
+		022E57A725AEEF9B006E03A6 /* DeviceCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCellModel.swift; sourceTree = "<group>"; };
+		022E57AA25AEF478006E03A6 /* DeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceViewModel.swift; sourceTree = "<group>"; };
+		022E57AD25AEFA80006E03A6 /* AddDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeviceViewController.swift; sourceTree = "<group>"; };
+		022E57AE25AEFA80006E03A6 /* AddDeviceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddDeviceViewController.xib; sourceTree = "<group>"; };
 		025A34BF257A554F004A3E14 /* PametnaPoljoprivreda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PametnaPoljoprivreda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		025A34C2257A554F004A3E14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		025A34C4257A554F004A3E14 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +129,8 @@
 			children = (
 				022B1CE525A7130400787C39 /* TableViewCell.swift */,
 				022B1CE625A7130400787C39 /* TableViewCell.xib */,
+				022E57A225AEEEE3006E03A6 /* DeviceTableViewCell.swift */,
+				022E57A325AEEEE3006E03A6 /* DeviceTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,6 +207,8 @@
 				02C8B5C325AD95B000672675 /* CultureCellModel.swift */,
 				02C2444325ACC1E00011AB16 /* CulturesViewModel.swift */,
 				026043F2258A0D9B004B0E1D /* MesurmentsViewModel.swift */,
+				022E57A725AEEF9B006E03A6 /* DeviceCellModel.swift */,
+				022E57AA25AEF478006E03A6 /* DeviceViewModel.swift */,
 			);
 			path = VIewModels;
 			sourceTree = "<group>";
@@ -211,6 +235,12 @@
 				026043E82589FC92004B0E1D /* SoilHumidityViewController.xib */,
 				02C8B5C825ADA11700672675 /* AddCultureViewController.swift */,
 				02C8B5C925ADA11700672675 /* AddCultureViewController.xib */,
+				022E579825AEE5BE006E03A6 /* OneCultureViewController.swift */,
+				022E579925AEE5BE006E03A6 /* OneCultureViewController.xib */,
+				022E579D25AEEAEE006E03A6 /* DevicesViewController.swift */,
+				022E579E25AEEAEE006E03A6 /* DevicesViewController.xib */,
+				022E57AD25AEFA80006E03A6 /* AddDeviceViewController.swift */,
+				022E57AE25AEFA80006E03A6 /* AddDeviceViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -294,10 +324,14 @@
 				02BCE317257A61AB00482E97 /* LoginViewController.xib in Resources */,
 				022B1CE825A7130400787C39 /* TableViewCell.xib in Resources */,
 				025A34CC257A5550004A3E14 /* Assets.xcassets in Resources */,
+				022E57A525AEEEE3006E03A6 /* DeviceTableViewCell.xib in Resources */,
 				026043EA2589FC92004B0E1D /* SoilHumidityViewController.xib in Resources */,
 				02C2443A25ACBFE50011AB16 /* CultureTableViewController.xib in Resources */,
 				026043DB2589FC56004B0E1D /* TemperatureViewController.xib in Resources */,
+				022E579B25AEE5BE006E03A6 /* OneCultureViewController.xib in Resources */,
+				022E57A025AEEAEE006E03A6 /* DevicesViewController.xib in Resources */,
 				026043E52589FC7D004B0E1D /* SoilTemperatureViewController.xib in Resources */,
+				022E57B025AEFA80006E03A6 /* AddDeviceViewController.xib in Resources */,
 				026043E02589FC6B004B0E1D /* HumidityViewController.xib in Resources */,
 				02BCE312257A619B00482E97 /* SignUpViewController.xib in Resources */,
 				02C8B5CB25ADA11700672675 /* AddCultureViewController.xib in Resources */,
@@ -361,17 +395,23 @@
 				026043D62589FB8C004B0E1D /* TabBarViewController.swift in Sources */,
 				02C2444025ACC0AA0011AB16 /* DeviceModel.swift in Sources */,
 				02BCE316257A61AB00482E97 /* LoginViewController.swift in Sources */,
+				022E57AB25AEF478006E03A6 /* DeviceViewModel.swift in Sources */,
+				022E579A25AEE5BE006E03A6 /* OneCultureViewController.swift in Sources */,
+				022E579F25AEEAEE006E03A6 /* DevicesViewController.swift in Sources */,
 				025A34DB257A5577004A3E14 /* FirstViewController.swift in Sources */,
+				022E57A425AEEEE3006E03A6 /* DeviceTableViewCell.swift in Sources */,
 				025A34C3257A554F004A3E14 /* AppDelegate.swift in Sources */,
 				025A34C5257A554F004A3E14 /* SceneDelegate.swift in Sources */,
 				022B1CFD25A73E2000787C39 /* UserCredentials.swift in Sources */,
 				026043DF2589FC6B004B0E1D /* HumidityViewController.swift in Sources */,
+				022E57AF25AEFA80006E03A6 /* AddDeviceViewController.swift in Sources */,
 				02C8B5C425AD95B000672675 /* CultureCellModel.swift in Sources */,
 				026043E42589FC7D004B0E1D /* SoilTemperatureViewController.swift in Sources */,
 				026043F0258A0B0D004B0E1D /* MesurmentService.swift in Sources */,
 				02C2443D25ACC0570011AB16 /* CulturesModel.swift in Sources */,
 				022B1CDD25A7096400787C39 /* UserModel.swift in Sources */,
 				022B1CFA25A73CC000787C39 /* UserViewModel.swift in Sources */,
+				022E57A825AEEF9B006E03A6 /* DeviceCellModel.swift in Sources */,
 				026043ED258A0A2B004B0E1D /* Measurement.swift in Sources */,
 				025A34E7257A595C004A3E14 /* Extensions.swift in Sources */,
 				02C2443925ACBFE50011AB16 /* CultureTableViewController.swift in Sources */,

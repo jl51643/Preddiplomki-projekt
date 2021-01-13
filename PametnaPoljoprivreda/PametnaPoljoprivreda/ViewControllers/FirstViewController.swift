@@ -24,8 +24,6 @@ class FirstViewController: UIViewController {
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
         let signUpVC = SignUpViewController()
         navigationController?.pushViewController(signUpVC, animated: false)
-        UIView.setAnimationTransition(UIView.AnimationTransition.flipFromLeft, for: (self.navigationController?.view)!, cache: false)
-        UIView.commitAnimations()
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
@@ -35,6 +33,7 @@ class FirstViewController: UIViewController {
     
     // MARK: Class methods
     func setupUI(){
+        navigationController?.navigationItem.hidesBackButton = true
         navigationController?.navigationBar.isHidden = true
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!).withAlphaComponent(CGFloat(0.7))
         UIButton.styleButton(button: signUpButton)

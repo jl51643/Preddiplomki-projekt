@@ -29,9 +29,11 @@ class CultureTableViewController: UIViewController {
 
     func setupNavigationBar() {
         navigationController?.navigationBar.isHidden = false
+        //navigationController?.navigationItem.hidesBackButton = true
         navigationController?.title = "Cultures"
-        let addButton = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(CultureTableViewController.didSelectAddCulture))
-        navigationItem.rightBarButtonItem = addButton
+        let button = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(CultureTableViewController.didSelectAddCulture))
+        navigationItem.rightBarButtonItem = button
+        navigationItem.leftBarButtonItem = button
     }
 
     
@@ -104,19 +106,22 @@ extension CultureTableViewController: UITableViewDelegate {
     }
     
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//
-//        UIView.beginAnimations("flipajVC", context: nil)
-//        UIView.setAnimationDuration(1.0)
-//
-//        guard let viewModel = self.viewModel?.singleQuizViewModel(forIndexPath: indexPath) else {return}
-//        let quizViewController = QuizViewController(viewModel: viewModel)
-//        navigationController?.pushViewController(quizViewController, animated: true)
-//
-//        UIView.setAnimationTransition(UIView.AnimationTransition.flipFromLeft, for: (self.navigationController?.view)!, cache: false)
-//        UIView.commitAnimations()
-//    }//na tap cella prijedi na quizvc
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        UIView.beginAnimations("flipajVC", context: nil)
+        UIView.setAnimationDuration(1.0)
+
+        guard let viewModel = viewModel else {
+            return
+        }
+      
+        let cultureVC = OneCultureViewController(model: (viewModel.cultures?[indexPath.row])!)
+        navigationController?.pushViewController(cultureVC, animated: false)
+
+        UIView.setAnimationTransition(UIView.AnimationTransition.flipFromLeft, for: (self.navigationController?.view)!, cache: false)
+        UIView.commitAnimations()
+    }//na tap cella prijedi na quizvc
 }
 
 extension CultureTableViewController: UITableViewDataSource {
@@ -138,7 +143,7 @@ extension CultureTableViewController: UITableViewDataSource {
     
 }
 
-extension CultureTableViewController: ResultSuccessDelegate {
+extension CultureTableViewController: AddCultureDelegate {
     func didAddCulture() {
         self.setUpViewModel()
         self.refresh()
