@@ -48,11 +48,16 @@ public class CultureService {
         return exists;
     }
 
-    public void addDeviceToCulture(Long id, DeviceModel deviceModel) {
+    public void addDeviceToCulture(Long id, Long deviceId) {
         Optional<Culture> culture = this.cultureRepository.findById(id);
-        if(culture.isEmpty()) return;
+        if(culture.isEmpty())
+            return;
+
         Culture existingCulture = culture.get();
-        existingCulture.getDevices().add(deviceModel.toDevice());
+
+        Optional<Device> device = this.deviceRepository.findById(deviceId);
+        existingCulture.getDevices().add(device.get());
+
         this.cultureRepository.save(existingCulture);
     }
 

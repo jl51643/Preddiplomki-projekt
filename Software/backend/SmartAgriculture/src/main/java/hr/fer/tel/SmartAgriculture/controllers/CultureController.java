@@ -45,9 +45,9 @@ public class CultureController {
         return ResponseEntity.notFound().build();
     }
 
-    @PostMapping("/{id}/devices/add")
-    public ResponseEntity<?> addDeviceToCulture(@PathVariable Long id, @RequestBody DeviceModel deviceModel) {
-        this.cultureService.addDeviceToCulture(id, deviceModel);
+    @PostMapping("/{id}/devices/add/{deviceId}")
+    public ResponseEntity<?> addDeviceToCulture(@PathVariable Long id, @PathVariable Long deviceId) {
+        this.cultureService.addDeviceToCulture(id, deviceId);
         return ResponseEntity.ok().build();
     }
 
