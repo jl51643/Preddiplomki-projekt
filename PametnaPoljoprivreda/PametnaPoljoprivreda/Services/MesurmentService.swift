@@ -65,7 +65,7 @@ class MeasurmentsService {
 
     }
     
-    func addCulture(cultureID: String, title :String, deviceID: String, deviceDevID: String, description: String) {
+    func addCulture(cultureID: String, title :String, deviceID: String, deviceDevID: String, description: String, completion: @escaping ((Result<[CulturesModel], Error>)->Void)) {
         
         let urlString = baseUrlString + "/api/culture/add"
         guard let url = URL(string: urlString) else {return}
@@ -92,7 +92,14 @@ class MeasurmentsService {
 
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
-                print(data)
+                self.fetchCultures { result in
+                    switch result {
+                    case .success(let cultures):
+                        completion(.success(cultures))
+                    case .failure(let err):
+                        completion(.failure(err))
+                    }
+                }
             } else if let err = error {
                 print(err.localizedDescription)
             }

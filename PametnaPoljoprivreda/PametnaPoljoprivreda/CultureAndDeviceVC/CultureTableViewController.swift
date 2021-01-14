@@ -55,7 +55,6 @@ class CultureTableViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
       
-        tableView.backgroundColor = UIColor.lightGray
         
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(CultureTableViewController.refresh), for: UIControl.Event.valueChanged)

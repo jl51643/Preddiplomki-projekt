@@ -9,6 +9,7 @@ import UIKit
 import Charts
 
 class SoilTemperatureViewController: UIViewController, ChartViewDelegate {
+    @IBOutlet weak var soilTempLabel: UILabel!
     
     private var chartView = LineChartView()
     private var viewModel: MeasurementsViewModel?
@@ -16,52 +17,45 @@ class SoilTemperatureViewController: UIViewController, ChartViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navigationItem.title = "Soil Temperature"
-        
+        UILabel.styleLabel(label: soilTempLabel)
         setUpViewModel()
-        
     }
 
 
-    func setUpCharth(arr: [Double]){
-        chartView.delegate = self
+    func setUpCharth(array: [Double]){
         
-        chartView.frame = CGRect(x: 0, y: 0, width: 350, height: 400)
-        chartView.center = view.center
-        view.addSubview(chartView)
+        DispatchQueue.main.async {
+            
+            self.chartView.frame = CGRect(x: 0, y: 0, width: 350, height: 400)
+            self.chartView.center = self.view.center
+            self.view.addSubview(self.chartView)
+            
+            let xAxisLimit = ChartLimitLine(limit: 10)
+            xAxisLimit.lineWidth = 2
+            
+            let leftAxis =  self.chartView.leftAxis
+            leftAxis.removeAllLimitLines()
+            leftAxis.axisMinimum = 0
+            leftAxis.axisMaximum = 60
+            self.chartView.rightAxis.enabled = false
+            
+            self.chartView.legend.form = .line
+            
+            var entries = [ChartDataEntry]()
         
+            for x in 0 ..< array.count {
+                entries.append(ChartDataEntry(x: Double(x), y: Double(array[x])))
+            }
+            
+            let set = LineChartDataSet(entries: entries, label: "SoilTemperature")
+            set.colors = ChartColorTemplates.pastel()
+            
+            set.fillColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+            set.drawFilledEnabled = true
         
-        let xAxisLimit = ChartLimitLine(limit: 10)
-        xAxisLimit.lineWidth = 2
-        
-        let leftAxis = chartView.leftAxis
-        leftAxis.removeAllLimitLines()
-        leftAxis.axisMinimum = 0
-        leftAxis.axisMaximum = 60
-        chartView.rightAxis.enabled = false
-        
-    
-        chartView.legend.form = .line
-        
-        
-        //data
-        var entries = [ChartDataEntry]()
-    
-        for x in 0..<arr.count{
-            entries.append(ChartDataEntry(x: Double(x), y: Double(arr[x])))
+            let data = LineChartData(dataSet: set)
+            self.chartView.data = data
         }
-        
-        let set = LineChartDataSet(entries: entries, label: "SoilTemperature")
-        set.colors = ChartColorTemplates.pastel()
-        
-       
-        set.fillColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
-        set.drawFilledEnabled = true
-    
-        
-        let data = LineChartData(dataSet: set)
-        chartView.data = data
         
     }
     
@@ -74,9 +68,9 @@ class SoilTemperatureViewController: UIViewController, ChartViewDelegate {
                 let arr = model.map { (m) -> Double in
                     return (m.soilTemperature ?? 1)
                 }
-                self.setUpCharth(arr: arr)
-            case .failure( _):
-                print("errrr")
+                self.setUpCharth(array: arr)
+            case .failure(let err):
+                print(err.localizedDescription)
             }
         }
 

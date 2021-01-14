@@ -42,16 +42,13 @@ class LoginViewController: UIViewController {
         UITextField.styleTextField(textfield: passwordTF)
         UITextField.styleTextField(textfield: usernameTF)
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!).withAlphaComponent(CGFloat(0.7))
+        passwordTF.isSecureTextEntry = true
     }
     
  
-    //sa userId-om
     func navigateToHome(){
         self.navigationController?.pushViewController(CultureTableViewController(), animated: true)
-        
     }
-    
-    
 }
 
 extension LoginViewController {

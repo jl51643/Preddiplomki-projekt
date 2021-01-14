@@ -45,7 +45,16 @@ class AddCultureViewController: UIViewController {
         let service = MeasurmentsService()
         
         DispatchQueue.main.async {
-            service.addCulture(cultureID: cultureID, title: title, deviceID: deviceID, deviceDevID: deviceDevID, description: desc)
+            service.addCulture(cultureID: cultureID, title: title, deviceID: deviceID, deviceDevID: deviceDevID, description: desc){
+                result in
+                switch result {
+                case.success(let viewModel):
+                    self.resultDelagate?.didAddCulture()
+                case .failure(let error):
+                    debugPrint(error)
+                }
+
+            }
             self.resultDelagate?.didAddCulture()
         }
         

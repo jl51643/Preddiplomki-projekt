@@ -49,6 +49,7 @@ class SignUpViewController: UIViewController {
         UITextField.styleTextField(textfield: mailTF)
         UITextField.styleTextField(textfield: passwordTF)
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!).withAlphaComponent(CGFloat(0.8))
+        passwordTF.isSecureTextEntry = true
     }
     
     //sa userId-om
