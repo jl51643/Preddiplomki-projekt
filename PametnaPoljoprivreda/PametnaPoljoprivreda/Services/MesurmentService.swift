@@ -48,7 +48,6 @@ class MeasurmentsService {
         guard let token = UserCredentials.shared.getToken() else {return}
 
         var request = URLRequest(url: url)
-        //request.httpMethod = "GET"
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
 
 
@@ -61,7 +60,7 @@ class MeasurmentsService {
                     completion(.failure(decodeError))
                     return
                 }
-             }
+            }
         }.resume()
 
     }
@@ -83,8 +82,7 @@ class MeasurmentsService {
             "description": description
         ] as [String : Any]
         
-        guard let jsonData = try? JSONSerialization.data(withJSONObject: data, options: []) else { return  }
-        //let jsonString = String(data: jsonData, encoding: String.Encoding.ascii)!
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: data, options: []) else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -122,27 +120,21 @@ class MeasurmentsService {
         }.resume()
     }
     
-    func addDeviceToCulture(cultureID: Int, id: String, devID: String, completion: @escaping ((Result<[CulturesModel], Error>)->Void)) {
-        let urlString = baseUrlString + "/api/culture/\(cultureID)/devices/add"
+    func addDeviceToCulture(cultureID: Int, id: String, completion: @escaping ((Result<[CulturesModel], Error>)->Void)) {
+        let urlString = baseUrlString + "/api/culture/\(cultureID)/devices/add/\(id)"
         guard let url = URL(string: urlString) else {return}
         
         guard let token = UserCredentials.shared.getToken() else {return}
         
-        let data = [
-            "id" : id,
-            "devID" : devID
-        ]
-        
-        guard let jsonData = try? JSONSerialization.data(withJSONObject: data, options: []) else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = jsonData
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
+                print(data)
                 self.fetchCultures { result in
                     switch result {
                     case .success(let cultures):

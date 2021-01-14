@@ -9,10 +9,32 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
     
+    var viewModel: MeasurementsViewModel?
+    var tempData: [Double] = []
+    
+    var array: [MeasurementsModel]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+//        setupViewModel { (result) in
+//            switch result {
+//            case .success():
+//                self.setUpTabBar()
+//            case .failure(let err):
+//                self.showAlert(title: "error", message: err.localizedDescription)
+//            }
+//        }
+        
+        fetchMeasurments { (result) in
+            switch result {
+            case .success():
+                self.setUpTabBar()
+            case .failure(let err):
+                self.showAlert(title: "error", message: err.localizedDescription)
+            }
+        }
         setUpTabBar()
+       
     }
     
 
@@ -32,7 +54,10 @@ class TabBarViewController: UITabBarController {
         tabBar.unselectedItemTintColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
         let textAttribute = [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)]
         
-        let temperatureVC = TemperatureViewController()
+        
+        
+        
+        let temperatureVC = TemperatureViewController(array: tempData)
         let humidityVC = HumidityViewController()
         let soilTemperatureVC = SoilTemperatureViewController()
         let soilHumidityVC = SoilHumidityViewController()
@@ -72,6 +97,38 @@ class TabBarViewController: UITabBarController {
         self.tabBar.itemWidth = 35.0
         self.tabBar.itemPositioning = .centered
     
+    }
+    
+//    func setupViewModel(completion: @escaping ((Result<Void, Error>)->Void)){
+//        viewModel = MeasurementsViewModel()
+//
+//        viewModel?.fetchMeasurments(completion: { (result) in
+//            switch result {
+//            case .success():
+//                self.tempData = self.viewModel?.measurements.map({ (m) -> Double in
+//                    return (m.airTemperature ?? 1)
+//                }) ?? []
+//
+//            case .failure(let err):
+//                self.showAlert(title: "Error", message: err.localizedDescription)
+//            }
+//        })
+//    }
+    
+    func fetchMeasurments(completion: @escaping ((Result<Void, Error>)->Void)) {
+        let measurmentsService = MeasurmentsService()
+        
+        measurmentsService.fetchMeasurmentData { (result) in
+            switch result {
+            case .success(let measurments):
+                self.array = measurments
+                completion(.success(()))
+            case .failure(let error):
+                self.array = []
+                completion(.failure(error))
+            }
+        }
+
     }
 
 

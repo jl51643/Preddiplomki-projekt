@@ -77,11 +77,11 @@ class DevicesViewController: UIViewController {
     }
 
     @objc func didSelectAddDevice() {
-        if let cultureID = viewModel.selectedCulture?.cultureId {
-            let addDeviceVC = AddDeviceViewController(viewModel: viewModel)
-            addDeviceVC.delegate = self
-            navigationController?.present(addDeviceVC, animated: true, completion: nil)
-        }
+      
+        let addDeviceVC = AddDeviceViewController(viewModel: viewModel)
+        addDeviceVC.delegate = self
+        navigationController?.present(addDeviceVC, animated: true, completion: nil)
+    
     }
 }
 
@@ -94,7 +94,7 @@ extension DevicesViewController: UITableViewDelegate {
         if editingStyle == .delete {
             guard let id = viewModel.selectedCulture?.devices[indexPath.row].id,
                   let cultureID = viewModel.selectedCulture?.cultureId,
-                  let IDInt = try? Int(id) else {  return}
+                  let IDInt = try? Int(id) else {return}
             viewModel.selectedCulture?.devices.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .top)
             deleteDevice(cultureID: cultureID, devID: IDInt)
@@ -102,6 +102,9 @@ extension DevicesViewController: UITableViewDelegate {
         } else if editingStyle == .insert {
             print("nije delete")
         }
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
 
 
@@ -128,6 +131,15 @@ extension DevicesViewController: UITableViewDataSource {
 
 extension DevicesViewController: AddDeviceDelagate {
     func didAddDevice() {
+//        viewModel.fetchCultures(completion: { (result) in
+//                switch result {
+//                case .success():
+//                    self.refresh()
+//                case .failure(let err):
+//                    self.showAlert(title: "Error", message: err.localizedDescription)
+//                }
+//        })
+    
         self.refresh()
     }
 }

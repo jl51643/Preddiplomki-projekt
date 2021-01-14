@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MeasurementsModel: Decodable{
+struct MeasurementsModel: Decodable {
     let id: Int?
     let device: DeviceModel?
     let time: String?
@@ -18,6 +18,3 @@ struct MeasurementsModel: Decodable{
     let pressure: Double?
 }
 
-struct AllMeasurements: Decodable {
-    var measurements: [MeasurementsModel]
-}

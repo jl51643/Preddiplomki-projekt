@@ -37,12 +37,7 @@ class OneCultureViewController: UIViewController {
 
 
     @IBAction func devicesButtonTapped(_ sender: UIButton) {
-        
-//        guard let devices = model?.devices,
-//              let cultureID = model?.cultureId else {return}
-        
         let deviceVC = DevicesViewController(viewModel: viewModel)
-        
         navigationController?.pushViewController(deviceVC, animated: true)
     }
     

@@ -17,7 +17,6 @@ class LoginViewController: UIViewController {
     
     // MARK: Properties
     private var userModel: UserModel?
-    let baseUrlString = Constants.baseUrl
     
     // MARK: Lifecycle methods
     override func viewDidLoad() {
@@ -63,7 +62,7 @@ extension LoginViewController {
             "password": password
         ]
 
-        let urlStr = baseUrlString + "/api/auth/login"
+        let urlStr = Constants.baseUrl + Constants.loginEndPoint
 
         AF.request(urlStr,method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .validate()
@@ -77,9 +76,6 @@ extension LoginViewController {
                     print(err)
                 }
             }
-
-
-
-
     }
 }
+

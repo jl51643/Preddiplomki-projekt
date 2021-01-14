@@ -13,7 +13,6 @@ protocol AddDeviceDelagate: class {
 
 class AddDeviceViewController: UIViewController {
     @IBOutlet weak var idTF: UITextField!
-    @IBOutlet weak var devIdTF: UITextField!
     @IBOutlet weak var dissmissButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     
@@ -32,7 +31,6 @@ class AddDeviceViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupUI()
     }
 
@@ -43,29 +41,28 @@ class AddDeviceViewController: UIViewController {
     
     @IBAction func addButtonTapped(_ sender: UIButton) {
         
-        guard let id = idTF.text,
-              let devId = devIdTF.text else {return}
+        guard let id = idTF.text else {return}
         
         let servise = MeasurmentsService()
         guard let cultureId = viewModel.selectedCulture?.cultureId else {return}
         DispatchQueue.main.async {
-            servise.addDeviceToCulture(cultureID: cultureId, id: id, devID: devId) { result in
+            servise.addDeviceToCulture(cultureID: cultureId, id: id) { result in
                 switch result {
                 case.success(let cultures):
                     self.viewModel.cultures = cultures
+                   
+                    self.viewModel.selectedCulture = cultures[self.viewModel.selectedIndex!]
                     self.delegate?.didAddDevice()
                 case .failure(let error):
                     debugPrint(error)
                 }
             }
-            self.delegate?.didAddDevice()
         }
         self.dismiss(animated: true, completion: nil)
     }
     
     func setupUI(){
         UITextField.styleTextField(textfield: idTF)
-        UITextField.styleTextField(textfield: devIdTF)
         UIButton.styleButton(button: dissmissButton)
         UIButton.styleButton(button: addButton)
     }

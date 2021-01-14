@@ -10,6 +10,7 @@ import Foundation
 class CulturesViewModel {
     var cultures: [CulturesModel] = []
     var selectedCulture: CulturesModel?
+    var selectedIndex: Int?
     
     func fetchCultures(completion: @escaping ((Result<Void, Error>)->Void)){
         let service = MeasurmentsService()

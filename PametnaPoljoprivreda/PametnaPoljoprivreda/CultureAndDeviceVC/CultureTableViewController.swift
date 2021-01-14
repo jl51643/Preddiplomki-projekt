@@ -29,7 +29,6 @@ class CultureTableViewController: UIViewController {
 
     func setupNavigationBar() {
         navigationController?.navigationBar.isHidden = false
-        //navigationController?.navigationItem.hidesBackButton = true
         navigationController?.title = "Cultures"
         let button = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(CultureTableViewController.didSelectAddCulture))
         navigationItem.rightBarButtonItem = button
@@ -38,7 +37,6 @@ class CultureTableViewController: UIViewController {
 
     
     func setUpViewModel(){
-        
         viewModel.fetchCultures(completion: { (result) in
                 switch result {
                 case .success():
@@ -112,6 +110,7 @@ extension CultureTableViewController: UITableViewDelegate {
         UIView.setAnimationDuration(1.0)
       
         viewModel.selectedCulture = viewModel.cultures[indexPath.row]
+        viewModel.selectedIndex = indexPath.row
         let cultureVC = OneCultureViewController(viewModel: viewModel)
         navigationController?.pushViewController(cultureVC, animated: false)
 

@@ -12,7 +12,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddDeviceViewController" customModule="PametnaPoljoprivreda" customModuleProvider="target">
             <connections>
                 <outlet property="addButton" destination="5R4-Pt-b8e" id="RWI-H5-CdY"/>
-                <outlet property="devIdTF" destination="Ncy-zM-gfH" id="SnA-8Y-jhh"/>
                 <outlet property="dissmissButton" destination="r4N-Qu-dcj" id="mBb-ae-lXw"/>
                 <outlet property="idTF" destination="gjb-IS-L0W" id="78I-rA-rru"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -25,11 +24,6 @@
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gjb-IS-L0W">
                     <rect key="frame" x="20" y="104" width="374" height="34"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ncy-zM-gfH">
-                    <rect key="frame" x="20" y="178" width="374" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
@@ -56,15 +50,12 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Ncy-zM-gfH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="6cy-yV-uFk"/>
                 <constraint firstItem="TQ5-0q-E24" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="HZi-d7-Lv1"/>
-                <constraint firstItem="Ncy-zM-gfH" firstAttribute="top" secondItem="gjb-IS-L0W" secondAttribute="bottom" constant="40" id="HmK-0I-2fg"/>
-                <constraint firstItem="TQ5-0q-E24" firstAttribute="top" secondItem="Ncy-zM-gfH" secondAttribute="bottom" constant="80" id="dZY-l8-5Ug"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="TQ5-0q-E24" secondAttribute="bottom" constant="540" id="QZc-tq-Zbp"/>
                 <constraint firstItem="gjb-IS-L0W" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="60" id="hXY-T6-CRA"/>
                 <constraint firstItem="gjb-IS-L0W" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="ipB-BC-AGP"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gjb-IS-L0W" secondAttribute="trailing" constant="20" id="vAz-Mo-APQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TQ5-0q-E24" secondAttribute="trailing" constant="20" id="xMa-Mg-Qsc"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ncy-zM-gfH" secondAttribute="trailing" constant="20" id="xXW-TD-8XV"/>
             </constraints>
             <point key="canvasLocation" x="-39" y="151"/>
         </view>

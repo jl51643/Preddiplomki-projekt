@@ -7,13 +7,11 @@
 
 import Foundation
 
-struct CulturesModel: Decodable {
+class CulturesModel: Decodable {
     let cultureId: Int
     let title: String
     var devices: [DeviceModel]
     let description: String
 }
 
-struct AllCultures: Decodable {
-    let cultures: [CulturesModel]
-}
+

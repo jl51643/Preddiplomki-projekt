@@ -18,7 +18,7 @@ class SignUpViewController: UIViewController {
     
     // MARK: Properties
     private var userModel: UserModel?
-    let baseUrlString = Constants.baseUrl
+ 
     
     // MARK: Lifecycle methods
     override func viewDidLoad() {
@@ -53,9 +53,7 @@ class SignUpViewController: UIViewController {
     
     //sa userId-om
     func navigateToHome(){
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-            
-        }
+        self.navigationController?.pushViewController(CultureTableViewController(), animated: true)
     }
  
 }
@@ -69,7 +67,7 @@ extension SignUpViewController {
             "password": password
         ]
 
-        let urlStr = baseUrlString + "/api/auth/register"
+        let urlStr = Constants.baseUrl + Constants.registerEndPoint
 
         AF.request(urlStr, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .validate()
