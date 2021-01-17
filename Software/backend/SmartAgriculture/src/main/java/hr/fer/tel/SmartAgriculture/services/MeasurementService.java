@@ -48,6 +48,27 @@ public class MeasurementService {
         return addMeasurement(measurement);
     }
 
+    public Long addWaspmoteMeasurement(String devId, Double luminosity) {
+        Optional<Device> device = deviceRepository.getByDevId(devId);
+
+        Device dev;
+        if (device.isEmpty())
+            dev = this.deviceRepository.save(new Device(devId));
+        else
+            dev = device.get();
+
+        Measurement measurement = new Measurement(dev,
+                new Date(),
+                null,
+                null,
+                null,
+                null,
+                null,
+                luminosity);
+
+        return addMeasurement(measurement);
+    }
+
     public Long addMeasurement(Measurement measurement) {
         Measurement newMeasurement = this.measurementRepository.save(measurement);
 

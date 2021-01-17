@@ -28,6 +28,12 @@ public class MeasurementController {
         return ResponseEntity.created(new URI("/api/measurement/" + id)).build();
     }
 
+    @GetMapping("/waspmote/add")
+    public ResponseEntity<?> waspmoteAddMeasurement(@RequestParam("dev_id") String devId, @RequestParam("luminosity") Double luminosity) throws URISyntaxException {
+        Long id = this.measurementService.addWaspmoteMeasurement(devId, luminosity);
+        return ResponseEntity.created(new URI("/api/measurement/" + id)).build();
+    }
+
     @GetMapping("/all")
     public List<MeasurementModel> getAllMeasurements() {
         return this.measurementService

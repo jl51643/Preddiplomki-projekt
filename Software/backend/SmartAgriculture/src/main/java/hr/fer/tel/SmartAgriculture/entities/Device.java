@@ -1,6 +1,7 @@
 package hr.fer.tel.SmartAgriculture.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,7 +19,7 @@ public class Device {
     private List<Measurement> measurements;
 
     @ManyToMany(mappedBy = "devices")
-    private List<Culture> cultures;
+    private List<Culture> cultures = new ArrayList<>();
 
     public Device(){
 
