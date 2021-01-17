@@ -2,8 +2,6 @@ package hr.fer.tel.SmartAgriculture.models;
 
 import hr.fer.tel.SmartAgriculture.entities.Boundary;
 
-import javax.persistence.Column;
-
 public class BoundaryModel {
 
     private Long cultureId;
@@ -27,6 +25,10 @@ public class BoundaryModel {
     private Double minPressure;
 
     private Double maxPressure;
+    
+    private Double minLuminosity;
+    
+    private Double maxLuminosity;
 
     public BoundaryModel() {
     }
@@ -43,6 +45,8 @@ public class BoundaryModel {
         this.maxSoilHumidity = boundary.getMaxSoilHumidity();
         this.minPressure = boundary.getMinPressure();
         this.maxPressure = boundary.getMaxPressure();
+        this.minLuminosity = boundary.getMinLuminosity();
+        this.maxLuminosity = boundary.getMaxLuminosity();
     }
 
     public Boundary toBoundary() {
@@ -58,7 +62,9 @@ public class BoundaryModel {
                 minSoilHumidity,
                 maxSoilHumidity,
                 minPressure,
-                maxPressure);
+                maxPressure,
+                minLuminosity,
+                maxLuminosity);
     }
 
     public Long getCultureId() {
@@ -147,5 +153,21 @@ public class BoundaryModel {
 
     public void setMaxPressure(Double maxPressure) {
         this.maxPressure = maxPressure;
+    }
+
+    public Double getMinLuminosity() {
+        return minLuminosity;
+    }
+
+    public void setMinLuminosity(Double minLuminosity) {
+        this.minLuminosity = minLuminosity;
+    }
+
+    public Double getMaxLuminosity() {
+        return maxLuminosity;
+    }
+
+    public void setMaxLuminosity(Double maxLuminosity) {
+        this.maxLuminosity = maxLuminosity;
     }
 }

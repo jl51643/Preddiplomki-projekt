@@ -5,7 +5,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "\"Measurements\"")
-public class Measurement {
+public class Measurement implements Comparable<Measurement> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,10 +32,12 @@ public class Measurement {
     @Column(precision = 8, scale = 2)
     private Double pressure;
 
+    private Double luminosity;
+
     public Measurement() {
     }
 
-    public Measurement(Device device, Date time, Double airHumidity, Double soilHumidity, Double airTemperature, Double soilTemperature, Double pressure) {
+    public Measurement(Device device, Date time, Double airHumidity, Double soilHumidity, Double airTemperature, Double soilTemperature, Double pressure, Double luminosity) {
         this.device = device;
         this.time = time;
         this.airHumidity = airHumidity;
@@ -43,6 +45,7 @@ public class Measurement {
         this.airTemperature = airTemperature;
         this.soilTemperature = soilTemperature;
         this.pressure = pressure;
+        this.luminosity = luminosity;
     }
 
     public Long getId() {
@@ -107,5 +110,18 @@ public class Measurement {
 
     public void setPressure(Double pressure) {
         this.pressure = pressure;
+    }
+
+    public Double getLuminosity() {
+        return luminosity;
+    }
+
+    public void setLuminosity(Double luminosity) {
+        this.luminosity = luminosity;
+    }
+
+    @Override
+    public int compareTo(Measurement o) {
+        return this.getTime().compareTo(o.getTime());
     }
 }

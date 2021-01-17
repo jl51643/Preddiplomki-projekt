@@ -16,4 +16,5 @@
     <include file="changes/8-add-notifications-table.xml" relativeToChangelogFile="true"/>
     <include file="changes/9-add-boundaries-table.xml" relativeToChangelogFile="true"/>
     <include file="changes/10-update-notifications-add-time.xml" relativeToChangelogFile="true"/>
+    <include file="changes/11-add-luminosity.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

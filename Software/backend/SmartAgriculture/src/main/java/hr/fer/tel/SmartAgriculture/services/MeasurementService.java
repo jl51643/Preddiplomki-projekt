@@ -5,7 +5,6 @@ import hr.fer.tel.SmartAgriculture.models.PycomMeasurementModel;
 import hr.fer.tel.SmartAgriculture.repositories.*;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -43,7 +42,8 @@ public class MeasurementService {
                 measurementModel.getPayloadFields().getSoilHumidity(),
                 measurementModel.getPayloadFields().getAirTemperature(),
                 measurementModel.getPayloadFields().getSoilTemperature(),
-                measurementModel.getPayloadFields().getPressure());
+                measurementModel.getPayloadFields().getPressure(),
+                measurementModel.getPayloadFields().getLuminosity());
 
         return addMeasurement(measurement);
     }
@@ -87,10 +87,12 @@ public class MeasurementService {
                 return Measurement::getAirHumidity;
             case SOIL_HUMIDITY:
                 return Measurement::getSoilHumidity;
-            case AIR_TEMPERTURE:
+            case AIR_TEMPERATURE:
                 return Measurement::getAirTemperature;
             case SOIL_TEMPERATURE:
                 return Measurement::getSoilTemperature;
+            case LUMINOSITY:
+                return Measurement::getLuminosity;
         }
 
         return null;

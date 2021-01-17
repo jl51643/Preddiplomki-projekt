@@ -22,6 +22,8 @@ public class MeasurementModel {
 
     private Double pressure;
 
+    private Double luminosity;
+
     public MeasurementModel() {
     }
 
@@ -34,6 +36,7 @@ public class MeasurementModel {
         this.airTemperature = measurement.getAirTemperature();
         this.soilTemperature = measurement.getSoilTemperature();
         this.pressure = measurement.getPressure();
+        this.luminosity = measurement.getLuminosity();
     }
 
     public Long getId() {
@@ -98,5 +101,13 @@ public class MeasurementModel {
 
     public void setPressure(Double pressure) {
         this.pressure = pressure;
+    }
+
+    public Double getLuminosity() {
+        return luminosity;
+    }
+
+    public void setLuminosity(Double luminosity) {
+        this.luminosity = luminosity;
     }
 }

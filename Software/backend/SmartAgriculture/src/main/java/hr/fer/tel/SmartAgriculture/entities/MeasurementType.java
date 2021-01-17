@@ -2,10 +2,11 @@ package hr.fer.tel.SmartAgriculture.entities;
 
 public enum MeasurementType {
     SOIL_TEMPERATURE("temperature zemlje"),
-    AIR_TEMPERTURE("temperature zraka"),
+    AIR_TEMPERATURE("temperature zraka"),
     SOIL_HUMIDITY("vlage zemlje"),
     AIR_HUMIDITY("vlage zraka"),
-    PRESSURE("tlaka");
+    PRESSURE("tlaka"),
+    LUMINOSITY("osvjetljenja");
 
     String text;
 

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,6 +33,17 @@ public class MeasurementController {
         return this.measurementService
                 .getAll()
                 .stream()
+                .map(MeasurementModel::new)
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping("/last")
+    public List<MeasurementModel> getLastMeasurements() {
+        return this.measurementService
+                .getAll()
+                .stream()
+                .sorted(Comparator.reverseOrder())
+                .limit(10)
                 .map(MeasurementModel::new)
                 .collect(Collectors.toList());
     }

@@ -16,6 +16,8 @@ public class PycomPayloadFieldsModel {
 
     private Double pressure;
 
+    private Double luminosity;
+
     public PycomPayloadFieldsModel() {
     }
 
@@ -57,5 +59,13 @@ public class PycomPayloadFieldsModel {
 
     public void setPressure(Double pressure) {
         this.pressure = pressure;
+    }
+
+    public Double getLuminosity() {
+        return luminosity;
+    }
+
+    public void setLuminosity(Double luminosity) {
+        this.luminosity = luminosity;
     }
 }

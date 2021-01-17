@@ -50,6 +50,12 @@ public class Boundary {
     @Column(name = "\"max_pressure\"")
     private Double maxPressure;
 
+    @Column(name = "\"min_luminosity\"")
+    private Double minLuminosity;
+
+    @Column(name = "\"max_luminosity\"")
+    private Double maxLuminosity;
+
     public Boundary() {
     }
 
@@ -65,7 +71,7 @@ public class Boundary {
                     Double minSoilHumidity,
                     Double maxSoilHumidity,
                     Double minPressure,
-                    Double maxPressure) {
+                    Double maxPressure, Double minLuminosity, Double maxLuminosity) {
         this.id = id;
         this.user = user;
         this.culture = culture;
@@ -79,6 +85,8 @@ public class Boundary {
         this.maxSoilHumidity = maxSoilHumidity;
         this.minPressure = minPressure;
         this.maxPressure = maxPressure;
+        this.minLuminosity = minLuminosity;
+        this.maxLuminosity = maxLuminosity;
     }
 
     public static Function<Boundary, Double> getBoundaryValue(MeasurementType type, boolean isMax) {
@@ -89,10 +97,12 @@ public class Boundary {
                 return isMax ? Boundary::getMaxAirHumidity : Boundary::getMinAirHumidity;
             case SOIL_HUMIDITY:
                 return isMax ? Boundary::getMaxSoilHumidity : Boundary::getMinSoilHumidity;
-            case AIR_TEMPERTURE:
+            case AIR_TEMPERATURE:
                 return isMax ? Boundary::getMaxAirTemperature : Boundary::getMinAirTemperature;
             case SOIL_TEMPERATURE:
                 return isMax ? Boundary::getMaxSoilTemperature : Boundary::getMinSoilTemperature;
+            case LUMINOSITY:
+                return isMax ? Boundary::getMaxLuminosity : Boundary::getMinLuminosity;
         }
 
         return null;
@@ -106,10 +116,12 @@ public class Boundary {
                 return isMax ? Boundary::setMaxAirHumidity : Boundary::setMinAirHumidity;
             case SOIL_HUMIDITY:
                 return isMax ? Boundary::setMaxSoilHumidity : Boundary::setMinSoilHumidity;
-            case AIR_TEMPERTURE:
+            case AIR_TEMPERATURE:
                 return isMax ? Boundary::setMaxAirTemperature : Boundary::setMinAirTemperature;
             case SOIL_TEMPERATURE:
                 return isMax ? Boundary::setMaxSoilTemperature : Boundary::setMinSoilTemperature;
+            case LUMINOSITY:
+                return isMax ? Boundary::setMaxLuminosity : Boundary::setMinLuminosity;
         }
 
         return null;
@@ -217,5 +229,21 @@ public class Boundary {
 
     public void setMaxPressure(Double maxPressure) {
         this.maxPressure = maxPressure;
+    }
+
+    public Double getMinLuminosity() {
+        return minLuminosity;
+    }
+
+    public void setMinLuminosity(Double minLuminosity) {
+        this.minLuminosity = minLuminosity;
+    }
+
+    public Double getMaxLuminosity() {
+        return maxLuminosity;
+    }
+
+    public void setMaxLuminosity(Double maxLuminosity) {
+        this.maxLuminosity = maxLuminosity;
     }
 }
