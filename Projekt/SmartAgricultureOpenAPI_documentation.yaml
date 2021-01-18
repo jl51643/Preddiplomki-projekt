@@ -1,0 +1,438 @@
+openapi: 3.0.1
+info:
+  title: Smart Agriculture Application REST implementation
+  version: v0
+servers:
+- url: http://localhost:8080
+  description: Development server
+paths:
+  /api/measurement/pycom/add:
+    post:
+      tags:
+      - measurement-controller
+      operationId: pycomAddMeasurement
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PycomMeasurementModel'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /api/culture/{id}/devices/add/{deviceId}:
+    post:
+      tags:
+      - culture-controller
+      operationId: addDeviceToCulture
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: deviceId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /api/culture/add:
+    post:
+      tags:
+      - culture-controller
+      operationId: cultureAdd
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CultureModel'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /api/boundaries:
+    post:
+      tags:
+      - boundary-controller
+      operationId: addBoundary
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BoundaryModel'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /api/auth/register:
+    post:
+      tags:
+      - user-controller
+      operationId: register
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegistrationModel'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /api/auth/login:
+    post:
+      tags:
+      - user-controller
+      operationId: login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginModel'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /api/notifications:
+    get:
+      tags:
+      - notification-controller
+      operationId: getAllNotifications
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NotificationModel'
+  /api/measurement/waspmote/add:
+    get:
+      tags:
+      - measurement-controller
+      operationId: waspmoteAddMeasurement
+      parameters:
+      - name: dev_id
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: luminosity
+        in: query
+        required: true
+        schema:
+          type: number
+          format: double
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /api/measurement/last:
+    get:
+      tags:
+      - measurement-controller
+      operationId: getLastMeasurements
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MeasurementModel'
+  /api/measurement/all:
+    get:
+      tags:
+      - measurement-controller
+      operationId: getAllMeasurements
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MeasurementModel'
+  /api/devices:
+    get:
+      tags:
+      - device-controller
+      operationId: getAllDevices
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DeviceModel'
+  /api/culture/all:
+    get:
+      tags:
+      - culture-controller
+      operationId: getAllCultures
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CultureModel'
+  /api/boundaries/{cultureId}:
+    get:
+      tags:
+      - boundary-controller
+      operationId: getBoundaryModel
+      parameters:
+      - name: cultureId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /api/culture/{cultureId}/devices/delete/{devId}:
+    delete:
+      tags:
+      - culture-controller
+      operationId: deleteDeviceFromCulture
+      parameters:
+      - name: cultureId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: devId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /api/culture/delete/{id}:
+    delete:
+      tags:
+      - culture-controller
+      operationId: deleteCulture
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+components:
+  schemas:
+    PycomMeasurementModel:
+      type: object
+      properties:
+        metadata:
+          $ref: '#/components/schemas/PycomMetadataModel'
+        dev_id:
+          type: string
+        payload_fields:
+          $ref: '#/components/schemas/PycomPayloadFieldsModel'
+    PycomMetadataModel:
+      type: object
+      properties:
+        time:
+          type: string
+          format: date-time
+    PycomPayloadFieldsModel:
+      type: object
+      properties:
+        airHumidity:
+          type: number
+          format: double
+        soilHumidity:
+          type: number
+          format: double
+        pressure:
+          type: number
+          format: double
+        luminosity:
+          type: number
+          format: double
+        airTemp:
+          type: number
+          format: double
+        soilTemp:
+          type: number
+          format: double
+    CultureModel:
+      type: object
+      properties:
+        cultureId:
+          type: integer
+          format: int64
+        title:
+          type: string
+        devices:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceModel'
+        description:
+          type: string
+    DeviceModel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        devId:
+          type: string
+    BoundaryModel:
+      type: object
+      properties:
+        cultureId:
+          type: integer
+          format: int64
+        minAirTemperature:
+          type: number
+          format: double
+        maxAirTemperature:
+          type: number
+          format: double
+        minSoilTemperature:
+          type: number
+          format: double
+        maxSoilTemperature:
+          type: number
+          format: double
+        minAirHumidity:
+          type: number
+          format: double
+        maxAirHumidity:
+          type: number
+          format: double
+        minSoilHumidity:
+          type: number
+          format: double
+        maxSoilHumidity:
+          type: number
+          format: double
+        minPressure:
+          type: number
+          format: double
+        maxPressure:
+          type: number
+          format: double
+        minLuminosity:
+          type: number
+          format: double
+        maxLuminosity:
+          type: number
+          format: double
+    RegistrationModel:
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+    LoginModel:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+    NotificationModel:
+      type: object
+      properties:
+        time:
+          type: string
+          format: date-time
+        cultureId:
+          type: integer
+          format: int64
+        message:
+          type: string
+    MeasurementModel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        device:
+          $ref: '#/components/schemas/DeviceModel'
+        time:
+          type: string
+          format: date-time
+        airHumidity:
+          type: number
+          format: double
+        soilHumidity:
+          type: number
+          format: double
+        airTemperature:
+          type: number
+          format: double
+        soilTemperature:
+          type: number
+          format: double
+        pressure:
+          type: number
+          format: double
+        luminosity:
+          type: number
+          format: double
