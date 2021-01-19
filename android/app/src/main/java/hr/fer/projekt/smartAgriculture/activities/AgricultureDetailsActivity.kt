@@ -7,20 +7,23 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import hr.fer.projekt.smartAgriculture.R
+import hr.fer.projekt.smartAgriculture.model.CultureModel
 import hr.fer.projekt.smartAgriculture.model.DeviceModel
 import hr.fer.projekt.smartAgriculture.model.User
 import hr.fer.projekt.smartAgriculture.repository.Repository
 import hr.fer.projekt.smartAgriculture.viewModel.*
+import hr.fer.projekt.smartAgriculture.viewModel.factory.AgricultureViewModelFactory
 import hr.fer.projekt.smartAgriculture.viewModel.factory.DeviceViewModelFactory
-import kotlinx.android.synthetic.main.activity_agriculture_details.*
-import kotlinx.android.synthetic.main.activity_log_in.*
 
 class AgricultureDetailsActivity : AppCompatActivity() {
 
     lateinit var viewModel: DeviceViewModel
     var id: MutableList<Long> = ArrayList()
+    ///
     var devId: MutableMap<Long, String> = LinkedHashMap()
     var devIdList: MutableList<String> = ArrayList()
+    var devices : List<DeviceModel>? = null
+    ///
     lateinit var arrrr: Array<String>
     var intentId: Long = 0;
 
@@ -28,6 +31,9 @@ class AgricultureDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_agriculture_details)
 
+        val saveAgricultureButton = findViewById<Button>(R.id.saveAgricultureButton)
+        val agricultureTitleEditText = findViewById<EditText>(R.id.agricultureTitleEditText)
+        val agricultureDescriptionEditText = findViewById<EditText>(R.id.agricultureDescriptionEditText)
         val devicesSpinner: Spinner = findViewById(R.id.devices_spinner)
 
 
@@ -35,7 +41,6 @@ class AgricultureDetailsActivity : AppCompatActivity() {
         val viewModelFactory = DeviceViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory).get(DeviceViewModel::class.java)
         viewModel.getDevices("Bearer ${User.user.token}")
-        /*viewModel.getDevices("Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJrb3Jpc25payIsImlhdCI6MTYxMTAzMDQzMSwiZXhwIjoxNjExMTE2ODMxfQ.ft8xZvtCI54zLlIglOFv6J0imOkofMQOSGyeKmBSdFzmwCGU7yqWjdORGc8zRKPrzHnI9pb-BD3ys3ohumaeMQ")*/
 
 
         viewModel.responseLiveData.observe(this, Observer { response ->
@@ -43,6 +48,7 @@ class AgricultureDetailsActivity : AppCompatActivity() {
             println(listOfDevices)
 
             if (listOfDevices != null) {
+                devices = listOfDevices
                 for (model in listOfDevices) {
                     devId.put(model.id, model.devId)
                     devIdList.add(model.devId)
@@ -53,14 +59,7 @@ class AgricultureDetailsActivity : AppCompatActivity() {
 
         })
 
-        for (value in devId.values) {
-        }
-
-        val arr = arrayOf("ferDev1", "ferDev2", "fer-pycom-device", "waspmote_device_iot")
-
-        val array = arrayListOf(devIdList)
-
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, array[0])
+        val adapter = OPTIONS?.let { ArrayAdapter(this, android.R.layout.simple_spinner_item, it) }
 
         devicesSpinner.adapter = adapter
 
@@ -87,10 +86,23 @@ class AgricultureDetailsActivity : AppCompatActivity() {
 
         saveAgricultureButton.setOnClickListener {
             if (agricultureTitleEditText.text.toString() != "" && agricultureDescriptionEditText.text.toString() != "") {
+                val devices: List<DeviceModel> = listOf(devicesSpinner.selectedItem as DeviceModel)
+                val cultureModel = CultureModel(
+                        cultureId = -1,
+                        title = agricultureTitleEditText.text.toString(),
+                        devices = devices,
+                        description = agricultureDescriptionEditText.text.toString()
+                )
 
-
+                val viewModelFactory = AgricultureViewModelFactory(repository)
+                val agricultureViewModel = ViewModelProvider(this@AgricultureDetailsActivity, viewModelFactory).get(AgricultureViewModel::class.java)
+                agricultureViewModel.addCulture("Bearer ${User.user.token}", cultureModel)
                 finish()
             }
         }
+    }
+
+    companion object {
+        var OPTIONS: Array<DeviceModel>? = null
     }
 }

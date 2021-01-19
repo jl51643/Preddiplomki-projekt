@@ -1,6 +1,8 @@
 package hr.fer.projekt.smartAgriculture.activities
 
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -10,7 +12,6 @@ import hr.fer.projekt.smartAgriculture.model.User
 import hr.fer.projekt.smartAgriculture.repository.Repository
 import hr.fer.projekt.smartAgriculture.viewModel.CultureBoundariesViewModel
 import hr.fer.projekt.smartAgriculture.viewModel.factory.CultureBoundariesViewModelFactory
-import kotlinx.android.synthetic.main.activity_set_culture_boundaries.*
 
 class SetCultureBoundaries : AppCompatActivity() {
 
@@ -22,21 +23,22 @@ class SetCultureBoundaries : AppCompatActivity() {
 
         val cultureId = intent.getLongExtra("cultureId", 0)
 
+        val save_new_culture_boundary = findViewById<Button>(R.id.save_new_culture_boundary)
         save_new_culture_boundary.setOnClickListener {
             val newBoundaries = BoundaryModel(
                 cultureId = cultureId,
-                minAirTemperature = min_air_tem_edit_text.text.toString().toDouble(),
-                maxAirTemperature = max_air_tem_edit_text.text.toString().toDouble(),
-                minSoilTemperature = min_soil_temp_edit_text.text.toString().toDouble(),
-                maxSoilTemperature = max_soil_temp_edit_text.text.toString().toDouble(),
-                minAirHumidity = min_air_humidity_edit_text.text.toString().toDouble(),
-                maxAirHumidity = max_air_humidity_edit_text.text.toString().toDouble(),
-                minSoilHumidity = min_soil_humidity_edit_text.text.toString().toDouble(),
-                maxSoilHumidity = max_soil_humidity_edit_text.text.toString().toDouble(),
-                minPressure = min_pressure_edit_text.text.toString().toDouble(),
-                maxPressure = max_pressure_edit_text.text.toString().toDouble(),
-                minLuminosity = min_luminosity_edit_text.text.toString().toDouble(),
-                maxLuminosity = max_luminosity_edit_text.text.toString().toDouble()
+                minAirTemperature = findViewById<EditText>(R.id.min_air_tem_edit_text).text.toString().toDouble(),
+                maxAirTemperature = findViewById<EditText>(R.id.max_air_tem_edit_text).text.toString().toDouble(),
+                minSoilTemperature = findViewById<EditText>(R.id.min_soil_temp_edit_text).text.toString().toDouble(),
+                maxSoilTemperature = findViewById<EditText>(R.id.max_soil_temp_edit_text).text.toString().toDouble(),
+                minAirHumidity = findViewById<EditText>(R.id.min_air_humidity_edit_text).text.toString().toDouble(),
+                maxAirHumidity = findViewById<EditText>(R.id.max_air_humidity_edit_text).text.toString().toDouble(),
+                minSoilHumidity = findViewById<EditText>(R.id.min_soil_humidity_edit_text).text.toString().toDouble(),
+                maxSoilHumidity = findViewById<EditText>(R.id.max_soil_humidity_edit_text).text.toString().toDouble(),
+                minPressure = findViewById<EditText>(R.id.min_pressure_edit_text).text.toString().toDouble(),
+                maxPressure = findViewById<EditText>(R.id.max_pressure_edit_text).text.toString().toDouble(),
+                minLuminosity = findViewById<EditText>(R.id.min_luminosity_edit_text).text.toString().toDouble(),
+                maxLuminosity = findViewById<EditText>(R.id.max_luminosity_edit_text).text.toString().toDouble()
             )
 
             val repository = Repository()

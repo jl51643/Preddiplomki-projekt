@@ -13,11 +13,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import hr.fer.projekt.smartAgriculture.DatabaseHandler
 import hr.fer.projekt.smartAgriculture.R
 import hr.fer.projekt.smartAgriculture.viewModel.TasksViewModel
 import hr.fer.projekt.smartAgriculture.viewModel.factory.TaskViewModelFactory
-import kotlinx.android.synthetic.main.activity_tasks.*
 
 class TasksActivity : AppCompatActivity() {
 
@@ -27,6 +27,9 @@ class TasksActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tasks)
+
+        val list_of_tasks_view = findViewById<RecyclerView>(R.id.list_of_tasks_view)
+
 
         list_of_tasks_view.layoutManager = LinearLayoutManager(applicationContext)
 
@@ -49,6 +52,7 @@ class TasksActivity : AppCompatActivity() {
             tasksAdapter.notifyDataSetChanged()
         })
 
+        val floatingActionButton = findViewById<FloatingActionButton>(R.id.floatingActionButton)
         floatingActionButton.setOnClickListener {
             val intent = Intent(this, AddNewTaskActivity::class.java)
             startActivity(intent)
@@ -77,6 +81,8 @@ class TasksActivity : AppCompatActivity() {
             val context = parent.context
             val inflater = LayoutInflater.from(context)
             val taskListElement = inflater.inflate(R.layout.task_element_layout, parent, false)
+            val list_of_tasks_view = findViewById<RecyclerView>(R.id.list_of_tasks_view)
+
             taskListElement.setOnClickListener {
                 var itemPosition = list_of_tasks_view.getChildLayoutPosition(it)
                 val task = listOfTasks.tasksList.value?.get(itemPosition)
@@ -93,11 +99,6 @@ class TasksActivity : AppCompatActivity() {
                 if (task != null) {
                     viewModel.deleteTask(task)
                 }
-                startActivity(Intent(this@TasksActivity, TasksActivity::class.java).also {
-                    if (task != null) {
-                        viewModel.deleteTask(task)
-                    }
-                })
                 true
             }
 

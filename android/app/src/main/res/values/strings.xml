@@ -38,4 +38,6 @@
     <string name="max_soil_humidity">Max soil humidity</string>
     <string name="min_soil_humidity">Min soil humidity</string>
     <string name="warning">Warning!</string>
+    <string name="my_tasks_button">My Tasks</string>
+    <string name="notifications">Notifications</string>
 </resources>

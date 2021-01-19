@@ -8,6 +8,10 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -18,7 +22,6 @@ import hr.fer.projekt.smartAgriculture.repository.Repository
 import hr.fer.projekt.smartAgriculture.util.Constants.Companion.CHANNEL_ID
 import hr.fer.projekt.smartAgriculture.viewModel.LoginViewModel
 import hr.fer.projekt.smartAgriculture.viewModel.factory.LoginViewModelFactory
-import kotlinx.android.synthetic.main.activity_log_in.*
 
 class LogInActivity : AppCompatActivity() {
 
@@ -27,6 +30,14 @@ class LogInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in)
+
+        val username = findViewById<EditText>(R.id.username_login)
+        val password = findViewById<EditText>(R.id.password_login)
+        val register_in_link = findViewById<TextView>(R.id.register_in_link)
+        val sign_in_button = findViewById<Button>(R.id.sign_in_button)
+        val loading = findViewById<ProgressBar>(R.id.loading)
+        val login_error_text_view = findViewById<TextView>(R.id.login_error_text_view)
+        val login_error_response = findViewById<TextView>(R.id.login_error_response)
 
         createNotificationChannel()
 
@@ -67,6 +78,8 @@ class LogInActivity : AppCompatActivity() {
     }
 
     private fun removeErrorMessages() {
+        val login_error_text_view = findViewById<TextView>(R.id.login_error_text_view)
+        val login_error_response = findViewById<TextView>(R.id.login_error_response)
         login_error_text_view.visibility = View.GONE
         login_error_response.visibility = View.GONE
     }
