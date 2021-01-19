@@ -5,11 +5,13 @@ import androidx.lifecycle.ViewModelProvider
 import hr.fer.projekt.smartAgriculture.model.CultureModel
 import hr.fer.projekt.smartAgriculture.repository.Repository
 import hr.fer.projekt.smartAgriculture.viewModel.AgricultureViewModel
+import hr.fer.projekt.smartAgriculture.viewModel.DeviceViewModel
 import hr.fer.projekt.smartAgriculture.viewModel.factory.AgricultureViewModelFactory
 
 class CultureService : AppCompatActivity() {
 
     private lateinit var viewModel: AgricultureViewModel
+    private lateinit var deviceViewModel: DeviceViewModel
 
     fun addCulture(token: String, cultureModel: CultureModel) {
         val repository = Repository()
@@ -40,16 +42,16 @@ class CultureService : AppCompatActivity() {
         val repository = Repository()
         val viewModelFactory = AgricultureViewModelFactory(repository)
 
-        viewModel = ViewModelProvider(this, viewModelFactory).get(AgricultureViewModel::class.java)
-        viewModel.addDeviceToCulture(token, id, devId)
+        deviceViewModel = ViewModelProvider(this, viewModelFactory).get(DeviceViewModel::class.java)
+        deviceViewModel.addDeviceToCulture(token, id, devId)
     }
 
     fun deleteDeviceFromCulture(token: String, cultureId: Long, devId: Long) {
         val repository = Repository()
         val viewModelFactory = AgricultureViewModelFactory(repository)
 
-        viewModel = ViewModelProvider(this, viewModelFactory).get(AgricultureViewModel::class.java)
-        viewModel.deleteDeviceFromCulture(token, cultureId, devId)
+        deviceViewModel = ViewModelProvider(this, viewModelFactory).get(DeviceViewModel::class.java)
+        deviceViewModel.deleteDeviceFromCulture(token, cultureId, devId)
     }
 
 }

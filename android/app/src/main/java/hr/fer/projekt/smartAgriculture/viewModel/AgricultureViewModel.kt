@@ -21,12 +21,7 @@ class AgricultureViewModel(private val repository: Repository) : ViewModel() {
     val responseLiveDataGetCultures: MutableLiveData<Response<List<CultureModel>>> =
         MutableLiveData()
 
-    var responseLiveDataAddDeviceToCulture: MutableLiveData<Unit> = MutableLiveData()
-
     var responseLiveDataDeleteCulture: MutableLiveData<Unit> = MutableLiveData()
-
-    var responseLiveDataRemoveDeviceFromCulture: MutableLiveData<Unit> = MutableLiveData()
-
 
     fun getLastMeasurements(token: String) {
         viewModelScope.launch {
@@ -49,12 +44,6 @@ class AgricultureViewModel(private val repository: Repository) : ViewModel() {
         }
     }
 
-    fun addDeviceToCulture(token: String, id: Long, devId: Long) {
-        viewModelScope.launch {
-            val response = repository.addDeviceToCulture(token, id, devId)
-            responseLiveDataAddDeviceToCulture.value = response
-        }
-    }
 
     fun getCultures(token: String) {
         viewModelScope.launch {
@@ -63,12 +52,7 @@ class AgricultureViewModel(private val repository: Repository) : ViewModel() {
         }
     }
 
-    fun deleteDeviceFromCulture(token: String, cultureId: Long, devId: Long) {
-        viewModelScope.launch {
-            val response = repository.deleteDeviceFromCulture(token, cultureId, devId)
-            responseLiveDataRemoveDeviceFromCulture.value = response
-        }
-    }
+
 
 
 }
