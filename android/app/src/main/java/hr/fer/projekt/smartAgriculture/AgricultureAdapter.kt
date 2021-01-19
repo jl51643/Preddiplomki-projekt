@@ -10,10 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import hr.fer.projekt.smartAgriculture.activities.MeasurementsActivity
 import hr.fer.projekt.smartAgriculture.model.CultureModel
 
-class AgricultureAdapter(
-    listOfAgriculture: List<CultureModel>, context: Context
-) :
-    RecyclerView.Adapter<AgricultureAdapter.ViewHolder>() {
+class AgricultureAdapter(listOfAgriculture: List<CultureModel>, context: Context) : RecyclerView.Adapter<AgricultureAdapter.ViewHolder>() {
 
     var listOfAgricultures: List<CultureModel> = listOfAgriculture
     var context: Context = context

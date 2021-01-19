@@ -11,8 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import hr.fer.projekt.smartAgriculture.AgricultureAdapter
 import hr.fer.projekt.smartAgriculture.R
 import hr.fer.projekt.smartAgriculture.viewModel.AgricultureViewModel
-import kotlinx.android.synthetic.main.activity_agriculture_display.*
-import kotlinx.android.synthetic.main.agricultures_list_activity.*
+
 
 class AgricultureDisplay : AppCompatActivity() {
 

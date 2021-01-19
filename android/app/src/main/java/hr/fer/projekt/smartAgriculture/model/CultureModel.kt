@@ -1,8 +1,10 @@
 package hr.fer.projekt.smartAgriculture.model
 
-data class CultureModel (
-    private val cultureId : Long,
-    private val title: String,
-    private val devices:  List<DeviceModel>,
-    private val description: String
-)
+import java.io.Serializable
+
+data class CultureModel(
+        val cultureId: Long,
+        val title: String,
+        val devices: List<DeviceModel>,
+        val description: String
+) : Serializable

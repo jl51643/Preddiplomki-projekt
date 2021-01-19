@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
+import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -15,9 +17,12 @@ import hr.fer.projekt.smartAgriculture.model.User
 import hr.fer.projekt.smartAgriculture.repository.Repository
 import hr.fer.projekt.smartAgriculture.viewModel.MeasurementsViewModel
 import hr.fer.projekt.smartAgriculture.viewModel.factory.MeasurementsViewModelFactory
-import kotlinx.android.synthetic.main.activity_measurements_sliding.*
 
 class MeasurementsActivity : AppCompatActivity() {
+
+    val slideViewPager = findViewById<TextView>(R.id.slideViewPager)
+    val progres_bar = findViewById<ProgressBar>(R.id.progres_bar)
+    val lastMeasurementDate = findViewById<TextView>(R.id.lastMeasurementDate)
 
     private lateinit var viewModel: MeasurementsViewModel
     private var TAG = "MainActivity"

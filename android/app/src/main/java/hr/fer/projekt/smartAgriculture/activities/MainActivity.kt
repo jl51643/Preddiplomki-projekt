@@ -6,10 +6,10 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import hr.fer.projekt.smartAgriculture.R
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_register_in.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,6 +36,9 @@ class MainActivity : AppCompatActivity() {
 
     }
     private fun removeErrorMessages() {
+
+        val login_error_text_view = findViewById<TextView>(R.id.login_error_response)
+        val login_error_response = findViewById<TextView>(R.id.login_error_response)
         login_error_text_view.visibility = View.GONE
         login_error_response.visibility = View.GONE
     }

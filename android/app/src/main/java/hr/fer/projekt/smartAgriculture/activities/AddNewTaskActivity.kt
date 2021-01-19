@@ -1,6 +1,9 @@
 package hr.fer.projekt.smartAgriculture.activities
 
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import hr.fer.projekt.smartAgriculture.DatabaseHandler
@@ -9,19 +12,19 @@ import hr.fer.projekt.smartAgriculture.model.TaskModel
 import hr.fer.projekt.smartAgriculture.model.User
 import hr.fer.projekt.smartAgriculture.viewModel.TasksViewModel
 import hr.fer.projekt.smartAgriculture.viewModel.factory.TaskViewModelFactory
-import kotlinx.android.synthetic.main.activity_add_new_task.*
 
 class AddNewTaskActivity : AppCompatActivity() {
 
     private lateinit var viewModel: TasksViewModel
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_new_task)
 
-        /* val viewModel =
-             ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application))
-                 .get(TasksViewModel::class.java)*/
+        val notification_text_text_view = findViewById<EditText>(R.id.notification_text_text_view)
+        val save_new_task = findViewById<Button>(R.id.save_new_task)
 
         var task: TaskModel? = null
         if (intent.hasExtra("task")) {
@@ -34,6 +37,7 @@ class AddNewTaskActivity : AppCompatActivity() {
         }
 
         val update: Boolean = task != null
+
 
         save_new_task.setOnClickListener {
             val databaseHandler = DatabaseHandler(applicationContext)
