@@ -10,8 +10,8 @@ import hr.fer.projekt.smartAgriculture.viewModel.factory.AgricultureViewModelFac
 
 class CultureService : AppCompatActivity() {
 
-    private lateinit var viewModel: AgricultureViewModel
-    private lateinit var deviceViewModel: DeviceViewModel
+    lateinit var viewModel: AgricultureViewModel
+    lateinit var deviceViewModel: DeviceViewModel
 
     fun addCulture(token: String, cultureModel: CultureModel) {
         val repository = Repository()

@@ -13,11 +13,17 @@ import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import hr.fer.projekt.smartAgriculture.R
+import hr.fer.projekt.smartAgriculture.model.CultureModel
 import hr.fer.projekt.smartAgriculture.model.MeasurementModel
 import java.util.*
 import kotlin.math.*
 
-class SlideAdapter(context: Context, measurementsList: MutableList<MeasurementModel>) : PagerAdapter() {
+class SlideAdapter(
+    context: Context,
+    measurementsList: MutableList<MeasurementModel>,
+    cultureModel: CultureModel
+) :
+    PagerAdapter() {
 
     private val context: Context = context
     private var layoutInflater: LayoutInflater? = null
@@ -30,19 +36,46 @@ class SlideAdapter(context: Context, measurementsList: MutableList<MeasurementMo
     )
     var values: Array<String>
     var graphLineDatas: Array<LineData?>
+    var listMeasurement: MutableList<MeasurementModel> = mutableListOf()
+    lateinit var airTemp: String
+    lateinit var airHum: String
+    lateinit var press: String
+    lateinit var lum: String
 
     init {
 
-        measurementsList?.sortBy { measurementModel: MeasurementModel -> measurementModel.time.time }
+        println("devices ${cultureModel.devices}")
 
-        values = arrayOf(
-            measurementsList?.get(measurementsList.size-1)?.airTemperature.toString() + "°",
-            measurementsList?.get(measurementsList.size-1)?.airHumidity.toString() + "%",
-            measurementsList?.get(measurementsList.size-1)?.pressure.toString() + "kPa",
-            measurementsList?.get(measurementsList.size-1)?.luminosity.toString() + "lx"
-        )
+        for (model in measurementsList) {
+            for (device in cultureModel.devices) {
+                if (device.id == model.device.id) listMeasurement.add(model)
+            }
+        }
 
-        graphLineDatas = initializeGraphs(measurementsList)
+        /* measurementsList?.stream().filter {
+             cultureModel.devices.contains(it.device)
+         }.sorted { o1, o2 -> o1.time.time.compareTo(o2.time.time) }*/
+
+        /* measurementsList?.stream().forEach{println(it.device)}*/
+
+        println(listMeasurement.toString())
+
+        if (listMeasurement.size == 0) {
+            airTemp = "N/a"
+            airHum = "N/a"
+            press = "N/a"
+            lum = "N/a"
+        } else {
+            airTemp =
+                listMeasurement?.get(listMeasurement.size - 1)?.airTemperature.toString() + "°"
+            airHum = listMeasurement?.get(listMeasurement.size - 1)?.airHumidity.toString() + "%"
+            press = listMeasurement?.get(listMeasurement.size - 1)?.pressure.toString() + "kPa"
+            lum = listMeasurement?.get(listMeasurement.size - 1)?.luminosity.toString() + "lx"
+        }
+
+        values = arrayOf(airTemp, airHum, press, lum)
+
+        graphLineDatas = initializeGraphs(listMeasurement)
         /*
         //For testing GUI
         ///////////
@@ -92,53 +125,64 @@ class SlideAdapter(context: Context, measurementsList: MutableList<MeasurementMo
         container.removeView(`object` as ConstraintLayout)
     }
 
-    private fun initializeGraphs(measurementsList: MutableList<MeasurementModel>?) : Array<LineData?> {
+    private fun initializeGraphs(measurementsList: MutableList<MeasurementModel>?): Array<LineData?> {
 
         val airTemperatureEntries = mutableListOf<Entry>()
         if (measurementsList != null) {
-            var i : Float = 1.0f
-            for (m : MeasurementModel in measurementsList) {
+            var i: Float = 1.0f
+            for (m: MeasurementModel in measurementsList) {
 
                 //returns difference in milliseconds => * 1000 to seconds, * 60 to minutes * 60 to hours
-                airTemperatureEntries.add(Entry(
-                    abs(m.time.time - currentTime.time) * 1000 * 60 * 60.0f/*i++*/,
-                    m.airTemperature))
+                airTemperatureEntries.add(
+                    Entry(
+                        /*abs(m.time.time - currentTime.time) * 1000 * 60 * 60.0f*/i++,
+                        m.airTemperature.toFloat()
+                    )
+                )
             }
         }
 
         val airHumidityEntries = mutableListOf<Entry>()
         if (measurementsList != null) {
-            var i : Float = 1.0f
-            for (m : MeasurementModel in measurementsList) {
-                airHumidityEntries.add(Entry(
-                    abs(m.time.time - currentTime.time) * 1000 * 60 * 60.0f/*i++*/,
-                    m.airHumidity))
+            var i: Float = 1.0f
+            for (m: MeasurementModel in measurementsList) {
+                airHumidityEntries.add(
+                    Entry(
+                        /*abs(m.time.time - currentTime.time) * 1000 * 60 * 60.0f*/i++,
+                        m.airHumidity.toFloat()
+                    )
+                )
             }
         }
 
         val pressureEntries = mutableListOf<Entry>()
         if (measurementsList != null) {
-            var i : Float = 1.0f
-            for (m : MeasurementModel in measurementsList) {
-                pressureEntries.add(Entry(
-                    abs(m.time.time - currentTime.time) * 1000 * 60 * 60.0f/*i++*/,
-                    m.pressure.toFloat()
-                ))
+            var i: Float = 1.0f
+            for (m: MeasurementModel in measurementsList) {
+                pressureEntries.add(
+                    Entry(
+                        /*abs(m.time.time - currentTime.time) * 1000 * 60 * 60.0f*/i++,
+                        m.pressure.toFloat()
+                    )
+                )
             }
         }
 
         val luminosity = mutableListOf<Entry>()
         if (measurementsList != null) {
-            var i : Float = 1.0f
-            for (m : MeasurementModel in measurementsList) {
-                luminosity.add(Entry(
-                    abs(m.time.time - currentTime.time) * 1000 * 60 * 60.0f/*i++*/,
-                    m.luminosity.toFloat()
-                ))
+            var i: Float = 1.0f
+            for (m: MeasurementModel in measurementsList) {
+                luminosity.add(
+                    Entry(
+                        /*abs(m.time.time - currentTime.time) * 1000 * 60 * 60.0f*/i++,
+                        m.luminosity.toFloat()
+                    )
+                )
             }
         }
 
-        val lineDateSetAirTemperature: LineDataSet = LineDataSet(airTemperatureEntries, "Temperatures")
+        val lineDateSetAirTemperature: LineDataSet =
+            LineDataSet(airTemperatureEntries, "Temperatures")
         val lineDateSetAirHumidity: LineDataSet = LineDataSet(airHumidityEntries, "Humidity")
         val lineDateSetPressure: LineDataSet = LineDataSet(pressureEntries, "Pressure")
         val lineDateSetLuminosity: LineDataSet = LineDataSet(luminosity, "Luminosity")
@@ -155,6 +199,11 @@ class SlideAdapter(context: Context, measurementsList: MutableList<MeasurementMo
         lineDateSetLuminosity.valueTextSize = 15f
         lineDateSetLuminosity.setDrawFilled(true)
 
-        return arrayOf(LineData(lineDateSetAirTemperature), LineData(lineDateSetAirHumidity), LineData(lineDateSetPressure), LineData(lineDateSetLuminosity))
+        return arrayOf(
+            LineData(lineDateSetAirTemperature),
+            LineData(lineDateSetAirHumidity),
+            LineData(lineDateSetPressure),
+            LineData(lineDateSetLuminosity)
+        )
     }
 }

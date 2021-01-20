@@ -1,3 +1,5 @@
+package hr.fer.projekt.smartAgriculture.activities
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -8,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import hr.fer.projekt.smartAgriculture.R
-import hr.fer.projekt.smartAgriculture.activities.LogInActivity
 import hr.fer.projekt.smartAgriculture.model.RegistrationModel
 import hr.fer.projekt.smartAgriculture.model.User
 import hr.fer.projekt.smartAgriculture.repository.Repository
@@ -18,19 +19,21 @@ import hr.fer.projekt.smartAgriculture.viewModel.factory.RegisterViewModelFactor
 class RegisterInActivity : AppCompatActivity() {
 
     private lateinit var viewModel: RegisterViewModel
-    val username = findViewById<EditText>(R.id.username)
-    val password = findViewById<EditText>(R.id.password)
-    val email = findViewById<EditText>(R.id.email)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_in)
 
-        findViewById<TextView>(R.id.first_name).setOnFocusChangeListener{ v, hasFocus -> removeErrorMessages() }
-        findViewById<TextView>(R.id.last_name).setOnFocusChangeListener{ v, hasFocus -> removeErrorMessages() }
-        findViewById<TextView>(R.id.email).setOnFocusChangeListener{ v, hasFocus -> removeErrorMessages() }
-        findViewById<TextView>(R.id.username).setOnFocusChangeListener{ v, hasFocus -> removeErrorMessages() }
-        findViewById<TextView>(R.id.password).setOnFocusChangeListener{ v, hasFocus -> removeErrorMessages() }
+
+        val username = findViewById<EditText>(R.id.username)
+        val password = findViewById<EditText>(R.id.password)
+        val email = findViewById<EditText>(R.id.email)
+
+        findViewById<TextView>(R.id.first_name).setOnFocusChangeListener { v, hasFocus -> removeErrorMessages() }
+        findViewById<TextView>(R.id.last_name).setOnFocusChangeListener { v, hasFocus -> removeErrorMessages() }
+        findViewById<TextView>(R.id.email).setOnFocusChangeListener { v, hasFocus -> removeErrorMessages() }
+        findViewById<TextView>(R.id.username).setOnFocusChangeListener { v, hasFocus -> removeErrorMessages() }
+        findViewById<TextView>(R.id.password).setOnFocusChangeListener { v, hasFocus -> removeErrorMessages() }
 
         val registerButton = findViewById<Button>(R.id.register_in_button)
         registerButton.setOnClickListener {
@@ -40,7 +43,11 @@ class RegisterInActivity : AppCompatActivity() {
             val viewModelFactory = RegisterViewModelFactory(repository)
 
             viewModel = ViewModelProvider(this, viewModelFactory).get(RegisterViewModel::class.java)
-            val registrationModel = RegistrationModel(username.text.toString(), password.text.toString(), email.text.toString())
+            val registrationModel = RegistrationModel(
+                username.text.toString(),
+                password.text.toString(),
+                email.text.toString()
+            )
             viewModel.registerUser(registrationModel)
 
             viewModel.responseLiveData.observe(this, Observer { response ->
@@ -51,12 +58,17 @@ class RegisterInActivity : AppCompatActivity() {
                     startActivity(intent)
                 } else {
                     findViewById<TextView>(R.id.login_error_text_view).visibility = View.VISIBLE
-                    findViewById<TextView>(R.id.login_error_response).text = "${response.message()} ${response.code()}"
+                    findViewById<TextView>(R.id.login_error_response).text =
+                        "${response.message()} ${response.code()}"
                     findViewById<TextView>(R.id.login_error_response).visibility = View.VISIBLE
                 }
             })
 
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
     }
 
     private fun removeErrorMessages() {

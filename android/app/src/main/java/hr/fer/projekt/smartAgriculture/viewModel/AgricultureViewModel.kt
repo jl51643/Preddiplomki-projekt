@@ -13,8 +13,6 @@ import java.net.URI
 
 class AgricultureViewModel(private val repository: Repository) : ViewModel() {
 
-    val responseLiveDataGetLastMeasurements: MutableLiveData<Response<List<MeasurementModel>>> =
-        MutableLiveData()
 
     val responseLiveDataAddCulture: MutableLiveData<Response<URI>> = MutableLiveData()
 
@@ -23,12 +21,6 @@ class AgricultureViewModel(private val repository: Repository) : ViewModel() {
 
     var responseLiveDataDeleteCulture: MutableLiveData<Unit> = MutableLiveData()
 
-    fun getLastMeasurements(token: String) {
-        viewModelScope.launch {
-            val response = repository.getMeasurements(token)
-            responseLiveDataGetLastMeasurements.value = response
-        }
-    }
 
     fun addCulture(token: String, cultureModel: CultureModel) {
         viewModelScope.launch {
@@ -51,8 +43,6 @@ class AgricultureViewModel(private val repository: Repository) : ViewModel() {
             responseLiveDataGetCultures.value = response
         }
     }
-
-
 
 
 }

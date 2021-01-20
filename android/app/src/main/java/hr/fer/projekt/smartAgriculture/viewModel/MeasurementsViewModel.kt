@@ -12,10 +12,20 @@ class MeasurementsViewModel(private val repository: Repository) : ViewModel() {
 
     val responseLiveData: MutableLiveData<Response<List<MeasurementModel>>> = MutableLiveData()
 
+    val responseLiveDataGetLastMeasurements: MutableLiveData<Response<List<MeasurementModel>>> =
+        MutableLiveData()
+
     fun getMeasurements(token: String) {
         viewModelScope.launch {
             val response = repository.getMeasurements(token)
             responseLiveData.value = response
+        }
+    }
+
+    fun getLastMeasurements(token: String) {
+        viewModelScope.launch {
+            val response = repository.getLastMeasurements(token)
+            responseLiveDataGetLastMeasurements.value = response
         }
     }
 }
