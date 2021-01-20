@@ -16,5 +16,6 @@ struct MeasurementsModel: Decodable {
     let airTemperature: Double?
     let soilTemperature: Double?
     let pressure: Double?
+    let luminosity: Double?
 }
 
