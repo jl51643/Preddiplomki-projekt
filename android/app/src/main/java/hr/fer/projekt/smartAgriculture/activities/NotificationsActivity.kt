@@ -22,12 +22,12 @@ class NotificationsActivity : AppCompatActivity() {
             Intent(this, NotificationService::class.java).also { intent ->
                 startService(intent)
             }
-            //finish()
+            finish()
         }
 
         stop_button.setOnClickListener {
             NotificationService.KEEP_RUNNING = false
-            //finish()
+            finish()
         }
     }
 }

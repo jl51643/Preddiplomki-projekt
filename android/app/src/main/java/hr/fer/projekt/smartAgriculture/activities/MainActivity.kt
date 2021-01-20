@@ -1,9 +1,7 @@
 package hr.fer.projekt.smartAgriculture.activities
 
-import RegisterInActivity
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -35,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
 
     }
+
     private fun removeErrorMessages() {
 
         val login_error_text_view = findViewById<TextView>(R.id.login_error_response)

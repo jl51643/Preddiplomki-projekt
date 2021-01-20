@@ -19,10 +19,12 @@ class AgricultureDetailsActivity : AppCompatActivity() {
 
     lateinit var viewModel: DeviceViewModel
     var id: MutableList<Long> = ArrayList()
+
     ///
     var devId: MutableMap<Long, String> = LinkedHashMap()
     var devIdList: MutableList<String> = ArrayList()
-    var devices : List<DeviceModel>? = null
+    var devices: List<DeviceModel>? = null
+
     ///
     lateinit var arrrr: Array<String>
     var intentId: Long = 0;
@@ -33,7 +35,8 @@ class AgricultureDetailsActivity : AppCompatActivity() {
 
         val saveAgricultureButton = findViewById<Button>(R.id.saveAgricultureButton)
         val agricultureTitleEditText = findViewById<EditText>(R.id.agricultureTitleEditText)
-        val agricultureDescriptionEditText = findViewById<EditText>(R.id.agricultureDescriptionEditText)
+        val agricultureDescriptionEditText =
+            findViewById<EditText>(R.id.agricultureDescriptionEditText)
         val devicesSpinner: Spinner = findViewById(R.id.devices_spinner)
 
 
@@ -71,7 +74,6 @@ class AgricultureDetailsActivity : AppCompatActivity() {
                 id: Long
             ) {
                 intentId = position.toLong()
-                println(intentId)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -88,14 +90,17 @@ class AgricultureDetailsActivity : AppCompatActivity() {
             if (agricultureTitleEditText.text.toString() != "" && agricultureDescriptionEditText.text.toString() != "") {
                 val devices: List<DeviceModel> = listOf(devicesSpinner.selectedItem as DeviceModel)
                 val cultureModel = CultureModel(
-                        cultureId = -1,
-                        title = agricultureTitleEditText.text.toString(),
-                        devices = devices,
-                        description = agricultureDescriptionEditText.text.toString()
+                    cultureId = -1,
+                    title = agricultureTitleEditText.text.toString(),
+                    devices = devices,
+                    description = agricultureDescriptionEditText.text.toString()
                 )
 
                 val viewModelFactory = AgricultureViewModelFactory(repository)
-                val agricultureViewModel = ViewModelProvider(this@AgricultureDetailsActivity, viewModelFactory).get(AgricultureViewModel::class.java)
+                val agricultureViewModel =
+                    ViewModelProvider(this@AgricultureDetailsActivity, viewModelFactory).get(
+                        AgricultureViewModel::class.java
+                    )
                 agricultureViewModel.addCulture("Bearer ${User.user.token}", cultureModel)
                 finish()
             }

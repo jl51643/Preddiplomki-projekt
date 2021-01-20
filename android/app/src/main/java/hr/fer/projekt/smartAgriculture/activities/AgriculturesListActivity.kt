@@ -12,11 +12,11 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import hr.fer.projekt.smartAgriculture.R
-import hr.fer.projekt.smartAgriculture.model.CultureModel
 import hr.fer.projekt.smartAgriculture.model.User
 import hr.fer.projekt.smartAgriculture.repository.Repository
 import hr.fer.projekt.smartAgriculture.viewModel.AgricultureViewModel
@@ -34,12 +34,18 @@ class AgriculturesListActivity : AppCompatActivity() {
         setContentView(R.layout.agricultures_list_activity)
 
         val listOfAgriculturesView = findViewById<RecyclerView>(R.id.listOfAgriculturesView)
-        val newAgricultureActionButton = findViewById<FloatingActionButton>(R.id.newAgricultureActionButton)
+        val newAgricultureActionButton =
+            findViewById<FloatingActionButton>(R.id.newAgricultureActionButton)
 
         listOfAgriculturesView.layoutManager = LinearLayoutManager(applicationContext)
 
         val decorator = DividerItemDecoration(applicationContext, LinearLayoutManager.VERTICAL)
-        decorator.setDrawable(ContextCompat.getDrawable(applicationContext, R.drawable.cell_divider)!!)
+        decorator.setDrawable(
+            ContextCompat.getDrawable(
+                applicationContext,
+                R.drawable.cell_divider
+            )!!
+        )
         listOfAgriculturesView.addItemDecoration(decorator)
 
         val repository = Repository()
@@ -55,7 +61,8 @@ class AgriculturesListActivity : AppCompatActivity() {
 
         newAgricultureActionButton.setOnClickListener {
             val devicesViewModelFactory = DeviceViewModelFactory(repository)
-            val devicesViewModel = ViewModelProvider(this, devicesViewModelFactory).get(DeviceViewModel::class.java)
+            val devicesViewModel =
+                ViewModelProvider(this, devicesViewModelFactory).get(DeviceViewModel::class.java)
             devicesViewModel.getDevices("Bearer ${User.user.token}")
             devicesViewModel.responseLiveData.observe(this, Observer { response ->
                 if (response.isSuccessful) {
@@ -68,6 +75,7 @@ class AgriculturesListActivity : AppCompatActivity() {
         }
 
         val myTasksButton = findViewById<Button>(R.id.MyTasksButton)
+
         myTasksButton.setOnClickListener {
             startActivity(Intent(applicationContext, TasksActivity::class.java))
         }
@@ -84,11 +92,12 @@ class AgriculturesListActivity : AppCompatActivity() {
         viewModel.getCultures("Bearer ${User.user.token}")
     }
 
-    inner class CulturesAdapter(listOfCulturesViewModel: AgricultureViewModel): RecyclerView.Adapter<CulturesAdapter.ViewHolder>() {
+    inner class CulturesAdapter(listOfCulturesViewModel: AgricultureViewModel) :
+        RecyclerView.Adapter<CulturesAdapter.ViewHolder>() {
 
         private var listOfCultures: AgricultureViewModel = listOfCulturesViewModel
 
-        inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+        inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             var cultureTitleTextView: TextView? = null
             //var cultureDescriptionTextView: TextView? = null
 
@@ -98,15 +107,43 @@ class AgriculturesListActivity : AppCompatActivity() {
             }
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CulturesAdapter.ViewHolder {
+        override fun onCreateViewHolder(
+            parent: ViewGroup, viewType: Int
+        ): CulturesAdapter.ViewHolder {
+
             val context = parent.context
             val inflater = LayoutInflater.from(context)
-            val agricultureListElement = inflater.inflate(R.layout.agriculture_list_element, parent, false)
+            val agricultureListElement =
+                inflater.inflate(R.layout.agriculture_list_element, parent, false)
+
+            val listOfAgriculturesView = findViewById<RecyclerView>(R.id.listOfAgriculturesView)
+
             agricultureListElement.setOnClickListener {
-                val listOfAgriculturesView = findViewById<RecyclerView>(R.id.listOfAgriculturesView)
+
                 var itemPosition = listOfAgriculturesView.getChildLayoutPosition(it)
-                val culture = listOfCultures.responseLiveDataGetCultures.value?.body()?.get(itemPosition)
-                startActivity(Intent(this@AgriculturesListActivity, AgricultureDetailsActivity::class.java).putExtra("culture", culture).putExtra("position", itemPosition))
+                val culture =
+                    listOfCultures.responseLiveDataGetCultures.value?.body()?.get(itemPosition)
+                startActivity(
+                    Intent(
+                        this@AgriculturesListActivity,
+                        AgricultureDisplay::class.java
+                    ).putExtra("culture", culture).putExtra("position", itemPosition)
+                )
+                culturesAdapter.notifyDataSetChanged()
+
+            }
+
+            agricultureListElement.setOnLongClickListener {
+                var itemPosition = listOfAgriculturesView.getChildLayoutPosition(it)
+                var culture =
+                    listOfCultures.responseLiveDataGetCultures.value?.body()?.get(itemPosition)
+
+                if (culture != null) {
+                    viewModel.deleteCulture("Bearer ${User.user.token}", culture.cultureId)
+                    culturesAdapter.notifyItemRemoved(itemPosition)
+                }
+
+                true
             }
 
             return ViewHolder(agricultureListElement)
@@ -121,7 +158,8 @@ class AgriculturesListActivity : AppCompatActivity() {
         }
 
         override fun onBindViewHolder(holder: CulturesAdapter.ViewHolder, position: Int) {
-            holder.cultureTitleTextView?.text = listOfCultures.responseLiveDataGetCultures.value?.body()!![position].title
+            holder.cultureTitleTextView?.text =
+                listOfCultures.responseLiveDataGetCultures.value?.body()!![position].title
         }
 
     }

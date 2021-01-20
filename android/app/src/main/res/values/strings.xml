@@ -40,4 +40,6 @@
     <string name="warning">Warning!</string>
     <string name="my_tasks_button">My Tasks</string>
     <string name="notifications">Notifications</string>
+    <string name="measurements_button_name">Measurements</string>
+    <string name="devices_button_name">Devices</string>
 </resources>

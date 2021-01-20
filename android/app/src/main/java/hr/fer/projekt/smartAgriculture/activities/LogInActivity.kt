@@ -1,6 +1,5 @@
 package hr.fer.projekt.smartAgriculture.activities
 
-import RegisterInActivity
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
@@ -75,6 +74,10 @@ class LogInActivity : AppCompatActivity() {
                 }
             })
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
     }
 
     private fun removeErrorMessages() {

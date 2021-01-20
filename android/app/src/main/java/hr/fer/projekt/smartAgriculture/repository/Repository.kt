@@ -10,6 +10,9 @@ class Repository {
     suspend fun getMeasurements(token: String): Response<List<MeasurementModel>> {
         return Retrofit.api.getMeasurements(token)
     }
+    suspend fun getLastMeasurements(token: String): Response<List<MeasurementModel>> {
+        return Retrofit.api.getLastMeasurements(token)
+    }
 
     suspend fun registerUser(registrationModel: RegistrationModel): Response<TokenModel> {
         return Retrofit.api.registerUser(registrationModel)

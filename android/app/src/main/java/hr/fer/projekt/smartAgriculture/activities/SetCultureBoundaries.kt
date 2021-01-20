@@ -23,8 +23,8 @@ class SetCultureBoundaries : AppCompatActivity() {
 
         val cultureId = intent.getLongExtra("cultureId", 0)
 
-        val save_new_culture_boundary = findViewById<Button>(R.id.save_new_culture_boundary)
-        save_new_culture_boundary.setOnClickListener {
+        val saveNewCultureBoundary = findViewById<Button>(R.id.save_new_culture_boundary)
+        saveNewCultureBoundary.setOnClickListener {
             val newBoundaries = BoundaryModel(
                 cultureId = cultureId,
                 minAirTemperature = findViewById<EditText>(R.id.min_air_tem_edit_text).text.toString().toDouble(),

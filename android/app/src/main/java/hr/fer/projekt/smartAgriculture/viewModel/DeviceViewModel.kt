@@ -2,9 +2,11 @@ package hr.fer.projekt.smartAgriculture.viewModel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import hr.fer.projekt.smartAgriculture.model.CultureModel
 import hr.fer.projekt.smartAgriculture.model.DeviceModel
+import hr.fer.projekt.smartAgriculture.model.User
 import hr.fer.projekt.smartAgriculture.repository.Repository
 import kotlinx.coroutines.launch
 import retrofit2.Response
@@ -16,6 +18,26 @@ class DeviceViewModel(private val repository: Repository) : ViewModel() {
     var responseLiveDataAddDeviceToCulture: MutableLiveData<Unit> = MutableLiveData()
 
     var responseLiveDataRemoveDeviceFromCulture: MutableLiveData<Unit> = MutableLiveData()
+    /* ________________*/
+
+    val responseLiveDataGetDeviceForCulture: MutableLiveData<List<DeviceModel>> =
+        MutableLiveData()
+
+    val cultureModel: MutableLiveData<List<CultureModel>> =
+        MutableLiveData()
+
+    fun getDeviceForCulture(token: String, cultureId: Long) {
+        viewModelScope.launch {
+            val response = repository.getAllCultures(token)
+            cultureModel.value = response.body()
+            for (model in cultureModel.value!!) {
+                if (model.cultureId.equals(cultureId)) {
+                    responseLiveDataGetDeviceForCulture.value = model.devices
+                }
+            }
+        }
+    }
+    /*-------------------------*/
 
     fun getDevices(token: String) {
         viewModelScope.launch {
@@ -23,6 +45,7 @@ class DeviceViewModel(private val repository: Repository) : ViewModel() {
             responseLiveData.value = response
         }
     }
+
 
     fun addDeviceToCulture(token: String, id: Long, devId: Long) {
         viewModelScope.launch {
