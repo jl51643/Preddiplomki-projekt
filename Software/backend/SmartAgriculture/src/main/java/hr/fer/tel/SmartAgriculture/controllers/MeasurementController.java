@@ -1,5 +1,7 @@
 package hr.fer.tel.SmartAgriculture.controllers;
 
+import hr.fer.tel.SmartAgriculture.entities.Device;
+import hr.fer.tel.SmartAgriculture.entities.Measurement;
 import hr.fer.tel.SmartAgriculture.models.MeasurementModel;
 import hr.fer.tel.SmartAgriculture.models.PycomMeasurementModel;
 import hr.fer.tel.SmartAgriculture.services.MeasurementService;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -45,12 +48,23 @@ public class MeasurementController {
 
     @GetMapping("/last")
     public List<MeasurementModel> getLastMeasurements() {
-        return this.measurementService
-                .getAll()
-                .stream()
-                .sorted(Comparator.reverseOrder())
-                .limit(10)
-                .map(MeasurementModel::new)
-                .collect(Collectors.toList());
+        List<Measurement> measurements = this.measurementService.getAll();
+
+        List<Device> devices = measurements.stream().map(Measurement::getDevice).distinct().collect(Collectors.toList());
+
+        List<MeasurementModel> models = new ArrayList<>(devices.size() * 10);
+
+        for (Device device : devices) {
+            models.addAll(
+                measurements.stream()
+                        .filter(measurement -> measurement.getDevice() == device)
+                        .sorted(Comparator.reverseOrder())
+                        .limit(10)
+                        .map(MeasurementModel::new)
+                        .collect(Collectors.toList())
+            );
+        }
+
+        return models;
     }
 }
