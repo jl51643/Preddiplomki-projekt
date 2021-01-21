@@ -32,23 +32,23 @@ class LogInActivity : AppCompatActivity() {
 
         val username = findViewById<EditText>(R.id.username_login)
         val password = findViewById<EditText>(R.id.password_login)
-        val register_in_link = findViewById<TextView>(R.id.register_in_link)
-        val sign_in_button = findViewById<Button>(R.id.sign_in_button)
+        val registerInLink = findViewById<TextView>(R.id.register_in_link)
+        val signInButton = findViewById<Button>(R.id.sign_in_button)
         val loading = findViewById<ProgressBar>(R.id.loading)
-        val login_error_text_view = findViewById<TextView>(R.id.login_error_text_view)
-        val login_error_response = findViewById<TextView>(R.id.login_error_response)
+        val loginErrorTextView = findViewById<TextView>(R.id.login_error_text_view)
+        val loginErrorResponse = findViewById<TextView>(R.id.login_error_response)
 
         createNotificationChannel()
 
         username.setOnFocusChangeListener { _, _ -> removeErrorMessages() }
         password.setOnFocusChangeListener { _, _ -> removeErrorMessages() }
 
-        register_in_link.setOnClickListener {
+        registerInLink.setOnClickListener {
             val intent = Intent(this, RegisterInActivity::class.java)
             startActivity(intent)
         }
 
-        sign_in_button.setOnClickListener {
+        signInButton.setOnClickListener {
 
 
             loading.visibility = View.VISIBLE
@@ -65,32 +65,28 @@ class LogInActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     User.user.token = response.body()?.token.toString()
                     User.user.username = response.body()?.username.toString()
-                    val intent = Intent(this@LogInActivity, AgriculturesListActivity::class.java)
+                    val intent = Intent(this@LogInActivity, CulturesListActivity::class.java)
                     startActivity(intent)
                 } else {
-                    login_error_text_view.visibility = View.VISIBLE
-                    login_error_response.text = "${response.message()}  ${response.code()}"
-                    login_error_response.visibility = View.VISIBLE
+                    loginErrorTextView.visibility = View.VISIBLE
+                    loginErrorResponse.text = "${response.message()}  ${response.code()}"
+                    loginErrorResponse.visibility = View.VISIBLE
                 }
             })
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
-
     private fun removeErrorMessages() {
-        val login_error_text_view = findViewById<TextView>(R.id.login_error_text_view)
-        val login_error_response = findViewById<TextView>(R.id.login_error_response)
-        login_error_text_view.visibility = View.GONE
-        login_error_response.visibility = View.GONE
+        val loginErrorTextView = findViewById<TextView>(R.id.login_error_text_view)
+        val loginErrorResponse = findViewById<TextView>(R.id.login_error_response)
+        loginErrorTextView.visibility = View.GONE
+        loginErrorResponse.visibility = View.GONE
     }
 
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = "chanel_name"//getString(R.string.chanel_name)
-            val descriptionText = "chanel_description" //getString(R.string.chanel_description)
+            val name = getString(R.string.chanel_name)
+            val descriptionText = getString(R.string.chanel_description)
             val importance = NotificationManager.IMPORTANCE_DEFAULT
             val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
                 description = descriptionText

@@ -17,9 +17,6 @@ class CultureBoundariesViewModel(private val repository: Repository) : ViewModel
     fun addBoundary(token: String, boundaryModel: BoundaryModel) {
         viewModelScope.launch {
             repository.addBoundary(token, boundaryModel)
-            /*val response = repository.addBoundary(token, boundaryModel)
-            Log.e("DajMiNekiZnak","RESPONSEEEEEEEEE" + response)
-            responseLiveData.value = response*/
         }
     }
 }

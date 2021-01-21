@@ -22,7 +22,7 @@ class Repository {
         return Retrofit.api.login(loginModel)
     }
 
-    suspend fun addCulture(token: String, cultureModel: CultureModel): Response<URI> {
+    suspend fun addCulture(token: String, cultureModel: CultureModel)/*: Response<URI>*/ {
         return Retrofit.api.addCulture(token, cultureModel)
     }
 
@@ -34,8 +34,8 @@ class Repository {
         return Retrofit.api.getAllDevices(token)
     }
 
-    suspend fun deleteCulture(token: String, id: Long) {
-        Retrofit.api.deleteCulture(token, id)
+    suspend fun deleteCulture(token: String, id: Long): Response<Any>? {
+        return Retrofit.api.deleteCulture(token, id)
     }
 
     suspend fun addDeviceToCulture(token: String, id: Long, devId: Long) {

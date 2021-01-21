@@ -28,10 +28,10 @@ class TasksActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tasks)
 
-        val list_of_tasks_view = findViewById<RecyclerView>(R.id.list_of_tasks_view)
+        val listOfTasksView = findViewById<RecyclerView>(R.id.list_of_tasks_view)
 
 
-        list_of_tasks_view.layoutManager = LinearLayoutManager(applicationContext)
+        listOfTasksView.layoutManager = LinearLayoutManager(applicationContext)
 
         val decorator = DividerItemDecoration(applicationContext, LinearLayoutManager.VERTICAL)
         decorator.setDrawable(
@@ -40,13 +40,13 @@ class TasksActivity : AppCompatActivity() {
                 R.drawable.cell_divider
             )!!
         )
-        list_of_tasks_view.addItemDecoration(decorator)
+        listOfTasksView.addItemDecoration(decorator)
 
         val databaseHandler: DatabaseHandler = DatabaseHandler(applicationContext)
         val viewModelFactory = TaskViewModelFactory(databaseHandler)
         viewModel = ViewModelProvider(this, viewModelFactory).get(TasksViewModel::class.java)
         tasksAdapter = TasksAdapter(viewModel)
-        list_of_tasks_view.adapter = tasksAdapter
+        listOfTasksView.adapter = tasksAdapter
 
         viewModel.tasksList.observe(this, Observer {
             tasksAdapter.notifyDataSetChanged()
@@ -64,8 +64,7 @@ class TasksActivity : AppCompatActivity() {
         viewModel.getTasks()
     }
 
-    inner class TasksAdapter(listOfTasksViewModel: TasksViewModel) :
-        RecyclerView.Adapter<TasksAdapter.ViewHolder>() {
+    inner class TasksAdapter(listOfTasksViewModel: TasksViewModel) : RecyclerView.Adapter<TasksAdapter.ViewHolder>() {
 
         private var listOfTasks: TasksViewModel = listOfTasksViewModel
 
@@ -81,10 +80,10 @@ class TasksActivity : AppCompatActivity() {
             val context = parent.context
             val inflater = LayoutInflater.from(context)
             val taskListElement = inflater.inflate(R.layout.task_element_layout, parent, false)
-            val list_of_tasks_view = findViewById<RecyclerView>(R.id.list_of_tasks_view)
+            val listOfTasksView = findViewById<RecyclerView>(R.id.list_of_tasks_view)
 
             taskListElement.setOnClickListener {
-                var itemPosition = list_of_tasks_view.getChildLayoutPosition(it)
+                val itemPosition = listOfTasksView.getChildLayoutPosition(it)
                 val task = listOfTasks.tasksList.value?.get(itemPosition)
                 startActivity(
                     Intent(
@@ -94,7 +93,7 @@ class TasksActivity : AppCompatActivity() {
                 )
             }
             taskListElement.setOnLongClickListener {
-                var itemPosition = list_of_tasks_view.getChildLayoutPosition(it)
+                var itemPosition = listOfTasksView.getChildLayoutPosition(it)
                 var task = listOfTasks.tasksList.value?.get(itemPosition)
                 if (task != null) {
                     viewModel.deleteTask(task)

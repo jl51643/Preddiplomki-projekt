@@ -17,8 +17,6 @@ class AddNewTaskActivity : AppCompatActivity() {
 
     private lateinit var viewModel: TasksViewModel
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_new_task)

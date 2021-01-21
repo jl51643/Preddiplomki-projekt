@@ -67,10 +67,6 @@ class RegisterInActivity : AppCompatActivity() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
-
     private fun removeErrorMessages() {
         findViewById<TextView>(R.id.login_error_text_view).visibility = View.GONE
         findViewById<TextView>(R.id.login_error_response).visibility = View.GONE

@@ -29,11 +29,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-
-    }
-
     private fun removeErrorMessages() {
 
         val login_error_text_view = findViewById<TextView>(R.id.login_error_response)

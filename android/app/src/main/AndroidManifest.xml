@@ -41,13 +41,13 @@
             </intent-filter>
         </activity>
         -->
-        <activity android:name=".activities.AgriculturesListActivity" />
+        <activity android:name=".activities.CulturesListActivity" />
         <activity android:name=".activities.LogInActivity" />
         <activity android:name=".activities.RegisterInActivity" />
-        <activity android:name=".activities.AgricultureDetailsActivity" />
-        <activity android:name=".activities.AgricultureDisplay" />
-        <activity android:name=".activities.DevicesActivity" />
-        <activity android:name=".activities.AddDeviceActivity" />
+        <activity android:name=".activities.AddNewCultureActivity" />
+        <activity android:name=".activities.CultureDetailsActivity" />
+        <activity android:name=".activities.DevicesListActivity" />
+        <activity android:name=".activities.AddNewDeviceActivity" />
         <activity android:name=".activities.NotificationsActivity" />
         <activity android:name=".activities.TasksActivity" />
         <activity android:name=".activities.SetCultureBoundaries" />
