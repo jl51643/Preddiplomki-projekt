@@ -48,7 +48,6 @@ class SetCultureBoundaries : AppCompatActivity() {
                 viewModelFactory
             ).get(CultureBoundariesViewModel::class.java)
             viewModel.addBoundary("Bearer ${User.user.token}", newBoundaries)
-
             viewModel.responseLiveData.observe(this, Observer {
             })
 

@@ -44,9 +44,9 @@ class RegisterInActivity : AppCompatActivity() {
 
             viewModel = ViewModelProvider(this, viewModelFactory).get(RegisterViewModel::class.java)
             val registrationModel = RegistrationModel(
-                username.text.toString(),
-                password.text.toString(),
-                email.text.toString()
+                username = username.text.toString(),
+                email = email.text.toString(),
+                password = password.text.toString()
             )
             viewModel.registerUser(registrationModel)
 

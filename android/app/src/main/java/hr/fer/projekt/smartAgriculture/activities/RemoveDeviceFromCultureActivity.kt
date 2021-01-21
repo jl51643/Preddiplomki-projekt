@@ -2,8 +2,8 @@ package hr.fer.projekt.smartAgriculture.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.*
+import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -15,52 +15,31 @@ import hr.fer.projekt.smartAgriculture.repository.Repository
 import hr.fer.projekt.smartAgriculture.viewModel.AgricultureViewModel
 import hr.fer.projekt.smartAgriculture.viewModel.DeviceViewModel
 import hr.fer.projekt.smartAgriculture.viewModel.factory.AgricultureViewModelFactory
-import hr.fer.projekt.smartAgriculture.viewModel.factory.CultureBoundariesViewModelFactory
 import hr.fer.projekt.smartAgriculture.viewModel.factory.DeviceViewModelFactory
 
-
-class AddDeviceActivity : AppCompatActivity() {
-
+class RemoveDeviceFromCultureActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_new_device)
+        setContentView(R.layout.activity_remove_device_from_culture)
 
-        val devicesSpinner: Spinner = findViewById(R.id.devices_spinner)
-        val addButton: Button = findViewById(R.id.add_button)
+        val deviceId = findViewById<TextView>(R.id.device_id)
+        val deviceDevId = findViewById<TextView>(R.id.device_dev_id)
+        val removeDeviceButton = findViewById<Button>(R.id.remove_device_button)
 
-        val adapter = OPTIONS?.let {
-            ArrayAdapter(this, android.R.layout.simple_spinner_item, it)
-        }
-        val cultureId: Long = intent.getLongExtra("cultureId", 0)
+        val device = intent.getSerializableExtra("device") as DeviceModel
+        val cultureId = intent.getLongExtra("cultureId", 0)
 
-        devicesSpinner.adapter = adapter
+        deviceId.text = device.id.toString()
+        deviceDevId.text = device.devId
 
-        devicesSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                Toast.makeText(
-                    this@AddDeviceActivity,
-                    "Please select a device ",
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-        }
-
-        addButton.setOnClickListener {
-            val device: DeviceModel = devicesSpinner.selectedItem as DeviceModel
+        removeDeviceButton.setOnClickListener {
             val repository = Repository()
             val viewModelFactory = DeviceViewModelFactory(repository)
-            val deviceViewModel =
-                ViewModelProvider(this, viewModelFactory).get(DeviceViewModel::class.java)
-            deviceViewModel.addDeviceToCulture("Bearer ${User.user.token}", cultureId, device.id)
-            println("added $cultureId ${device.id}")
+            val deviceViewModel = ViewModelProvider(this, viewModelFactory).get(DeviceViewModel::class.java)
+            deviceViewModel.deleteDeviceFromCulture("Bearer ${User.user.token}", cultureId, device.id)
 
             val cultureViewModelFactory = AgricultureViewModelFactory(repository)
             val cultureViewModel = ViewModelProvider(this, cultureViewModelFactory).get(AgricultureViewModel::class.java)
-
             cultureViewModel.getCultures("Bearer ${User.user.token}")
             lateinit var cultureModel: CultureModel
             cultureViewModel.responseLiveDataGetCultures.observe(this, Observer { response ->
@@ -74,12 +53,21 @@ class AddDeviceActivity : AppCompatActivity() {
                     }
                 }
             })
-
-
         }
-    }
 
-    companion object {
-        var OPTIONS: Array<DeviceModel>? = null
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

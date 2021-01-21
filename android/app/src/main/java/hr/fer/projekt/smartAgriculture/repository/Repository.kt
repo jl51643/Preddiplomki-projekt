@@ -42,7 +42,7 @@ class Repository {
         return Retrofit.api.addDeviceToCulture(token, id, devId)
     }
 
-    suspend fun deleteDeviceFromCulture(token: String, cultureId: Long, devId: Long) {
+    suspend fun deleteDeviceFromCulture(token: String, cultureId: Long, devId: Long): Response<Any>? {
         return Retrofit.api.deleteDeviceFromCulture(token, cultureId, devId)
     }
 
@@ -50,7 +50,7 @@ class Repository {
         return Retrofit.api.getAllNotifications(token)
     }
 
-    suspend fun addBoundary(token: String, boundaryModel: BoundaryModel): Response<Any> {
+    suspend fun addBoundary(token: String, boundaryModel: BoundaryModel)/*: Response<Any>*/ {
         return Retrofit.api.addBoundary(token, boundaryModel)
     }
 
