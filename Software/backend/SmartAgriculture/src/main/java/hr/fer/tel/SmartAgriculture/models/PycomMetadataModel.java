@@ -1,12 +1,13 @@
 package hr.fer.tel.SmartAgriculture.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
 public class PycomMetadataModel {
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date time;
 
     public PycomMetadataModel() {
