@@ -17,6 +17,12 @@ public class Culture {
     @Column(name = "\"description\"")
     private String description;
 
+    @OneToMany(mappedBy = "culture")
+    private List<Boundary> boundaries;
+
+    @OneToMany(mappedBy = "culture")
+    private List<Notification> notifications;
+
     @ManyToMany
     @JoinTable(
             name = "\"Culture_Devices\"",
@@ -67,5 +73,20 @@ public class Culture {
         this.description = description;
     }
 
+    public List<Boundary> getBoundaries() {
+        return boundaries;
+    }
+
+    public void setBoundaries(List<Boundary> boundaries) {
+        this.boundaries = boundaries;
+    }
+
+    public List<Notification> getNotifications() {
+        return notifications;
+    }
+
+    public void setNotifications(List<Notification> notifications) {
+        this.notifications = notifications;
+    }
 }
 

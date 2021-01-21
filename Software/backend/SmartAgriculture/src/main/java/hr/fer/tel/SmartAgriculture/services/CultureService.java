@@ -4,8 +4,10 @@ import hr.fer.tel.SmartAgriculture.entities.Culture;
 import hr.fer.tel.SmartAgriculture.entities.Device;
 import hr.fer.tel.SmartAgriculture.models.CultureModel;
 import hr.fer.tel.SmartAgriculture.models.DeviceModel;
+import hr.fer.tel.SmartAgriculture.repositories.BoundaryRepository;
 import hr.fer.tel.SmartAgriculture.repositories.CultureRepository;
 import hr.fer.tel.SmartAgriculture.repositories.DeviceRepository;
+import hr.fer.tel.SmartAgriculture.repositories.NotificationRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,12 +19,15 @@ public class CultureService {
 
     private final CultureRepository cultureRepository;
     private final DeviceRepository deviceRepository;
+    private final BoundaryRepository boundaryRepository;
+    private final NotificationRepository notificationRepository;
 
-    public CultureService(CultureRepository cultureRepository, DeviceRepository deviceRepository) {
+    public CultureService(CultureRepository cultureRepository, DeviceRepository deviceRepository, BoundaryRepository boundaryRepository, NotificationRepository notificationRepository) {
         this.cultureRepository = cultureRepository;
         this.deviceRepository = deviceRepository;
+        this.boundaryRepository = boundaryRepository;
+        this.notificationRepository = notificationRepository;
     }
-
 
     public Long addCulture(CultureModel cultureModel) {
 
@@ -41,11 +46,15 @@ public class CultureService {
     }
 
     public boolean deleteCulture(Long id) {
-        boolean exists = this.cultureRepository.existsById(id);
-        if(exists){
+        Optional<Culture> culture = this.cultureRepository.findById(id);
+        if (culture.isPresent()){
+            this.boundaryRepository.deleteAll(culture.get().getBoundaries());
+            this.notificationRepository.deleteAll(culture.get().getNotifications());
             this.cultureRepository.deleteById(id);
+
+            return true;
         }
-        return exists;
+        return false;
     }
 
     public void addDeviceToCulture(Long id, Long deviceId) {
