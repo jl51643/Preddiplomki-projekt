@@ -34,6 +34,7 @@ class DevicesActivity : AppCompatActivity() {
     lateinit var viewModel: DeviceViewModel
     lateinit var devices: List<DeviceModel>
     lateinit var culture: CultureModel
+    lateinit var listOfDevices: MutableList<DeviceModel>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,21 +43,20 @@ class DevicesActivity : AppCompatActivity() {
         val listOfDevicesView = findViewById<RecyclerView>(R.id.list_of_devices_view)
         val addNewDeviceButton = findViewById<FloatingActionButton>(R.id.addDevicesButton)
 
-
         listOfDevicesView.layoutManager = LinearLayoutManager(applicationContext)
+
+        val decorator = DividerItemDecoration(applicationContext, LinearLayoutManager.VERTICAL)
+        decorator.setDrawable(ContextCompat.getDrawable(applicationContext, R.drawable.cell_divider)!!)
+        listOfDevicesView.addItemDecoration(decorator)
+
         culture = intent.getSerializableExtra("culture") as CultureModel
         val culture: CultureModel = intent.getSerializableExtra("culture") as CultureModel
 
-        val decorator = DividerItemDecoration(applicationContext, LinearLayoutManager.VERTICAL)
-        decorator.setDrawable(
-            ContextCompat.getDrawable(
-                applicationContext,
-                R.drawable.cell_divider
-            )!!
-        )
-        listOfDevicesView.addItemDecoration(decorator)
+        listOfDevices = culture.devices.toMutableList()
 
         viewModel = ViewModelProvider(this, viewModelFactory).get(DeviceViewModel::class.java)
+
+        viewModel.responseLiveDataGetDeviceForCulture.value = listOfDevices
         devicesAdapter = DevicesAdapter(viewModel, culture.devices)
         listOfDevicesView.adapter = devicesAdapter
 
@@ -86,15 +86,16 @@ class DevicesActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.getDevices("Bearer ${User.user.token}")
-        viewModel.responseLiveData.value?.body()?.filter {
-            println("tu sam")
-            culture.devices.contains(it)
-        }
+        val culture = intent.getSerializableExtra("culture") as CultureModel
+
+        viewModel.getDeviceForCulture("Bearer ${User.user.token}", culture.cultureId)
     }
 
-    inner class DevicesAdapter(deviceViewModel: DeviceViewModel, listDevices: List<DeviceModel>) :
-        RecyclerView.Adapter<DevicesAdapter.ViewHolder>() {
+    override fun onBackPressed() {
+        startActivity(Intent(applicationContext, AgricultureDisplay::class.java).putExtra("culture", culture))
+    }
+
+    inner class DevicesAdapter(deviceViewModel: DeviceViewModel, listDevices: List<DeviceModel>): RecyclerView.Adapter<DevicesAdapter.ViewHolder>() {
 
         private var listOfDevices: DeviceViewModel = deviceViewModel
         private var list = listDevices
@@ -112,18 +113,15 @@ class DevicesActivity : AppCompatActivity() {
             val inflater = LayoutInflater.from(context)
             val deviceListElement = inflater.inflate(R.layout.device_element_layout, parent, false)
 
-
             deviceListElement.setOnLongClickListener {
                 val listOfDevicesView = findViewById<RecyclerView>(R.id.list_of_devices_view)
                 var itemPosition = listOfDevicesView.getChildLayoutPosition(it)
-                var task = listOfDevices.responseLiveData.value?.body()?.get(itemPosition)
-
-                if (task != null) {
-                    viewModel.deleteDeviceFromCulture(
-                        "${User.user.token}",
-                        culture.cultureId,
-                        itemPosition.toLong()
-                    )
+                var device = listOfDevices.responseLiveDataGetDeviceForCulture.value?.get(itemPosition)
+                if (device != null) {
+                    //viewModel.deleteDeviceFromCulture("Bearer ${User.user.token}", culture.cultureId, device.id)
+                    //devicesAdapter.notifyItemRemoved(itemPosition)
+                    //devicesAdapter.notifyItemRangeRemoved(itemCount-1, itemCount-1)
+                    startActivity(Intent(applicationContext, RemoveDeviceFromCultureActivity::class.java).putExtra("device", device).putExtra("cultureId", culture.cultureId))
                 }
                 true
             }
@@ -132,15 +130,15 @@ class DevicesActivity : AppCompatActivity() {
         }
 
         override fun getItemCount(): Int {
-            return if (listOfDevices.responseLiveData.value?.body() != null) {
-                listOfDevices.responseLiveData.value?.body()!!.count()
+            return if (listOfDevices.responseLiveDataGetDeviceForCulture.value != null) {
+                listOfDevices.responseLiveDataGetDeviceForCulture.value!!.count()
             } else {
                 0
             }
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.deviceNameTextView?.text = list[position].devId
+            holder.deviceNameTextView?.text = listOfDevices.responseLiveDataGetDeviceForCulture.value!![position].devId
         }
     }
 

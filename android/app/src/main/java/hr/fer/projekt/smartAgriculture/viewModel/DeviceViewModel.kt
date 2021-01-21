@@ -17,10 +17,10 @@ class DeviceViewModel(private val repository: Repository) : ViewModel() {
 
     var responseLiveDataAddDeviceToCulture: MutableLiveData<Unit> = MutableLiveData()
 
-    var responseLiveDataRemoveDeviceFromCulture: MutableLiveData<Unit> = MutableLiveData()
+    var responseLiveDataRemoveDeviceFromCulture: MutableLiveData<Response<Any>?> = MutableLiveData()
     /* ________________*/
 
-    val responseLiveDataGetDeviceForCulture: MutableLiveData<List<DeviceModel>> =
+    val responseLiveDataGetDeviceForCulture: MutableLiveData<MutableList<DeviceModel>> =
         MutableLiveData()
 
     val cultureModel: MutableLiveData<List<CultureModel>> =
@@ -32,7 +32,7 @@ class DeviceViewModel(private val repository: Repository) : ViewModel() {
             cultureModel.value = response.body()
             for (model in cultureModel.value!!) {
                 if (model.cultureId.equals(cultureId)) {
-                    responseLiveDataGetDeviceForCulture.value = model.devices
+                    responseLiveDataGetDeviceForCulture.value = model.devices.toMutableList()
                 }
             }
         }
@@ -56,8 +56,17 @@ class DeviceViewModel(private val repository: Repository) : ViewModel() {
 
     fun deleteDeviceFromCulture(token: String, cultureId: Long, devId: Long) {
         viewModelScope.launch {
-            val response = repository.deleteDeviceFromCulture(token, cultureId, devId)
-            responseLiveDataRemoveDeviceFromCulture.value = response
+            repository.deleteDeviceFromCulture(token, cultureId, devId)
+            //getDeviceForCulture(token, cultureId)
+            //var listOfDevices = responseLiveDataGetDeviceForCulture.value
+            /*lateinit var deviceToRemove: DeviceModel
+            for (device in responseLiveDataGetDeviceForCulture.value!!) {
+                if (device.id == devId) {
+                    //listOfDevices?.remove(device)
+                    deviceToRemove = device
+                }
+            }
+            responseLiveDataGetDeviceForCulture.value!!.remove(deviceToRemove)*/
         }
     }
 

@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -13,13 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
+        <activity android:name=".activities.RemoveDeviceFromCultureActivity"></activity>
 
         <service
             android:name=".services.NotificationService"
             android:enabled="true"
             android:exported="true" />
-
 
         <activity
             android:name=".activities.MainActivity"
@@ -30,8 +28,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-     <!--   <activity android:name=".activities.LogInActivity">
+        <!--
+   <activity android:name=".activities.LogInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
@@ -41,8 +39,8 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
-        </activity>-->
-
+        </activity>
+        -->
         <activity android:name=".activities.AgriculturesListActivity" />
         <activity android:name=".activities.LogInActivity" />
         <activity android:name=".activities.RegisterInActivity" />
@@ -50,13 +48,11 @@
         <activity android:name=".activities.AgricultureDisplay" />
         <activity android:name=".activities.DevicesActivity" />
         <activity android:name=".activities.AddDeviceActivity" />
-        <activity android:name=".activities.NotificationsActivity"></activity>
+        <activity android:name=".activities.NotificationsActivity" />
         <activity android:name=".activities.TasksActivity" />
         <activity android:name=".activities.SetCultureBoundaries" />
         <activity android:name=".activities.AddNewTaskActivity" />
         <activity android:name=".activities.MeasurementsActivity" />
-
-
     </application>
 
 </manifest>

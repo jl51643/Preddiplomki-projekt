@@ -52,4 +52,8 @@ class AgricultureDisplay : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
     }
+
+    override fun onBackPressed() {
+        startActivity(Intent(applicationContext, AgriculturesListActivity::class.java))
+    }
 }

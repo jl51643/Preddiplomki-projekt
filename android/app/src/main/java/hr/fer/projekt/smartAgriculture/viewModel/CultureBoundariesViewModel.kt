@@ -1,5 +1,7 @@
 package hr.fer.projekt.smartAgriculture.viewModel
 
+import android.util.Log
+import android.util.Log.WARN
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -14,8 +16,10 @@ class CultureBoundariesViewModel(private val repository: Repository) : ViewModel
 
     fun addBoundary(token: String, boundaryModel: BoundaryModel) {
         viewModelScope.launch {
-            val response = repository.addBoundary(token, boundaryModel)
-            responseLiveData.value = response
+            repository.addBoundary(token, boundaryModel)
+            /*val response = repository.addBoundary(token, boundaryModel)
+            Log.e("DajMiNekiZnak","RESPONSEEEEEEEEE" + response)
+            responseLiveData.value = response*/
         }
     }
 }

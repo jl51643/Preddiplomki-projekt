@@ -32,18 +32,18 @@ interface ApiService {
     suspend fun deleteCulture(@Header("Authorization") token: String, @Path("id") id: Long)
 
     @POST("/api/culture/{id}/devices/add/{deviceId}")
-    suspend fun addDeviceToCulture(@Header("Authorisation") token: String, @Path("id") id: Long, @Path("deviceId") deviceId: Long)
+    suspend fun addDeviceToCulture(@Header("Authorization") token: String, @Path("id") id: Long, @Path("deviceId") deviceId: Long)
 
     @DELETE("api/culture/{cultureId}/devices/delete/{devId}")
-    suspend fun deleteDeviceFromCulture(@Header("Authorisation") token: String, @Path("cultureId") cultureId: Long, @Path("devId") deviceId: Long)
+    suspend fun deleteDeviceFromCulture(@Header("Authorization") token: String, @Path("cultureId") cultureId: Long, @Path("devId") deviceId: Long) : Response<Any>?
 
     @GET("/api/boundaries/{cultureId}")
-    suspend fun getBoundaries(@Header("Authorisation") token: String, @Path("cultureId") cultureId: Long) : Response<BoundaryModel>
+    suspend fun getBoundaries(@Header("Authorization") token: String, @Path("cultureId") cultureId: Long) : Response<BoundaryModel>
 
     @POST("/api/boundaries")
-    suspend fun addBoundary(@Header("Authorisation") token: String, @Body boundaryModel: BoundaryModel) : Response<Any>
+    suspend fun addBoundary(@Header("Authorization") token: String, @Body boundaryModel: BoundaryModel)
 
     @GET("/api/notifications")
-    suspend fun getAllNotifications(@Header("Authorisation") token: String) : Response<List<NotificationModel>>
+    suspend fun getAllNotifications(@Header("Authorization") token: String) : Response<List<NotificationModel>>
 
 }
