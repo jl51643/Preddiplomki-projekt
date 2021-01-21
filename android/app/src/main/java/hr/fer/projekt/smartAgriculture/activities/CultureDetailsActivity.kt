@@ -17,6 +17,10 @@ import hr.fer.projekt.smartAgriculture.viewModel.factory.CultureViewModelFactory
 
 class CultureDetailsActivity : AppCompatActivity() {
 
+    lateinit var culture: CultureModel
+    lateinit var cultureModel: CultureModel
+    lateinit var viewModel: CultureViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_culture_details)
@@ -31,16 +35,29 @@ class CultureDetailsActivity : AppCompatActivity() {
         val repository = Repository()
         val viewModelFactory = CultureViewModelFactory(repository)
 
-        val viewModel = ViewModelProvider(this, viewModelFactory).get(CultureViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(CultureViewModel::class.java)
 
-        val culture: CultureModel = intent.getSerializableExtra("culture") as CultureModel
+        culture = intent.getSerializableExtra("culture") as CultureModel
+        cultureModel = CultureModel(
+            culture.cultureId, culture.title, culture.devices, culture.description
+        )
 
         title.text = culture.title
         description.text = culture.description
 
         measurementButton.setOnClickListener {
+            viewModel.getCultures("Bearer ${User.user.token}")
+            viewModel.responseLiveData.observe(this, {
+                val cultureModelList = viewModel.responseLiveData.value?.body()
+                if (cultureModelList != null) {
+                    for (model in cultureModelList) {
+                        if (model.cultureId == culture.cultureId)
+                            cultureModel = model
+                    }
+                }
+            })
             val intent: Intent = Intent(this, MeasurementsActivity::class.java)
-            intent.putExtra("culture", culture)
+            intent.putExtra("culture", cultureModel)
             startActivity(intent)
         }
 
@@ -55,12 +72,25 @@ class CultureDetailsActivity : AppCompatActivity() {
             finish()
         }
 
-        notificationBell.setOnClickListener{
+        notificationBell.setOnClickListener {
             val intent: Intent = Intent(this, SetCultureBoundaries::class.java)
             intent.putExtra("cultureId", culture.cultureId)
             startActivity(intent)
         }
 
+    }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.getCultures("Bearer ${User.user.token}")
+        viewModel.responseLiveData.observe(this, {
+            val cultureModelList = viewModel.responseLiveData.value?.body()
+            if (cultureModelList != null) {
+                for (model in cultureModelList) {
+                    if (model.cultureId == culture.cultureId)
+                        cultureModel = model
+                }
+            }
+        })
     }
 }

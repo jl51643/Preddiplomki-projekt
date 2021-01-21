@@ -7,19 +7,20 @@ import java.net.URI
 
 class Repository {
 
+    suspend fun login(loginModel: LoginModel): Response<TokenModel> {
+        return Retrofit.api.login(loginModel)
+    }
+
     suspend fun getMeasurements(token: String): Response<List<MeasurementModel>> {
         return Retrofit.api.getMeasurements(token)
     }
+
     suspend fun getLastMeasurements(token: String): Response<List<MeasurementModel>> {
         return Retrofit.api.getLastMeasurements(token)
     }
 
     suspend fun registerUser(registrationModel: RegistrationModel): Response<TokenModel> {
         return Retrofit.api.registerUser(registrationModel)
-    }
-
-    suspend fun login(loginModel: LoginModel): Response<TokenModel> {
-        return Retrofit.api.login(loginModel)
     }
 
     suspend fun addCulture(token: String, cultureModel: CultureModel)/*: Response<URI>*/ {

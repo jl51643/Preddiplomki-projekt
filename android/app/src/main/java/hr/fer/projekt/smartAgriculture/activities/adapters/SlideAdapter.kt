@@ -58,6 +58,7 @@ class SlideAdapter(
 
         /* measurementsList?.stream().forEach{println(it.device)}*/
 
+        listMeasurement.sortBy { measurementModel: MeasurementModel -> measurementModel.time.time }
         println(listMeasurement.toString())
 
         if (listMeasurement.size == 0) {
@@ -131,11 +132,9 @@ class SlideAdapter(
         if (measurementsList != null) {
             var i: Float = 1.0f
             for (m: MeasurementModel in measurementsList) {
-
-                //returns difference in milliseconds => * 1000 to seconds, * 60 to minutes * 60 to hours
                 airTemperatureEntries.add(
                     Entry(
-                        /*abs(m.time.time - currentTime.time) * 1000 * 60 * 60.0f*/i++,
+                        i++,
                         m.airTemperature.toFloat()
                     )
                 )
@@ -183,12 +182,14 @@ class SlideAdapter(
 
         val lineDateSetAirTemperature: LineDataSet =
             LineDataSet(airTemperatureEntries, "Temperatures")
+        lineDateSetAirTemperature.valueTextSize = 15f
+        lineDateSetAirTemperature.setDrawFilled(true)
+
+
         val lineDateSetAirHumidity: LineDataSet = LineDataSet(airHumidityEntries, "Humidity")
         val lineDateSetPressure: LineDataSet = LineDataSet(pressureEntries, "Pressure")
         val lineDateSetLuminosity: LineDataSet = LineDataSet(luminosity, "Luminosity")
 
-        lineDateSetAirTemperature.valueTextSize = 15f
-        lineDateSetAirTemperature.setDrawFilled(true)
 
         lineDateSetAirHumidity.valueTextSize = 15f
         lineDateSetAirHumidity.setDrawFilled(true)

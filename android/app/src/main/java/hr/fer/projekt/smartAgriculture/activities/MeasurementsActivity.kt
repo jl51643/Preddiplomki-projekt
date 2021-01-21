@@ -49,9 +49,14 @@ class MeasurementsActivity : AppCompatActivity() {
                 slideViewPager.visibility = View.VISIBLE
                 progres_bar.visibility = View.GONE
 
-                lastMeasurementDate.text =
-                    R.string.last_measurement_text.toString() + " " + response.body()
-                        ?.maxBy { m -> m.time.time }?.time.toString()
+                val list = response.body()?.filter {
+                    cultureModel.devices.contains(it.device)
+                }
+
+                if (list != null) {
+                    lastMeasurementDate.text =
+                        getString(R.string.last_measurement_text) + " " + list.maxBy { m -> m.time.time }?.time.toString()
+                }
                 slideAdapter =
                     SlideAdapter(this@MeasurementsActivity, response.body()!!.toMutableList(), cultureModel)
                 slideViewPager?.adapter = slideAdapter

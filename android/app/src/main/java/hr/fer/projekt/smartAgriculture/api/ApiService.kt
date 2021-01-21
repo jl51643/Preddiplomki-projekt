@@ -6,6 +6,9 @@ import retrofit2.http.*
 
 interface ApiService {
 
+    @POST("/api/auth/login")
+    suspend fun login(@Body loginModel: LoginModel) : Response<TokenModel>
+
     @GET("/api/measurement/all")
     suspend fun getMeasurements(@Header("Authorization") token: String) : Response<List<MeasurementModel>>
 
@@ -14,9 +17,6 @@ interface ApiService {
 
     @POST("/api/auth/register")
     suspend fun registerUser(@Body registrationModel: RegistrationModel) : Response<TokenModel>
-
-    @POST("/api/auth/login")
-    suspend fun login(@Body loginModel: LoginModel) : Response<TokenModel>
 
     @POST("/api/culture/add")
     suspend fun addCulture(@Header("Authorization") token: String, @Body cultureModel: CultureModel)

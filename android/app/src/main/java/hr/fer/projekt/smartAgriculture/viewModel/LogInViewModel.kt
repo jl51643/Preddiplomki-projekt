@@ -9,7 +9,7 @@ import hr.fer.projekt.smartAgriculture.repository.Repository
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class LoginViewModel (private val repository: Repository) : ViewModel() {
+class LoginViewModel(private val repository: Repository) : ViewModel() {
 
     val responseLiveData: MutableLiveData<Response<TokenModel>> = MutableLiveData()
 
