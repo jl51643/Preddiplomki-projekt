@@ -3,7 +3,6 @@ package hr.fer.projekt.smartAgriculture.api
 import hr.fer.projekt.smartAgriculture.model.*
 import retrofit2.Response
 import retrofit2.http.*
-import java.net.URI
 
 interface ApiService {
 
@@ -20,7 +19,7 @@ interface ApiService {
     suspend fun login(@Body loginModel: LoginModel) : Response<TokenModel>
 
     @POST("/api/culture/add")
-    suspend fun addCulture(@Header("Authorization") token: String, @Body cultureModel: CultureModel) : Response<URI>
+    suspend fun addCulture(@Header("Authorization") token: String, @Body cultureModel: CultureModel)
 
     @GET("/api/culture/all")
     suspend fun getAllCultures(@Header("Authorization") token: String) : Response<List<CultureModel>>
@@ -29,7 +28,7 @@ interface ApiService {
     suspend fun getAllDevices(@Header("Authorization") token: String) : Response<List<DeviceModel>>
 
     @DELETE("/api/culture/delete/{id}")
-    suspend fun deleteCulture(@Header("Authorization") token: String, @Path("id") id: Long)
+    suspend fun deleteCulture(@Header("Authorization") token: String, @Path("id") id: Long): Response<Any>?
 
     @POST("/api/culture/{id}/devices/add/{deviceId}")
     suspend fun addDeviceToCulture(@Header("Authorization") token: String, @Path("id") id: Long, @Path("deviceId") deviceId: Long)

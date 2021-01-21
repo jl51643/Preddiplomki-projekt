@@ -42,4 +42,6 @@
     <string name="notifications">Notifications</string>
     <string name="measurements_button_name">Measurements</string>
     <string name="devices_button_name">Devices</string>
+    <string name="chanel_name">notifications</string>
+    <string name="chanel_description">notifications</string>
 </resources>
