@@ -8,6 +8,7 @@ servers:
 paths:
   /api/measurement/pycom/add:
     post:
+      description: Adds new measurment from pycom device
       tags:
       - measurement-controller
       operationId: pycomAddMeasurement
@@ -26,6 +27,7 @@ paths:
                 type: object
   /api/culture/{id}/devices/add/{deviceId}:
     post:
+      description: Adds device to culture
       tags:
       - culture-controller
       operationId: addDeviceToCulture
@@ -51,6 +53,7 @@ paths:
                 type: object
   /api/culture/add:
     post:
+      description: Adds culture
       tags:
       - culture-controller
       operationId: cultureAdd
@@ -69,6 +72,7 @@ paths:
                 type: object
   /api/boundaries:
     post:
+      description: Adds boundaries
       tags:
       - boundary-controller
       operationId: addBoundary
@@ -87,6 +91,7 @@ paths:
                 type: object
   /api/auth/register:
     post:
+      description: Register user
       tags:
       - user-controller
       operationId: register
@@ -105,6 +110,7 @@ paths:
                 type: object
   /api/auth/login:
     post:
+      description: Long in user
       tags:
       - user-controller
       operationId: login
@@ -123,6 +129,7 @@ paths:
                 type: object
   /api/notifications:
     get:
+      description: Gets all notifications
       tags:
       - notification-controller
       operationId: getAllNotifications
@@ -137,6 +144,7 @@ paths:
                   $ref: '#/components/schemas/NotificationModel'
   /api/measurement/waspmote/add:
     get:
+      description: Adds measurment form waspmot device
       tags:
       - measurement-controller
       operationId: waspmoteAddMeasurement
@@ -161,6 +169,7 @@ paths:
                 type: object
   /api/measurement/last:
     get:
+      description: Gets 10 last measurments
       tags:
       - measurement-controller
       operationId: getLastMeasurements
@@ -175,6 +184,7 @@ paths:
                   $ref: '#/components/schemas/MeasurementModel'
   /api/measurement/all:
     get:
+      description: Gets all measurments
       tags:
       - measurement-controller
       operationId: getAllMeasurements
@@ -189,6 +199,7 @@ paths:
                   $ref: '#/components/schemas/MeasurementModel'
   /api/devices:
     get:
+      description: Gets all devices
       tags:
       - device-controller
       operationId: getAllDevices
@@ -203,6 +214,7 @@ paths:
                   $ref: '#/components/schemas/DeviceModel'
   /api/culture/all:
     get:
+      description: Gets all cultures
       tags:
       - culture-controller
       operationId: getAllCultures
@@ -217,6 +229,7 @@ paths:
                   $ref: '#/components/schemas/CultureModel'
   /api/boundaries/{cultureId}:
     get:
+      description: Gets boundaries for certain culture
       tags:
       - boundary-controller
       operationId: getBoundaryModel
@@ -236,6 +249,7 @@ paths:
                 type: object
   /api/culture/{cultureId}/devices/delete/{devId}:
     delete:
+      description: Delete certain device from certain culture
       tags:
       - culture-controller
       operationId: deleteDeviceFromCulture
@@ -261,6 +275,7 @@ paths:
                 type: object
   /api/culture/delete/{id}:
     delete:
+      description: Deletes certain culture
       tags:
       - culture-controller
       operationId: deleteCulture
