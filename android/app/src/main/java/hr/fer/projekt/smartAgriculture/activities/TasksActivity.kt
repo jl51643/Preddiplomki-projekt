@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import hr.fer.projekt.smartAgriculture.DatabaseHandler
+import hr.fer.projekt.smartAgriculture.database.DatabaseHandler
 import hr.fer.projekt.smartAgriculture.R
 import hr.fer.projekt.smartAgriculture.viewModel.TasksViewModel
 import hr.fer.projekt.smartAgriculture.viewModel.factory.TaskViewModelFactory

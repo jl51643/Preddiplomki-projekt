@@ -52,11 +52,6 @@ class SlideAdapter(
             }
         }
 
-        /* measurementsList?.stream().filter {
-             cultureModel.devices.contains(it.device)
-         }.sorted { o1, o2 -> o1.time.time.compareTo(o2.time.time) }*/
-
-        /* measurementsList?.stream().forEach{println(it.device)}*/
 
         listMeasurement.sortBy { measurementModel: MeasurementModel -> measurementModel.time.time }
         println(listMeasurement.toString())
@@ -77,23 +72,6 @@ class SlideAdapter(
         values = arrayOf(airTemp, airHum, press, lum)
 
         graphLineDatas = initializeGraphs(listMeasurement)
-        /*
-        //For testing GUI
-        ///////////
-        val entries = mutableListOf<Entry>()
-        for (i in 1..10) {
-            entries.add(Entry(i * 1f, (Math.random() * 6f).toFloat()))
-        }
-
-        val lineDataSet: LineDataSet = LineDataSet(entries, "Temperatures")
-        lineDataSet.valueTextSize = 10f
-        lineDataSet.setDrawFilled(true)
-
-        var lineData  = LineData(lineDataSet)
-
-        //graphLineDatas = arrayOf(lineData, lineData, lineData, lineData)
-        /////////
-        */
 
     }
 
@@ -147,7 +125,7 @@ class SlideAdapter(
             for (m: MeasurementModel in measurementsList) {
                 airHumidityEntries.add(
                     Entry(
-                        /*abs(m.time.time - currentTime.time) * 1000 * 60 * 60.0f*/i++,
+                        i++,
                         m.airHumidity.toFloat()
                     )
                 )
@@ -160,7 +138,7 @@ class SlideAdapter(
             for (m: MeasurementModel in measurementsList) {
                 pressureEntries.add(
                     Entry(
-                        /*abs(m.time.time - currentTime.time) * 1000 * 60 * 60.0f*/i++,
+                        i++,
                         m.pressure.toFloat()
                     )
                 )
@@ -173,7 +151,7 @@ class SlideAdapter(
             for (m: MeasurementModel in measurementsList) {
                 luminosity.add(
                     Entry(
-                        /*abs(m.time.time - currentTime.time) * 1000 * 60 * 60.0f*/i++,
+                        i++,
                         m.luminosity.toFloat()
                     )
                 )

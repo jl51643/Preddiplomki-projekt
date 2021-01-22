@@ -3,10 +3,9 @@ package hr.fer.projekt.smartAgriculture.activities
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import hr.fer.projekt.smartAgriculture.DatabaseHandler
+import hr.fer.projekt.smartAgriculture.database.DatabaseHandler
 import hr.fer.projekt.smartAgriculture.R
 import hr.fer.projekt.smartAgriculture.model.TaskModel
 import hr.fer.projekt.smartAgriculture.model.User

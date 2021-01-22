@@ -2,7 +2,7 @@ package hr.fer.projekt.smartAgriculture.viewModel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import hr.fer.projekt.smartAgriculture.DatabaseHandler
+import hr.fer.projekt.smartAgriculture.database.DatabaseHandler
 import hr.fer.projekt.smartAgriculture.model.TaskModel
 import hr.fer.projekt.smartAgriculture.model.User
 

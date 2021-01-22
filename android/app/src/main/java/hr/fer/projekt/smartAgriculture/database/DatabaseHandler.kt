@@ -1,4 +1,4 @@
-package hr.fer.projekt.smartAgriculture
+package hr.fer.projekt.smartAgriculture.database
 
 import android.content.ContentValues
 import android.content.Context

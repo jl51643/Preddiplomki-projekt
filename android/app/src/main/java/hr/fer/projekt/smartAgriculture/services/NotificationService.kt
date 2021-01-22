@@ -41,17 +41,19 @@ class NotificationService : Service() {
         val repository = Repository()
         CoroutineScope(Dispatchers.IO).launch {
             while (KEEP_RUNNING) {
-                var notifications: Response<List<NotificationModel>> = repository.getAllNotifications("Bearer " + User.user.token)
+                var notifications: Response<List<NotificationModel>> =
+                    repository.getAllNotifications("Bearer " + User.user.token)
                 if (!notifications.isSuccessful)
                     continue
-                //val notifications = listOf(NotificationModel(Date(), 1L, "message"))
 
                 for (n in notifications.body()!!) {
-                    val NotificationIntent = Intent(this@NotificationService, AddNewTaskActivity::class.java)
-                        .putExtra("message", n.message)
-                        .apply {
-                            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                        }
+                    val NotificationIntent =
+                        Intent(this@NotificationService, AddNewTaskActivity::class.java)
+                            .putExtra("message", n.message)
+                            .apply {
+                                flags =
+                                    Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            }
 
                     val pendingIntent: PendingIntent =
                         PendingIntent.getActivity(
@@ -69,22 +71,25 @@ class NotificationService : Service() {
                         }
                     }
                 }
-               /* lateinit var array: Array*/
+
                 delay(50000)
-                /*if (!KEEP_RUNNING)
-                    break*/
+
             }
         }
     }
 
-    private fun buildNotification(notificationText: String, pendingIntent: PendingIntent): NotificationCompat.Builder? {
-        return  NotificationCompat.Builder(this@NotificationService, CHANNEL_ID)
+    private fun buildNotification(
+        notificationText: String,
+        pendingIntent: PendingIntent
+    ): NotificationCompat.Builder? {
+        return NotificationCompat.Builder(this@NotificationService, CHANNEL_ID)
             .setSmallIcon(R.drawable.kapljice)
             .setContentTitle(resources.getString(R.string.warning))
             .setContentText(notificationText)
             .setStyle(
                 NotificationCompat.BigTextStyle()
-                    .bigText(notificationText))
+                    .bigText(notificationText)
+            )
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)
