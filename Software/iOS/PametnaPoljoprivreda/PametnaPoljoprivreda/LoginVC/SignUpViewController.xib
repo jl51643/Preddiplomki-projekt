@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController" customModule="PametnaPoljoprivreda" customModuleProvider="target">
+            <connections>
+                <outlet property="mailTF" destination="B7B-Xl-Ckb" id="nMC-sD-k0k"/>
+                <outlet property="passwordTF" destination="0Tl-eA-0yZ" id="0P1-US-AqN"/>
+                <outlet property="signUpButton" destination="NrK-S6-sra" id="urD-ME-aJy"/>
+                <outlet property="usernameTF" destination="udg-xH-zde" id="ZeH-z7-Gkn"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="ftJ-Rp-hWT">
+                    <rect key="frame" x="40" y="144" width="334" height="266"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="udg-xH-zde">
+                            <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="1yZ-9i-KRx"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B7B-Xl-Ckb">
+                            <rect key="frame" x="0.0" y="72" width="334" height="50"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Tl-eA-0yZ">
+                            <rect key="frame" x="0.0" y="144" width="334" height="50"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NrK-S6-sra">
+                            <rect key="frame" x="0.0" y="216" width="334" height="50"/>
+                            <state key="normal" title="Sign Up"/>
+                            <connections>
+                                <action selector="signUpButtonTapped:" destination="-1" eventType="touchUpInside" id="K7E-ki-dRY"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="udg-xH-zde" firstAttribute="top" secondItem="ftJ-Rp-hWT" secondAttribute="top" id="7fC-C2-8mr"/>
+                        <constraint firstItem="udg-xH-zde" firstAttribute="leading" secondItem="ftJ-Rp-hWT" secondAttribute="leading" id="DN1-MS-6pU"/>
+                        <constraint firstItem="udg-xH-zde" firstAttribute="height" secondItem="B7B-Xl-Ckb" secondAttribute="height" id="Na9-ZR-tWB"/>
+                        <constraint firstItem="udg-xH-zde" firstAttribute="width" secondItem="0Tl-eA-0yZ" secondAttribute="width" id="S2E-ht-aqJ"/>
+                        <constraint firstItem="udg-xH-zde" firstAttribute="width" secondItem="NrK-S6-sra" secondAttribute="width" id="bTF-Gp-h1S"/>
+                        <constraint firstItem="udg-xH-zde" firstAttribute="height" secondItem="0Tl-eA-0yZ" secondAttribute="height" id="ccF-d9-MKD"/>
+                        <constraint firstItem="udg-xH-zde" firstAttribute="width" secondItem="B7B-Xl-Ckb" secondAttribute="width" id="t9N-xd-sbv"/>
+                        <constraint firstAttribute="trailing" secondItem="udg-xH-zde" secondAttribute="trailing" id="uyp-sm-UU5"/>
+                        <constraint firstItem="udg-xH-zde" firstAttribute="height" secondItem="NrK-S6-sra" secondAttribute="height" id="zbA-hQ-KPZ"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemGray2Color"/>
+            <constraints>
+                <constraint firstItem="ftJ-Rp-hWT" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="LDQ-9b-z8R"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ftJ-Rp-hWT" secondAttribute="trailing" constant="40" id="bdw-dS-p5Y"/>
+                <constraint firstItem="ftJ-Rp-hWT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="why-nV-Ztq"/>
+            </constraints>
+            <point key="canvasLocation" x="141" y="154"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

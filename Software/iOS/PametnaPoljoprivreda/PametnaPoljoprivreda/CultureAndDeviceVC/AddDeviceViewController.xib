@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddDeviceViewController" customModule="PametnaPoljoprivreda" customModuleProvider="target">
+            <connections>
+                <outlet property="addButton" destination="5R4-Pt-b8e" id="RWI-H5-CdY"/>
+                <outlet property="dissmissButton" destination="r4N-Qu-dcj" id="mBb-ae-lXw"/>
+                <outlet property="idTF" destination="gjb-IS-L0W" id="78I-rA-rru"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gjb-IS-L0W">
+                    <rect key="frame" x="20" y="104" width="374" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="200" translatesAutoresizingMaskIntoConstraints="NO" id="TQ5-0q-E24">
+                    <rect key="frame" x="20" y="292" width="374" height="30"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r4N-Qu-dcj">
+                            <rect key="frame" x="0.0" y="0.0" width="87" height="30"/>
+                            <state key="normal" title="Dissmiss"/>
+                            <connections>
+                                <action selector="dissmissButtonTapped:" destination="-1" eventType="touchUpInside" id="5hz-1N-8UD"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5R4-Pt-b8e">
+                            <rect key="frame" x="287" y="0.0" width="87" height="30"/>
+                            <state key="normal" title="Add"/>
+                            <connections>
+                                <action selector="addButtonTapped:" destination="-1" eventType="touchUpInside" id="Hji-64-Jyv"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="TQ5-0q-E24" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="HZi-d7-Lv1"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="TQ5-0q-E24" secondAttribute="bottom" constant="540" id="QZc-tq-Zbp"/>
+                <constraint firstItem="gjb-IS-L0W" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="60" id="hXY-T6-CRA"/>
+                <constraint firstItem="gjb-IS-L0W" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="ipB-BC-AGP"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gjb-IS-L0W" secondAttribute="trailing" constant="20" id="vAz-Mo-APQ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TQ5-0q-E24" secondAttribute="trailing" constant="20" id="xMa-Mg-Qsc"/>
+            </constraints>
+            <point key="canvasLocation" x="-39" y="151"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
