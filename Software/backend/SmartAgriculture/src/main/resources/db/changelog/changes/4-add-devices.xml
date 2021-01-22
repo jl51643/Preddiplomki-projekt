@@ -1,0 +1,31 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="4" author="am">
+        <createTable tableName="Devices">
+            <column name="id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="devId" type="varchar(50)">
+                <constraints unique="true"/>
+            </column>
+        </createTable>
+        <addAutoIncrement tableName="Devices" columnName="id"/>
+        <createTable tableName="Culture_Devices">
+            <column name="id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="culture_id" type="int">
+                <constraints nullable="false" foreignKeyName="fk_cd_cultureid" references='"Cultures"("cultureId")'/>
+            </column>
+            <column name="device_id" type="int">
+                <constraints nullable="false" foreignKeyName="fk_cd_deviceid" references='"Devices"(id)'/>
+            </column>
+        </createTable>
+        <addAutoIncrement tableName="Culture_Devices" columnName="id"/>
+    </changeSet>
+
+
+</databaseChangeLog>

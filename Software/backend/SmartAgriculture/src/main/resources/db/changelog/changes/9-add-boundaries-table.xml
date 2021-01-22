@@ -1,0 +1,31 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="9" author="bhorvat">
+        <createTable tableName="Boundaries">
+            <column name="id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="user_id" type="integer">
+                <constraints nullable="false" foreignKeyName="fk_notifications_users" referencedTableName="Users" referencedColumnNames="id"/>
+            </column>
+            <column name="culture_id" type="integer">
+                <constraints nullable="false" foreignKeyName="fk_notifications_cultures" referencedTableName="Cultures" referencedColumnNames="cultureId"/>
+            </column>
+            <column name="min_air_temperature" type="decimal(5,2)" />
+            <column name="max_air_temperature" type="decimal(5,2)" />
+            <column name="min_soil_temperature" type="decimal(5,2)" />
+            <column name="max_soil_temperature" type="decimal(5,2)" />
+            <column name="min_air_humidity" type="decimal(5,2)" />
+            <column name="max_air_humidity" type="decimal(5,2)" />
+            <column name="min_soil_humidity" type="decimal(5,2)" />
+            <column name="max_soil_humidity" type="decimal(5,2)" />
+            <column name="min_pressure" type="decimal(8,2)" />
+            <column name="max_pressure" type="decimal(8,2)" />
+        </createTable>
+        <addAutoIncrement tableName="Boundaries" columnName="id" />
+    </changeSet>
+</databaseChangeLog>

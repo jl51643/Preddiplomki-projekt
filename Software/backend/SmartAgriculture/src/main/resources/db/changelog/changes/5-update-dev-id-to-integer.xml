@@ -1,0 +1,18 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="5" author="bhorvat">
+        <dropColumn tableName="Measurements" columnName="dev_id"/>
+        <addColumn tableName="Measurements">
+            <column name="dev_id" type="integer">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addForeignKeyConstraint baseTableName="Measurements" baseColumnNames="dev_id"
+                                 constraintName="fk_measurement_device"
+                                 referencedTableName="Devices"
+                                 referencedColumnNames="id" />
+    </changeSet>
+</databaseChangeLog>

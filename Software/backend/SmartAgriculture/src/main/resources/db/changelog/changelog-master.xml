@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <include file="changes/1-add-measurements-table.xml" relativeToChangelogFile="true"/>
+    <include file="changes/2-add-measurements-id-auto-increment.xml" relativeToChangelogFile="true"/>
+    <include file="changes/3-add-users.xml" relativeToChangelogFile="true"/>
+    <include file="changes/3-add-cultures.xml" relativeToChangelogFile="true"/>
+    <include file="changes/4-add-devices.xml" relativeToChangelogFile="true"/>
+    <include file="changes/5-update-dev-id-to-integer.xml" relativeToChangelogFile="true"/>
+    <include file="changes/6-update-username-and-email-unique-constraint.xml" relativeToChangelogFile="true"/>
+    <include file="changes/7-add-pressure-to-measurements.xml" relativeToChangelogFile="true"/>
+    <include file="changes/8-add-notifications-table.xml" relativeToChangelogFile="true"/>
+    <include file="changes/9-add-boundaries-table.xml" relativeToChangelogFile="true"/>
+    <include file="changes/10-update-notifications-add-time.xml" relativeToChangelogFile="true"/>
+    <include file="changes/11-add-luminosity.xml" relativeToChangelogFile="true"/>
+</databaseChangeLog>
